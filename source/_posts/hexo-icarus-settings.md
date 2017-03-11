@@ -1,10 +1,10 @@
 ---
-title: Hexo Theme Icarus Settings 
+title: Hexo Icarus Theme Settings (Icarus主题设置)
 date: 2017-03-10 23:34:33
 tags: hexo
 categories: Hexo
 comments:
-toc:
+toc: true
 thumbnail:
 banner:
 ---
@@ -15,7 +15,7 @@ banner:
 ## 前言
 
 此篇不介绍HEXO的搭建，只讲ICARUS的个性化配置，HEXO的配置在国内也有很多的教程。
-教程主要从[这里（作者MoRan_Sky）](http://moransky.xyz/2017/01/13/HEXO%20-%20Icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/),和[这里（作者Lemon）](http://lemon23.me/2016/10/21/Hexo%E7%9A%84%E8%BF%87%E5%9D%91%E8%AE%B0/)来。
+教程主要从[这里（作者MoRan_Sky）](http://moransky.xyz/2017/01/13/HEXO%20-%20Icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/)和[这里（作者Lemon）](http://lemon23.me/2016/10/21/Hexo%E7%9A%84%E8%BF%87%E5%9D%91%E8%AE%B0/)来。
 
 发布者已经把基本的配置步骤写在了wiki里，还包括FQA，如果有什么解决不了的问题也可以到[Icarus GitHub Wiki](https://github.com/ppoffice/hexo-theme-icarus/wiki)去提问，或看有没有和你同样问题的回答。
 
@@ -119,17 +119,17 @@ npm install hexo-generator-json-content --save
 
 ```html
 <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="<%= __('index.search') %>" />
-       <button type="submit" class="search-form-submit"></button>
-    </form>
+    <input type="text" class="ins-search-input search-form-input" placeholder="<%= __('index.search') %>" />
+    <button type="submit" class="search-form-submit"></button>
+</form>
 ```
 改成：
 
 ```html
 <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="<%= __('index.search') %>" />
-       <!--button type="submit" class="search-form-submit"></button-->
-    </form>
+    <input type="text" class="ins-search-input search-form-input" placeholder="<%= __('index.search') %>" />
+    <!--button type="submit" class="search-form-submit"></button-->
+</form>
 ```
 之后你就会发现那个搜索按钮没了。
 
@@ -145,9 +145,9 @@ ICARUS已经为你写好了评论的框架，你不需要自己搭建，你只�
 
 ```yml
 comment:
-   disqus: #写入你的disqus shortname, if have
-   duoshuo: #写入你的多说shortname, if have
-   youyan: #写入你的友言shortname, if have
+    disqus: #写入你的disqus shortname, if have
+    duoshuo: #写入你的多说shortname, if have
+    youyan: #写入你的友言shortname, if have
 ```
 之后刷新页面，拉到下面，就会看到评论的界面啦。你可以前往你自己的多说域名然后自定义评论。
 对于想使用Disqus的用户，去Disqus官网新建个账户。Create a new forum， 然后按照官方指南把自己的forum integrate到博客来。现在对于Hexo平台还没有integrate好的选项，没关系，等到你选择自己的forum名字的时候记住那个shortname，到icarus主题里的`_config`文件里填上就好了。主题会帮你做好所有的integrate。
@@ -189,8 +189,8 @@ links:
 
 ```yml
 links:
-  GitHub: http://github.com
-  MCBBS: http://mcbbs.net
+    GitHub: http://github.com
+    MCBBS: http://mcbbs.net
 ```
 
 #### 设置友情链接为打开新页面
@@ -238,7 +238,7 @@ social_links:
 
 ```ejs
 <a href="<%- url_for(theme.customize.social_links[i]) %>"   target="_blank" title="<%= i %>" <%= tooltipClass %>>
- <i class="fa fa-<%= i %>"></i>
+    <i class="fa fa-<%= i %>"></i>
 </a>
 ```
 
@@ -246,15 +246,15 @@ social_links:
 
 ```ejs
 <a href="<%- url_for(theme.customize.social_links[i].link) %>" target="_blank" title="<%= theme.customize.social_links[i].title %>" <%= tooltipClass %>>
- <i class="fa fa-<%= i %>"></i>
+    <i class="fa fa-<%= i %>"></i>
 </a>
 ```
 那么我们在config里的social_links的表达内容就是：
 
 ```yml
 图标名: 
- link: 链接
- title: 鼠标选中的文本
+    link: 链接
+    title: 鼠标选中的文本
 ```
 
 #### 横幅和略缩图
@@ -268,4 +268,21 @@ social_links:
 #### 更多
 如果还想自定义CSS的话，主题样式文件都在`themes/icarus/source/css/_partial`里，对照着页面文件找到对应的class样式去修改吧。
 
+比如我这里发现在页面宽度是。。。的时候，两栏的效果并不是很理想。
+![](14891972108134.jpg)
+
+时候可以在测试页面按`cmd+opt+j`调出Javascript console查看元素。会发现它是从根目录下`public/css/style.css`而来，但是我们直接改这里的话是没有用的。因为所有`public`文件夹下都是由`hexo g`生成的。
+
+所以这里要更改我们所用主题的css生成文件。例如我的在这个路径下`~/hexo_blog/themes/icarus/source/css`
+
+桑心的是，我试图修改了`_variables.styl`里面的sidebar-column之类，然后运行
+
+```bash
+$ hexo clean
+INFO  Deleted database.
+INFO  Deleted public folder.
+$ hexo g
+$ hexo s
+```
+发现并没有什么*用。。。 新手小白在这里欢迎指教啊~
 

@@ -1,12 +1,13 @@
 ---
-title: Understand Blockchain 01
+title: Understand Blockchain 01 (理解区块链)
 date: 2017-03-10 21:38:08
 categories:
 - Blockchain
 tags: ##标签，多标签格式为 [tag1,tag2,...]
 - blockchain
-keywords: ##文章关键词，多关键词格式为 keyword1,keywords2,...
-description: ##文章描述
+keywords: ##文章关键词，多个的格式为 keyword1,keywords2,...
+description: ##文章描述, 主要是SEO用
+toc: true
 ---
 
 
