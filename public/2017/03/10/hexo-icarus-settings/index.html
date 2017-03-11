@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Hexo Theme Icarus Settings | Notes and Random Thoughts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="关于Hexo Icarus主题配置的详细介绍，和相关的一些小技巧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo Theme Icarus Settings">
+<meta property="og:url" content="http://blog.yingchi.me/2017/03/10/hexo-icarus-settings/index.html">
+<meta property="og:site_name" content="Notes and Random Thoughts">
+<meta property="og:description" content="关于Hexo Icarus主题配置的详细介绍，和相关的一些小技巧。">
+<meta property="og:updated_time" content="2017-03-10T15:40:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo Theme Icarus Settings">
+<meta name="twitter:description" content="关于Hexo Icarus主题配置的详细介绍，和相关的一些小技巧。">
+    
+
+    
+        <link rel="alternate" href="/" title="Notes and Random Thoughts" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/whale.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Notes and Random Thoughts</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/profile_pic.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/profile_pic.jpg" />
+            <h2 id="name">Yingchi</h2>
+            <h3 id="title">Data Miner</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Singapore</span>
+            <a id="follow" target="_blank" href="https://www.linkedin.com/in/yingchi-pei/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                3
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                3
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/yingchi" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/yingchi.pei" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-hexo-icarus-settings" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Hexo Theme Icarus Settings
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/10/hexo-icarus-settings/">
+            <time datetime="2017-03-10T15:34:33.000Z" itemprop="datePublished">2017-03-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hexo/">hexo</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>关于Hexo Icarus主题配置的详细介绍，和相关的一些小技巧。<br><a id="more"></a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此篇不介绍HEXO的搭建，只讲ICARUS的个性化配置，HEXO的配置在国内也有很多的教程。<br>教程主要从<a href="http://moransky.xyz/2017/01/13/HEXO%20-%20Icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">这里：作者MoRan_Sky</a>,和<a href="http://lemon23.me/2016/10/21/Hexo%E7%9A%84%E8%BF%87%E5%9D%91%E8%AE%B0/" target="_blank" rel="external">这里：作者Lemon</a>来。</p>
+<p>发布者已经把基本的配置步骤写在了wiki里，还包括FQA，如果有什么解决不了的问题也可以到<a href="https://github.com/ppoffice/hexo-theme-icarus/wiki去提问，或看有没有和你同样问题的回答。" target="_blank" rel="external">https://github.com/ppoffice/hexo-theme-icarus/wiki去提问，或看有没有和你同样问题的回答。</a></p>
+<h2 id="ICARUS配置"><a href="#ICARUS配置" class="headerlink" title="ICARUS配置"></a>ICARUS配置</h2><h4 id="什么是ICARUS"><a href="#什么是ICARUS" class="headerlink" title="什么是ICARUS"></a>什么是ICARUS</h4><ul>
+<li>一种很清爽的HEXO主题</li>
+<li>安装了评论，分享框架，非常之方便</li>
+</ul>
+<h4 id="ICARUS安装"><a href="#ICARUS安装" class="headerlink" title="ICARUS安装"></a>ICARUS安装</h4><p>ICARUS主题包可以在<a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external">这里</a>找到，但更多人是采用GIT来下载的，切换到HEXO根目录,然后打入：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus</div></pre></td></tr></table></figure>
+<p>下载之后将根目录里的<br><code>theme: 你之前的主题</code></p>
+<p>改成：<br><code>theme: icarus</code><br>接下来可以输入hexo s来在本机生成，然后在 <a href="https://localhost:4000" target="_blank" rel="external">https://localhost:4000</a> 打开博客主页。</p>
+<h4 id="LOGO配置"><a href="#LOGO配置" class="headerlink" title="LOGO配置"></a>LOGO配置</h4><p>在博客页面的左上角，有一个LOGO，因为我们没有更改，所有这是作者的LOGO。</p>
+<p>先确定你的LOGO图片的后缀是.png，然后把你的LOGO图片重命名为logo.png，然后在你主题文件中的css/images/文件夹，将这张图片粘贴来替换之前的图片。</p>
+<h4 id="用户信息配置"><a href="#用户信息配置" class="headerlink" title="用户信息配置"></a>用户信息配置</h4><p>在主页的左边，这里显示的是博客作者的信息。</p>
+<p>打开主题的_config文件，找到profile一栏，你可以自定义你的profile信息。</p>
+<figure class="highlight yml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attr">profile:</span></div><div class="line"><span class="attr">    enabled:</span> <span class="literal">true</span> <span class="comment">#是否显示博客作者信息在左侧</span></div><div class="line"><span class="attr">    avatar:</span> <span class="string">css/images/avatar.png</span> <span class="comment">#博客作者的头像，可以到相应的路径去替换</span></div><div class="line"><span class="attr">    gravatar:</span> <span class="comment">#如果这里写入邮箱的话，头像会重新加载</span></div><div class="line"><span class="attr">    author:</span> <span class="string">PPOffice</span> <span class="comment">#作者名</span></div><div class="line"><span class="attr">    author_title:</span> <span class="string">Web</span> <span class="string">Developer</span> <span class="string">&amp;</span> <span class="string">Designer</span> <span class="comment">#一句话描述自己</span></div><div class="line"><span class="attr">    location:</span> <span class="string">Harbin,</span> <span class="string">China</span> <span class="comment">#位置</span></div><div class="line"><span class="attr">    follow:</span> <span class="attr">https://github.com/ppoffice/</span> <span class="comment">#关注我按钮点击去到的网址</span></div></pre></td></tr></table></figure>
+<p>如果想把<code>FOLLOW</code>按钮稍作修改，变成<code>联系我</code>，并且把链接变成发送邮件到自己的邮箱的话：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">follow:</span> <span class="attr">mailto:wulala@123.com</span> <span class="comment">#效果是直接到发送邮件的界面，把languages/zh_CN.yml中的follow信息改成了联系我</span></div></pre></td></tr></table></figure>
+<h4 id="标签，分类和关于"><a href="#标签，分类和关于" class="headerlink" title="标签，分类和关于"></a>标签，分类和关于</h4><p>在最上方的菜单栏，我们点击”标签”，”分类”，”关于”都会显示无法找到文件，ICARUS主题很好，它为我们预设了这三个分类。</p>
+<p>在主题的<code>_source</code>文件里，把里头的三个文件全部复制，然后粘贴到HEXO跟目录的source文件夹，再刷新一下网页，就可以看见啦。</p>
+<h4 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h4><p>ICARUS主题预设了许多代码高亮的主题，具体的名称可以在主题目录的<code>source/css/_highlight</code>文件夹里找到。<br>把主题的<code>_config</code>文件里的highlight类型换成你喜欢的类型。</p>
+<p>关于选择代码高亮语言的问题，请看<a href="http://www.tuicool.com/articles/aamiimI" target="_blank" rel="external">这里</a>。</p>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><p>ICARUS主题提供了3种搜索方式，个人喜欢insight，当然你也可以选择baidu或者swiftype。</p>
+<p>使用insight的话先把博客根目录下面的<code>_config.yml</code>里面的</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">search:</span></div><div class="line"><span class="attr">    insight:</span> <span class="literal">false</span></div></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">search:</span></div><div class="line"><span class="attr">    insight:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>接下来需要安装一个小插件：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-json-content --save</div></pre></td></tr></table></figure>
+<p>接下来可以刷新一下网页，点击右上角的搜索框，就会发现已经成功配置了。</p>
+<h4 id="删除搜索按钮"><a href="#删除搜索按钮" class="headerlink" title="删除搜索按钮"></a>删除搜索按钮</h4><p>如果使用的是insight搜索，所以那个搜索按钮没有什么意义，可以找到主题文件中的<code>layout/search/index.ejs</code>，将里面的:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"search-form"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"ins-search-input search-form-input"</span> <span class="attr">placeholder</span>=<span class="string">"&lt;%= __('index.search') %&gt;"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"search-form-submit"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>改成：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"search-form"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"ins-search-input search-form-input"</span> <span class="attr">placeholder</span>=<span class="string">"&lt;%= __('index.search') %&gt;"</span> /&gt;</span></div><div class="line">       <span class="comment">&lt;!--button type="submit" class="search-form-submit"&gt;&lt;/button--&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>之后你就会发现那个搜索按钮没了。</p>
+<h4 id="多说评论"><a href="#多说评论" class="headerlink" title="多说评论"></a>多说评论</h4><p>评论是个很重要的东西，这可以让你和读者进行沟通。</p>
+<p>如果需要开启评论功能，需要先去相应的地方注册账号，然后按照提示把ID或名字添加上。点击<a href="https://github.com/ppoffice/hexo-theme-icarus/wiki/Comment" target="_blank" rel="external">这里</a> 跟着做就对了。剩下一些评论框自定义的样式就自行百度，或注册后在网站内进行更改设置就好了。</p>
+<p>多说：在多说官网先创建一个账号，然后再<a href="http://duoshuo.com/create-site/" target="_blank" rel="external">这里</a>创建一个站点，站点地址写博客的地址，在多说域名那里按照要求填入，填入的名称（也就是去掉.duoshuo.com）就是多说的shortname。</p>
+<p>ICARUS已经为你写好了评论的框架，你不需要自己搭建，你只需要把主题的_config文件中的comment改成这样：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">comment:</span></div><div class="line"><span class="attr">   disqus:</span> <span class="comment">#写入你的disqus shortname, if have</span></div><div class="line"><span class="attr">   duoshuo:</span> <span class="comment">#写入你的多说shortname, if have</span></div><div class="line"><span class="attr">   youyan:</span> <span class="comment">#写入你的友言shortname, if have</span></div></pre></td></tr></table></figure>
+<p>之后刷新页面，拉到下面，就会看到评论的界面啦。你可以前往你自己的多说域名然后自定义评论。<br>对于想使用Disqus的用户，去Disqus官网新建个账户。Create a new forum， 然后按照官方指南把自己的forum integrate到博客来。现在对于Hexo平台还没有integrate好的选项，没关系，等到你选择自己的forum名字的时候记住那个shortname，到icarus主题里的<code>_config</code>文件里填上就好了。主题会帮你做好所有的integrate。</p>
+<h4 id="把文章界面放宽"><a href="#把文章界面放宽" class="headerlink" title="把文章界面放宽"></a>把文章界面放宽</h4><p>在ICARUS主题里，如果你把屏幕放的宽一点，真正的文章就只有中间一小条，我们需要稍微把文章DIV放宽一点。</p>
+<p>把主题的<code>source/css/_variables.styl</code>文件打开，翻到43行左右，把：</p>
+<p><code>main-column = 7</code><br>改成</p>
+<p><code>main-column = 10 //或者也可以改成9，着看个人喜好，我觉得10正好合适</code></p>
+<h4 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h4><p>在本地使用bdshare，jiathis都是可以的，但在Github上神奇的消失了。我也试过bshare，dsshare，但还是神奇的消失了，读者可以自己的试一下。如果你也用Github Page，建议把主题的<code>_config</code>文件中的share改成:</p>
+<p><code>share: addtoany</code></p>
+<h4 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h4><p>ICARUS自带友情链接功能，在主题的<code>_config</code>中的miscellaneous里：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">links:</span></div><div class="line">    <span class="string">显示名:</span> <span class="string">链接</span></div></pre></td></tr></table></figure>
+<p>比如：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">links:</span></div><div class="line"><span class="attr">  GitHub:</span> <span class="attr">http://github.com</span></div><div class="line"><span class="attr">  MCBBS:</span> <span class="attr">http://mcbbs.net</span></div></pre></td></tr></table></figure>
+<h4 id="设置友情链接为打开新页面"><a href="#设置友情链接为打开新页面" class="headerlink" title="设置友情链接为打开新页面"></a>设置友情链接为打开新页面</h4><p>之前的友情链接会在自身的博客覆盖，如果想要在新窗口打开（比较推荐这样）。</p>
+<p>把主题文件的<code>layout/widget/links.ejs</code>打开，把：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;li&gt;</div><div class="line">     &lt;a href=&quot;&lt;%- theme.miscellaneous.links[i] %&gt;&quot;&gt;&lt;%= i %&gt;&lt;/a&gt;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;li&gt;</div><div class="line">     &lt;a href=&quot;&lt;%- theme.miscellaneous.links[i] %&gt;&quot; target=&quot;_blank&quot;&gt;&lt;%= i %&gt;&lt;/a&gt;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure>
+<h4 id="社会链接"><a href="#社会链接" class="headerlink" title="社会链接"></a>社会链接</h4><p>在关注我按钮的下面的下面，有一排图标，这就是社会链接，也就是你在别的地方的首页。它是fa fa-icon，ICARUS自带FontAwesome，所有你再安装的时候只要写入class名就可以。详细的图标内容可以在<a href="http://www.yeahzan.com/fa/facss.html" target="_blank" rel="external">这里</a>找到。</p>
+<p>格式：</p>
+<p><code>fa-后面的内容，图标: 链接</code><br>打开主题的<code>_config</code>文件：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">social_links:</span></div><div class="line"><span class="attr">     github:</span> <span class="comment">#你的Github首页</span></div><div class="line"><span class="attr">     envelope:</span> <span class="comment">#你的邮箱</span></div><div class="line"><span class="attr">     user:</span> <span class="comment">#博客主页</span></div><div class="line"><span class="attr">     reorder:</span> <span class="comment">#博客分类页面</span></div><div class="line"><span class="attr">     sort-amount-asc:</span> <span class="comment">#博客历程页面</span></div></pre></td></tr></table></figure>
+<p>在这里，我们只需要输入fa-后面的内容当图标就行了。</p>
+<h4 id="自定义社会链接title"><a href="#自定义社会链接title" class="headerlink" title="自定义社会链接title"></a>自定义社会链接title</h4><p>在社会链接的图标上停留的时候，会弹出图标名的title，但有时候我们想自定义title，怎么办呢？</p>
+<p>打开主题文件中的<code>layout/common/profile.ejs</code>文件，把：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;&lt;%- url_for(theme.customize.social_links[i]) %&gt;&quot;   target=&quot;_blank&quot; title=&quot;&lt;%= i %&gt;&quot; &lt;%= tooltipClass %&gt;&gt;</div><div class="line"> &lt;i class=&quot;fa fa-&lt;%= i %&gt;&quot;&gt;&lt;/i&gt;</div><div class="line">&lt;/a&gt;</div></pre></td></tr></table></figure>
+<p>改成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;&lt;%- url_for(theme.customize.social_links[i].link) %&gt;&quot; target=&quot;_blank&quot; title=&quot;&lt;%= theme.customize.social_links[i].title %&gt;&quot; &lt;%= tooltipClass %&gt;&gt;</div><div class="line"> &lt;i class=&quot;fa fa-&lt;%= i %&gt;&quot;&gt;&lt;/i&gt;</div><div class="line">&lt;/a&gt;</div></pre></td></tr></table></figure>
+<p>那么我们在config里的social_links的表达内容就是：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">图标名:</span> </div><div class="line"><span class="attr"> link:</span> <span class="string">链接</span></div><div class="line"><span class="attr"> title:</span> <span class="string">鼠标选中的文本</span></div></pre></td></tr></table></figure>
+<h4 id="横幅和略缩图"><a href="#横幅和略缩图" class="headerlink" title="横幅和略缩图"></a>横幅和略缩图</h4><p>在HEXO的根目录source/_posts文件夹，里面有你的文章，ICARUS允许你为文字设置横幅与略缩图，切记都要在两个—之间输入。<br>略缩图的设置方式：</p>
+<p><code>thumbnail：图片</code></p>
+<p>横幅的设置方式：<br><code>banner：图片</code></p>
+<h4 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h4><p>如果还想自定义CSS的话，主题样式文件都在<code>themes/icarus/source/css/_partial</code>里，对照着页面文件找到对应的class样式去修改吧。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+</div>
+
+            
+    
+        <a href="http://blog.yingchi.me/2017/03/10/hexo-icarus-settings/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.yingchi.me/2017/03/10/hexo-icarus-settings/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/03/10/understand-blockchain-01/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Understand Blockchain 01</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blockchain/">Blockchain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Testing/">Testing</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blockchain/">blockchain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testing/">testing</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Yingchi<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.yingchi.me/2017/03/10/hexo-icarus-settings/';
+        
+        this.page.identifier = 'hexo-icarus-settings';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'yingchi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
