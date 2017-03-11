@@ -1,5 +1,5 @@
 ---
-title: Hexo Icarus Theme Settings (Icarus主题设置)
+title: Hexo Icarus Theme Settings|Icarus主题设置
 date: 2017-03-10 23:34:33
 tags: hexo
 categories: Hexo
@@ -15,24 +15,24 @@ banner:
 ## 前言
 
 此篇不介绍HEXO的搭建，只讲ICARUS的个性化配置，HEXO的配置在国内也有很多的教程。
-教程主要从[这里（作者MoRan_Sky）](http://moransky.xyz/2017/01/13/HEXO%20-%20Icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/)和[这里（作者Lemon）](http://lemon23.me/2016/10/21/Hexo%E7%9A%84%E8%BF%87%E5%9D%91%E8%AE%B0/)来。
+教程参考了[这里：作者MoRan_Sky](http://moransky.xyz/2017/01/13/HEXO%20-%20Icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/), [这里：作者Lemon](http://lemon23.me/2016/10/21/Hexo%E7%9A%84%E8%BF%87%E5%9D%91%E8%AE%B0/)和[这里：作者Fengyu](http://qiufengyu.me/2016/10/14/theme-custom/)。
 
 发布者已经把基本的配置步骤写在了wiki里，还包括FQA，如果有什么解决不了的问题也可以到[Icarus GitHub Wiki](https://github.com/ppoffice/hexo-theme-icarus/wiki)去提问，或看有没有和你同样问题的回答。
 
 
-## ICARUS配置
+## ICARUS主题
 
-#### 什么是ICARUS
+### 什么是ICARUS
 
 - 一种很清爽的HEXO主题
 - 安装了评论，分享框架，非常之方便
 
-#### ICARUS安装
+### ICARUS安装
 
 ICARUS主题包可以在[这里](https://github.com/ppoffice/hexo-theme-icarus)找到，但更多人是采用GIT来下载的，切换到HEXO根目录,然后打入：
 
 ```zsh
-$ git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus
+git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus
 ```
 
 下载之后将根目录里的
@@ -48,6 +48,9 @@ theme: icarus
 ```
 
 接下来可以输入`hexo s`来在本机生成，然后在 https://localhost:4000 打开博客主页。
+
+## 主题设置
+### 自带可更改项目
 
 #### LOGO配置
 
@@ -152,7 +155,26 @@ comment:
 之后刷新页面，拉到下面，就会看到评论的界面啦。你可以前往你自己的多说域名然后自定义评论。
 对于想使用Disqus的用户，去Disqus官网新建个账户。Create a new forum， 然后按照官方指南把自己的forum integrate到博客来。现在对于Hexo平台还没有integrate好的选项，没关系，等到你选择自己的forum名字的时候记住那个shortname，到icarus主题里的`_config`文件里填上就好了。主题会帮你做好所有的integrate。
 
+### 个性化修改
+#### 删除搜索按钮
 
+如果使用的是insight搜索，所以那个搜索按钮没有什么意义，可以找到主题文件中的`layout/search/index.ejs`，将里面的:
+
+```html
+<form class="search-form">
+    <input type="text" class="ins-search-input search-form-input" placeholder="<%= __('index.search') %>" />
+    <button type="submit" class="search-form-submit"></button>
+</form>
+```
+改成：
+
+```html
+<form class="search-form">
+    <input type="text" class="ins-search-input search-form-input" placeholder="<%= __('index.search') %>" />
+    <!--button type="submit" class="search-form-submit"></button-->
+</form>
+```
+之后你就会发现那个搜索按钮没了。
 
 #### 把文章界面放宽
 
@@ -222,11 +244,11 @@ links:
 
 ```yml
 social_links:
-     github: #你的Github首页
-     envelope: #你的邮箱
-     user: #博客主页
-     reorder: #博客分类页面
-     sort-amount-asc: #博客历程页面
+    github: #你的Github首页
+    envelope: #你的邮箱
+    user: #博客主页
+    reorder: #博客分类页面
+    sort-amount-asc: #博客历程页面
 ```
 在这里，我们只需要输入fa-后面的内容当图标就行了。
 
@@ -264,12 +286,123 @@ social_links:
 
 横幅的设置方式：`banner：图片`
 
+#### 修改代码的的边距
+
+修改之前的代码块长这样：
+
+<img src="14892366823423.jpg" class="img-shadow" />
+
+这个代码块的边距个人觉得有点大了。尤其对于只有一两行的代码，很占空间。
+从哪里能改呢？先从主体的CSS文件看起：`~/hexo_blog/themes/icarus/source/css/style.styl`
+里面与code有关的有两个地方，改了在第30行附近的设置，发现并没有什么变化。再往下看，发现这个另外一个文件被调用了 `@import "_highlight/index"`，于是我们去`~/hexo_blog/themes/icarus/source/css/——highlight/index.styl`看看：
+
+```styl index.styl
+.highlight
+    margin: 0px
+    display: block
+    overflow-x: auto
+    padding: 15px 20px
+    font-size: font-size
+    font-family: font-mono
+    line-height: font-size * line-height
+    table
+        margin: 0
+        width: auto
+        td
+            border: none
+        td.code
+            padding-right: 20px
+    .gutter
+        pre
+            color: #666
+            text-align: right
+            padding-right: 20px
+```
+我把`padding`相关的参数改成10px
+
+#### 给图片加阴影
+有时候添加的图片可能会与文章背景混淆，使得读者看不清到底哪部分是图片哪部分是文章。使用`img-shadow`为图片添加边角阴影可以更加凸显图片的位置，也能更美观。
+在`article.styl`里面加入以下：
+
+```styl
+.img-shadow
+  box-shadow: 3px 2px 3px #ddd;
+```
+关于CSS3 shadow属性的参数具体可以参考[W3School的Tutorial](https://www.w3schools.com/css/css3_shadows.asp)
+
+使用HTML语法插入图片:
+
+```html
+<img src="http://test.jpg" class="img-shadow" />
+
+```
+
+
+#### 修改引用的渲染格式
+改动之前的是这样的：
+<img src="14892373341062.jpg" class="img-shadow" />
+
+
+个人不是很喜欢这种模式。不简洁，也占空间。
+同样从从主体的CSS文件看起：`~/hexo_blog/themes/icarus/source/css/style.styl`，发现调用了`@import "_partial/article"`。打开它发现对blockquote的设置如下：
+
+```style article.styl
+    blockquote
+        position: static
+        font-family: font-serif
+        font-size: 1.1em
+        margin: 0 -20px
+        padding: 10px 20px 10px 54px
+        background: #fcfcfc
+        border-left: 4px solid #eee
+        &:before
+            top: 20px
+            left: 10px
+            content: "\f10d"
+            color: #e2e2e2
+            font-size: 32px;
+            font-family: FontAwesome
+            text-align: center
+            position: static
+        footer
+            font-size: font-size
+            margin: line-height 0
+            font-family: font-sans
+            cite
+                &:before
+                    content: "—"
+                    padding: 0 0.5em
+```
+我把它改为下面这样
+
+```styl
+    blockquote
+        position: static
+        font-family: font-sans
+        font-size: 1em
+        margin: 0 0 1.3em 0
+        padding: 6px
+        background: #fcfcfc
+        border-left: 5px solid #ef9024
+        border-top: 1px solid $grey-light
+        border-bottom: 1px solid $grey-light
+        border-right: 1px solid $grey-light
+        cite::before {
+            content: "-";
+            padding: 0 5px;
+        }
+    blockquote p {
+        margin: 5px; }
+```
+
+> testing blockquote
+
 
 #### 更多
 如果还想自定义CSS的话，主题样式文件都在`themes/icarus/source/css/_partial`里，对照着页面文件找到对应的class样式去修改吧。
 
 比如我这里发现在页面宽度是。。。的时候，两栏的效果并不是很理想。
-![](14891972108134.jpg)
+<img src="14891972108134.jpg" class="img-shadow" />
 
 时候可以在测试页面按`cmd+opt+j`调出Javascript console查看元素。会发现它是从根目录下`public/css/style.css`而来，但是我们直接改这里的话是没有用的。因为所有`public`文件夹下都是由`hexo g`生成的。
 
@@ -285,4 +418,5 @@ $ hexo g
 $ hexo s
 ```
 发现并没有什么*用。。。 新手小白在这里欢迎指教啊~
+
 

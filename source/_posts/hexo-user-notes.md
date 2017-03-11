@@ -1,5 +1,5 @@
 ---
-title: Hexo User Notes (Hexo的基本使用)
+title: Hexo User Notes|Hexo的基本使用
 date: 2017-03-11 08:33:24
 tags: hexo
 categories: Hexo 

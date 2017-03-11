@@ -1,5 +1,5 @@
 ---
-title: Rebuild Personal Website and Blog 重新搭建站点和博客
+title: Rebuild Personal Website and Blog|重新搭建站点和博客
 date: 2017-03-11 18:03:02
 tags: website setup
 categories: Website Setup
@@ -14,7 +14,7 @@ banner:
 ### 心路历程：
 1. 之前在Bluehost上买了个域名`yingchi.com`，就直接在它那里买了最基本的Web hosting服务，用的是LAPM stack(Linux, Apache, MySQL, and PHP)，花了半天找了个好看的个人主页模板，修修改改，填上经历技能就放那里没管了。
 2. 现在想添个博客上去，也督促自己把平时的笔记定时整理一下。
-3. 随便一查，发现我去，Bluehost的域名费不便宜啊。马上要续费了，大概 \$15 USD一年，然后namecheap上是 \$10一年。用GitHub的Student Pack还能白拿一年的`yingchi.me`域名玩。所以就把域名迁移到了namecheap。
+3. 随便一查，发现我去，Bluehost的域名费不便宜啊。马上要续费了，大概 $15 USD一年，然后namecheap上是 $10一年。用GitHub的Student Pack还能白拿一年的`yingchi.me`域名玩。所以就把域名迁移到了namecheap。
 4. 然后又查到Digital Ocean的Web hosting也更便宜，还可以随便安装系统，用VPS。而Bluehost上给的服务是Shared hosting。就买了DO的服务，先把`yingchi.me`搞过去玩一玩。
 5. 想做到：
     - 在namecheap管理域名
@@ -34,7 +34,7 @@ banner:
 
 ### 心路历程3.的具体过程
 When I log in to my cPanel, under 'performance' tab, there is no 'manage access' option. 
-![](/media/14889387685017.jpg)
+![](14889387685017.jpg)
 
 It seems that I do not have a dedicated IP address.
 However, after looking up the charges for VPS or dedicated IP, it was around $20 per month. I don't want to invest so much for now. So let's try some other approachs:
@@ -55,7 +55,11 @@ http://blog.fens.me/hexo-blog-github/
 Create a new DigitalOcean Droplets with Ubentu 16.04.2 x64.
 Select the $5/mo package.
 Add SSH keys.
+
 > On what is SSH keys and how to add one, refer to this [How To Use SSH Keys with DigitalOcean Droplets](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets)
+
+
+
 
 不想在这里add shh keys直接点create。 会有邮件给你root的地址和密码，有另一封邮件告诉你怎么做一些简单的server setup。一步步跟着来就好。
 
@@ -162,22 +166,24 @@ Follow this tutorial if it's your first time using SFTP:
 You can also set up SFTP on Cyberduck by providing your server IP, username and password. Put port number as 22.
 
 I encountered the following error when trying to upload files through SFTP.
-![](/media/14890468705671.jpg)
+![](14890468705671.jpg)
 
 I then tried to upload files from terminal (log in by `sftp yingchi@xx.xx.xx.xx`) and I got
 
->remote open("/var/www/yingchi.me/html/index.html"): Permission denied
+```bash
+remote open("/var/www/yingchi.me/html/index.html"): Permission denied
+```
 
 So it seems that I did not set the permission for the folder correctly.
 
 After some search, here is the solution:
 
-**1**. add user "yingchi" to group "www-data" (below replace yingchi with your username):
+**1. add user "yingchi" to group "www-data" (below replace yingchi with your username):**
 
 ```shell
 sudo usermod -a -G www-data yingchi
 ```
-**2**. set permissions for user group www-data
+**2. set permissions for user group www-data**
 Here, because I want to upload my files to `/var/www/yingchi.me/...`
 and also `/var/www/blog.yingchi.me/...`, so I opened the permission for `/var/www`. If you just have one domain, and the files are under `/var/www/html`, you can modify the path and only open permission for that folder.
 

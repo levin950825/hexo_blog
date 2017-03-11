@@ -1,5 +1,5 @@
 ---
-title: Understand Blockchain 01 (理解区块链)
+title: Understand Blockchain|理解区块链
 date: 2017-03-10 21:38:08
 categories:
 - Blockchain
@@ -9,8 +9,6 @@ keywords: ##文章关键词，多个的格式为 keyword1,keywords2,...
 description: ##文章描述, 主要是SEO用
 toc: true
 ---
-
-
 
 简单介绍下区块链(blockchain)的关键概念
 
