@@ -15,9 +15,9 @@ banner:
 ## 前言
 
 此篇不介绍HEXO的搭建，只讲ICARUS的个性化配置，HEXO的配置在国内也有很多的教程。
-教程主要从[这里：作者MoRan_Sky](http://moransky.xyz/2017/01/13/HEXO%20-%20Icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/),和[这里：作者Lemon](http://lemon23.me/2016/10/21/Hexo%E7%9A%84%E8%BF%87%E5%9D%91%E8%AE%B0/)来。
+教程主要从[这里（作者MoRan_Sky）](http://moransky.xyz/2017/01/13/HEXO%20-%20Icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/),和[这里（作者Lemon）](http://lemon23.me/2016/10/21/Hexo%E7%9A%84%E8%BF%87%E5%9D%91%E8%AE%B0/)来。
 
-发布者已经把基本的配置步骤写在了wiki里，还包括FQA，如果有什么解决不了的问题也可以到https://github.com/ppoffice/hexo-theme-icarus/wiki去提问，或看有没有和你同样问题的回答。
+发布者已经把基本的配置步骤写在了wiki里，还包括FQA，如果有什么解决不了的问题也可以到[Icarus GitHub Wiki](https://github.com/ppoffice/hexo-theme-icarus/wiki)去提问，或看有没有和你同样问题的回答。
 
 
 ## ICARUS配置
@@ -36,11 +36,18 @@ $ git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus
 ```
 
 下载之后将根目录里的
-`theme: 你之前的主题`
+
+```yml
+theme: 你之前的主题
+```
 
 改成：
-`theme: icarus`
-接下来可以输入hexo s来在本机生成，然后在 https://localhost:4000 打开博客主页。
+
+```yml
+theme: icarus
+```
+
+接下来可以输入`hexo s`来在本机生成，然后在 https://localhost:4000 打开博客主页。
 
 #### LOGO配置
 
@@ -153,16 +160,22 @@ comment:
 
 把主题的`source/css/_variables.styl`文件打开，翻到43行左右，把：
 
-`main-column = 7`
+```
+main-column = 7
+```
 改成
 
-`main-column = 10 //或者也可以改成9，着看个人喜好，我觉得10正好合适`
+```
+main-column = 10 //或者也可以改成9，着看个人喜好，我觉得10正好合适
+```
 
 #### 分享
 
 在本地使用bdshare，jiathis都是可以的，但在Github上神奇的消失了。我也试过bshare，dsshare，但还是神奇的消失了，读者可以自己的试一下。如果你也用Github Page，建议把主题的`_config`文件中的share改成:
 
-`share: addtoany`
+```
+share: addtoany
+```
 
 #### 友情链接
 
@@ -203,9 +216,8 @@ links:
 
 在关注我按钮的下面的下面，有一排图标，这就是社会链接，也就是你在别的地方的首页。它是fa fa-icon，ICARUS自带FontAwesome，所有你再安装的时候只要写入class名就可以。详细的图标内容可以在[这里](http://www.yeahzan.com/fa/facss.html)找到。
 
-格式：
+格式：`fa-后面的内容，图标: 链接`
 
-`fa-后面的内容，图标: 链接`
 打开主题的`_config`文件：
 
 ```yml
@@ -248,12 +260,9 @@ social_links:
 #### 横幅和略缩图
 
 在HEXO的根目录source/_posts文件夹，里面有你的文章，ICARUS允许你为文字设置横幅与略缩图，切记都要在两个—之间输入。
-略缩图的设置方式：
+略缩图的设置方式：`thumbnail：图片`
 
-`thumbnail：图片`
-
-横幅的设置方式：
-`banner：图片`
+横幅的设置方式：`banner：图片`
 
 
 #### 更多
