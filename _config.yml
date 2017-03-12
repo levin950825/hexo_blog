@@ -68,4 +68,8 @@ theme: icarus
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: rsync
+  host: 188.166.236.190  # 这里填写你VPS的IP地址，比如：138.23.23.23
+  user: yingchi # 这里填写你登陆VPS所用的用户名，比如：root
+  root: /var/www/blog.yingchi.me/html # 这里填写你在nginx中配置的文件路径
+  port: 22 # SSH默认端口号，不需要修改
