@@ -70,11 +70,11 @@ code
         column(main-column)
     @media mq-tablet
         if is_home() and home_sidebar
-            column(main-column-tablet)
-        if is_post() and post_sidebar
-            column(main-column-tablet)
+            column(main-column-tablet);
+        else if is_post() and post_sidebar
+            column(main-column-tablet);
         else
-            width: 90%
+            width: 90%;
     @media mq-mobile
         width: 100%
     @media mq-mini
