@@ -155,6 +155,30 @@ comment:
 之后刷新页面，拉到下面，就会看到评论的界面啦。你可以前往你自己的多说域名然后自定义评论。
 对于想使用Disqus的用户，去Disqus官网新建个账户。Create a new forum， 然后按照官方指南把自己的forum integrate到博客来。现在对于Hexo平台还没有integrate好的选项，没关系，等到你选择自己的forum名字的时候记住那个shortname，到icarus主题里的`_config`文件里填上就好了。主题会帮你做好所有的integrate。
 
+#### 分享
+
+在本地使用bdshare，jiathis都是可以的，但在Github上神奇的消失了。我也试过bshare，dsshare，但还是神奇的消失了，读者可以自己的试一下。如果你也用Github Page，建议把主题的`_config`文件中的share改成:
+
+```
+share: addtoany
+```
+
+#### 友情链接
+
+ICARUS自带友情链接功能，在主题的`_config`中的miscellaneous里：
+
+```yml
+links:
+    显示名: 链接
+```
+比如：
+
+```yml
+links:
+    GitHub: http://github.com
+    MCBBS: http://mcbbs.net
+```
+
 ### 个性化修改
 #### 删除搜索按钮
 
@@ -189,30 +213,6 @@ main-column = 7
 
 ```
 main-column = 10 //或者也可以改成9，着看个人喜好，我觉得10正好合适
-```
-
-#### 分享
-
-在本地使用bdshare，jiathis都是可以的，但在Github上神奇的消失了。我也试过bshare，dsshare，但还是神奇的消失了，读者可以自己的试一下。如果你也用Github Page，建议把主题的`_config`文件中的share改成:
-
-```
-share: addtoany
-```
-
-#### 友情链接
-
-ICARUS自带友情链接功能，在主题的`_config`中的miscellaneous里：
-
-```yml
-links:
-    显示名: 链接
-```
-比如：
-
-```yml
-links:
-    GitHub: http://github.com
-    MCBBS: http://mcbbs.net
 ```
 
 #### 设置友情链接为打开新页面
@@ -427,6 +427,46 @@ home_sidebar: true #display sidebar in home page if true
 <% } %>
 ```
 > `is_post()`, `is_home()` 是hexo自带的函数
+
+Wait, 以为现在就万事大吉了么，事情并没有这么简单。。你会发现文章的宽度并不会自动调整。打开JavaScript Console会发现文章所在元素是`<section id="main">`，我们现在就去主题的文件里找对它的设置。
+找到文件`~/hexo_blog/themes/icarus/source/css/style.styl`
+
+```styl style.styl
+#main
+    @media mq-normal
+        column(main-column)
+    @media mq-tablet
+        if sidebar
+            column(main-column-tablet)
+        else
+            width: 100%
+```
+改成下面这样：
+
+```styl style.styl
+#main
+    @media mq-normal
+        column(main-column)
+    @media mq-tablet
+        if is_home() and home_sidebar
+            column(main-column-tablet)
+        if is_post() and post_sidebar
+            column(main-column-tablet)
+        else
+            width: 100%
+```
+> `@media xxx`, `side_bar` etc 都是在别处(`_variables.styl`)定义好的变量
+
+接下来打开 `~/hexo_blog/themes/icarus/source/css/_variables.styl`
+在`//Sidebar`这个部分加入我们在上面用到的变量：
+
+```styl _variables.styl
+// Sidebar
+sidebar = hexo-config("customize.sidebar")
+thumbnail-default-small = 'images/thumb-default-small.png'
+home_sidebar = hexo-config("home_sidebar")
+post_sidebar = hexo-config("post_sidebar")
+```
 
 #### 更多
 如果还想自定义CSS的话，主题样式文件都在`themes/icarus/source/css/_partial`里，对照着页面文件找到对应的class样式去修改吧。
