@@ -397,6 +397,36 @@ social_links:
 
 > testing blockquote
 
+#### 在Post页面关闭侧边栏
+点进去文章的时候觉得侧边栏(分类，标签...)让人觉得有点多余，不能专心看文。就想找方法把它设置为只在首页显示而不在文章页面显示。
+
+打开`~/hexo_blog/themes/icarus/layout/layout.ejs`会找到下面一行代码
+
+```ejs layout.ejs
+<% if (theme.custom.sidebar) { %>
+    <%- partial('common/sidebar', null, {cache: !config.relative_link}) %>
+<% } %>
+```
+`theme.custom.sidebar` 指的是主题`_config.yml`里面的参数。我们可以对应的找到`custom`下面的`sidebar`。发现它只有`left`, `right`两个设置。
+
+没关系，那我们就自己加个参数在`_config.yml`里面吧：
+
+```yml _config.yml
+# Added by Yingchi
+post_sidebar: false  #display sidebar in post page if true
+home_sidebar: true #display sidebar in home page if true
+```
+现在在回到`layout.ejs`把之前的三行改成下面这样的：
+
+```ejs layout.ejs
+<% if (is_home() && theme.home_sidebar) { %>
+    <%- partial('common/sidebar', null, {cache: !config.relative_link}) %>
+<% } %>
+<% if (is_post() && theme.post_sidebar) { %>
+    <%- partial('common/sidebar', null, {cache: !config.relative_link}) %>
+<% } %>
+```
+> `is_post()`, `is_home()` 是hexo自带的函数
 
 #### 更多
 如果还想自定义CSS的话，主题样式文件都在`themes/icarus/source/css/_partial`里，对照着页面文件找到对应的class样式去修改吧。
