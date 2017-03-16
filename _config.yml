@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.yingchi.me
+url: http://blog.peiyingchi.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -71,5 +71,5 @@ deploy:
   type: rsync
   host: 188.166.236.190  # 这里填写你VPS的IP地址，比如：138.23.23.23
   user: yingchi # 这里填写你登陆VPS所用的用户名，比如：root
-  root: /var/www/blog.yingchi.me/html # 这里填写你在nginx中配置的文件路径
+  root: /var/www/blog.peiyingchi.com/html # 这里填写你在nginx中配置的文件路径
   port: 22 # SSH默认端口号，不需要修改
