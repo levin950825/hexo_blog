@@ -3,7 +3,7 @@
     <div id="container">
         <%- partial('common/header') %>
         <div class="outer">
-            <% if (theme.customize.profile.enabled) { %>
+            <% if (theme.customize.profile.enabled && !is_post()) { %>
                 <%- partial('common/profile', null, {cache: !config.relative_link}) %>
             <% } %>
             <section id="main"><%- body %></section>
