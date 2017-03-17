@@ -8,7 +8,10 @@ toc: true
 thumbnail:
 banner:
 ---
+Use images hosting service with HTTPS connections.
+把图片放到支持HTTPS链接的图床平台上。
 
+<!-- more -->
 ## 前言：
 前几天把网站改到用HTTPS安全链接。
 ![](https://i.niupic.com/images/2017/03/17/jTJp2c.jpg)

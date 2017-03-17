@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Setup HTTPS Using Letsencrypt|用Let&#39;s Encrypt实现HTTPS | Yingchi&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setup HTTPS Using Letsencrypt|用Let's Encrypt实现HTTPS">
+<meta property="og:url" content="http://blog.peiyingchi.com/2017/03/17/HTTPS-with-Letsencrypt/index.html">
+<meta property="og:site_name" content="Yingchi's blog">
+<meta property="og:description" content="How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.">
+<meta property="og:updated_time" content="2017-03-17T09:31:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Setup HTTPS Using Letsencrypt|用Let's Encrypt实现HTTPS">
+<meta name="twitter:description" content="How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/whale.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Yingchi&#39;s blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/profile_pic.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/profile_pic.png" />
+            <h2 id="name">Yingchi</h2>
+            <h3 id="title">Data Miner</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Singapore</span>
+            <a id="follow" target="_blank" href="https://www.linkedin.com/in/yingchi-pei/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                6
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                3
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://www.yingchi.me" target="_blank" title="Profile" class=tooltip> <i class="fa fa-home"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/yingchi.pei" target="_blank" title="Facebook" class=tooltip> <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.linkedin.com/in/yingchi-pei/" target="_blank" title="LinkedIn" class=tooltip> <i class="fa fa-linkedin"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://github.com/yingchi" target="_blank" title="GitHub" class=tooltip> <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="mailto:yingchi.pei@gmail.com" target="_blank" title="Mailme" class=tooltip> <i class="fa fa-envelope-square"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-HTTPS-with-Letsencrypt" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Setup HTTPS Using Letsencrypt|用Let&#39;s Encrypt实现HTTPS
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/17/HTTPS-with-Letsencrypt/">
+            <time datetime="2017-03-17T07:48:02.000Z" itemprop="datePublished">2017-03-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Website-Dev/">Website Dev</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/website-dev/">website dev</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#My-environment"><span class="toc-number">1.</span> <span class="toc-text">My environment:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Install-Let’s-Encrypt-Client"><span class="toc-number">2.</span> <span class="toc-text">Step 1: Install Let’s Encrypt Client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Obtain-an-SSL-Certificate"><span class="toc-number">3.</span> <span class="toc-text">Step 2: Obtain an SSL Certificate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Configure-TLS-SSL-on-Web-Server-Nginx"><span class="toc-number">4.</span> <span class="toc-text">Step 3: Configure TLS/SSL on Web Server (Nginx)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Adjust-the-Firewall"><span class="toc-number">5.</span> <span class="toc-text">Step 4: Adjust the Firewall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-5-Enabling-the-Changes-in-Nginx"><span class="toc-number">6.</span> <span class="toc-text">Step 5: Enabling the Changes in Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-6-Set-Up-Auto-Renewal"><span class="toc-number">7.</span> <span class="toc-text">Step 6: Set Up Auto Renewal</span></a></li></ol>
+                </div>
+            
+            <p>How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.<br><a id="more"></a></p>
+<h3 id="My-environment"><a href="#My-environment" class="headerlink" title="My environment:"></a>My environment:</h3><ul>
+<li>Web server: Nginx</li>
+<li>Operating System: Ubuntu 16.04 </li>
+</ul>
+<p>The steps are mainly following this Digital Ocean Tutorial:<br><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04" target="_blank" rel="external">How To Secure Nginx with Let’s Encrypt on Ubuntu 16.04</a>, but with some modifications for subdomain settings.</p>
+<h3 id="Step-1-Install-Let’s-Encrypt-Client"><a href="#Step-1-Install-Let’s-Encrypt-Client" class="headerlink" title="Step 1: Install Let’s Encrypt Client"></a>Step 1: Install Let’s Encrypt Client</h3><p>Run the following command on your Ubuntu server:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install letsencrypt</div></pre></td></tr></table></figure>
+<h3 id="Step-2-Obtain-an-SSL-Certificate"><a href="#Step-2-Obtain-an-SSL-Certificate" class="headerlink" title="Step 2: Obtain an SSL Certificate"></a>Step 2: Obtain an SSL Certificate</h3><p>Change the Nginx conf files to enable access to <code>/.well-known</code> folder:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/nginx/sites-available/peiyingchi.com</div></pre></td></tr></table></figure>
+<p>Add the following line inside the <code>server</code> block:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">location</span> <span class="string">~</span> <span class="string">/.well-known</span> <span class="string">&#123;</span></div><div class="line">    <span class="string">allow</span> <span class="string">all;</span></div><div class="line"><span class="string">&#125;</span></div></pre></td></tr></table></figure>
+<p>If you want to add the SSL cert to multiple domains or other subdomains, please do the same for all the nginx conf files.</p>
+<p>After changing the nginx conf files for the domains you want to setup HTTPS in, run the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo letsencrypt certonly <span class="_">-a</span> webroot --webroot-path=/var/www/peiyingchi.com/html <span class="_">-d</span> peiyingchi.com <span class="_">-d</span> www.peiyingchi.com</div></pre></td></tr></table></figure>
+<p>To setup for subdomains together:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo letsencrypt certonly --webroot -w /var/www/peiyingchi.com/html/ <span class="_">-d</span> www.peiyingchi.com <span class="_">-d</span> peiyingchi.com -w /var/www/blog.peiyingchi.com/html <span class="_">-d</span> blog.peiyingchi.com</div></pre></td></tr></table></figure>
+<p>You will be prompted to enter your contact email and agree some terms and conditions.</p>
+<p>My cert files are at :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ yingchi@yingchi-site:~$ sudo ls <span class="_">-l</span> /etc/letsencrypt/live/peiyingchi.com</div><div class="line"></div><div class="line">total 0</div><div class="line">lrwxrwxrwx 1 root root 38 Mar 17 01:48 cert.pem -&gt; ../../archive/peiyingchi.com/cert1.pem</div><div class="line">lrwxrwxrwx 1 root root 39 Mar 17 01:48 chain.pem -&gt; ../../archive/peiyingchi.com/chain1.pem</div><div class="line">lrwxrwxrwx 1 root root 43 Mar 17 01:48 fullchain.pem -&gt; ../../archive/peiyingchi.com/fullchain1.pem</div><div class="line">lrwxrwxrwx 1 root root 41 Mar 17 01:48 privkey.pem -&gt; ../../archive/peiyingchi.com/privkey1.pem</div></pre></td></tr></table></figure>
+<p>After obtaining the cert, you will have the following PEM-encoded files:</p>
+<ul>
+<li><code>cert.pem</code>: Your domain’s certificate</li>
+<li><code>chain.pem</code>: The Let’s Encrypt chain certificate</li>
+<li><code>fullchain.pem</code>: <code>cert.pem</code> and <code>chain.pem</code> combined</li>
+<li><code>privkey.pem</code>: Your certificate’s private key</li>
+</ul>
+<p>To further increase security, you should also generate a strong <strong>Diffie-Hellman group</strong>. To generate a 2048-bit group, use this command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048</div></pre></td></tr></table></figure>
+<h3 id="Step-3-Configure-TLS-SSL-on-Web-Server-Nginx"><a href="#Step-3-Configure-TLS-SSL-on-Web-Server-Nginx" class="headerlink" title="Step 3: Configure TLS/SSL on Web Server (Nginx)"></a>Step 3: Configure TLS/SSL on Web Server (Nginx)</h3><p>Now that you have an SSL certificate, you need to configure your Nginx web server to use it.</p>
+<p>We will make a few adjustments to our configuration:</p>
+<ol>
+<li>We will create a configuration snippet containing our SSL key and certificate file locations.</li>
+<li>We will create a configuration snippet containing strong SSL settings that can be used with any certificates in the future.</li>
+<li>We will adjust the Nginx server blocks to handle SSL requests and use the two snippets above.</li>
+</ol>
+<p>First, let’s create a new Nginx configuration snippet in the <code>/etc/nginx/snippets</code> directory.</p>
+<p>To properly distinguish the purpose of this file, we will name it <code>ssl-</code> followed by our domain name, followed by <code>.conf</code> on the end:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/nginx/snippets/ssl-peiyingchi.com.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>ssl-peiyingchi.com.conf</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;</div><div class="line">ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;</div></pre></td></tr></table></figure>
+<p>Next, we will create another snippet that will define some SSL settings. This will set Nginx up with a strong SSL cipher suite and enable some advanced features that will help keep our server secure.</p>
+<p>The parameters we will set can be reused in future Nginx configurations, so we will give the file a generic name:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/nginx/snippets/ssl-params.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>ssl-params.conf</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># from https://cipherli.st/</div><div class="line"># and https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html</div><div class="line"></div><div class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">ssl_prefer_server_ciphers on;</div><div class="line">ssl_ciphers &quot;EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH&quot;;</div><div class="line">ssl_ecdh_curve secp384r1;</div><div class="line">ssl_session_cache shared:SSL:10m;</div><div class="line">ssl_session_tickets off;</div><div class="line">ssl_stapling on;</div><div class="line">ssl_stapling_verify on;</div><div class="line">resolver 8.8.8.8 8.8.4.4 valid=300s;</div><div class="line">resolver_timeout 5s;</div><div class="line"># Disable preloading HSTS for now.  You can use the commented out header line that includes</div><div class="line"># the &quot;preload&quot; directive if you understand the implications.</div><div class="line">#add_header Strict-Transport-Security &quot;max-age=63072000; includeSubdomains; preload&quot;;</div><div class="line">add_header Strict-Transport-Security &quot;max-age=63072000; includeSubdomains&quot;;</div><div class="line">add_header X-Frame-Options DENY;</div><div class="line">add_header X-Content-Type-Options nosniff;</div><div class="line"></div><div class="line">ssl_dhparam /etc/ssl/certs/dhparam.pem;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>If you are interested, you can take take a moment to read up on <a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security" target="_blank" rel="external">HTTP Strict Transport Security, or HSTS</a>, and specifically about the <a href="https://hstspreload.appspot.com/" target="_blank" rel="external">“preload”</a> functionality. Preloading HSTS provides increased security, but can have far reaching consequences if accidentally enabled or enabled incorrectly. In this guide, we will not preload the settings, but you can modify that if you are sure you understand the implications</p>
+</blockquote>
+<p>Now that we have our snippets, we can adjust our Nginx configuration to enable SSL.</p>
+<p>Before we go any further, let’s back up our current server block file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp /etc/nginx/sites-available/peiyingchi.com /etc/nginx/sites-available/peiyingchi.com.bak</div></pre></td></tr></table></figure>
+<p>Now, open the server block file to make adjustments.<br>Blow are the 2 conf files for my top-level domain and my subdomain:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/nginx/sites-available/peiyingchi.com</div></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>peiyingchi.com</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	listen 80;</div><div class="line">	listen [::]:80;</div><div class="line"></div><div class="line">	server_name peiyingchi.com www.peiyingchi.com;</div><div class="line">	return 301 https://$server_name$request_uri;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line"></div><div class="line">	# SSL configuration</div><div class="line">	listen 443 ssl http2 default_server;</div><div class="line">	listen [::]:443 ssl http2 default_server;</div><div class="line">	include snippets/ssl-peiyingchi.com.conf;</div><div class="line">	include snippets/ssl-params.conf;</div><div class="line">	</div><div class="line">	root /var/www/peiyingchi.com/html;</div><div class="line"></div><div class="line">    # Add index.php to the list if you are using PHP</div><div class="line">	index index.html index.php;</div><div class="line">	</div><div class="line">	server_name peiyingchi.com www.peiyingchi.com;</div><div class="line">	</div><div class="line">        location / &#123;</div><div class="line">            try_files $uri $uri/ =404;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ /.well-known &#123;</div><div class="line">            allow all;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>blog.peiyingchi.com</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	listen 80;</div><div class="line">	listen [::]:80;</div><div class="line"></div><div class="line">	server_name blog.peiyingchi.com www.blog.peiyingchi.com;</div><div class="line">	return 301 https://$server_name$request_uri;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">	# SSL configuration</div><div class="line"></div><div class="line">	listen 443 ssl http2;</div><div class="line">	listen [::]:443 ssl http2;</div><div class="line">	include snippets/ssl-peiyingchi.com.conf; # NOTE: the same file as the top level domain</div><div class="line">	include snippets/ssl-params.conf;	</div><div class="line">	</div><div class="line">	root /var/www/blog.peiyingchi.com/html;</div><div class="line">	index index.html;</div><div class="line">	server_name blog.peiyingchi.com www.blog.peiyingchi.com;</div><div class="line">	</div><div class="line">	location / &#123;</div><div class="line">		try_files $uri $uri/ =404;</div><div class="line">	&#125;</div><div class="line">	location ~ /.well-known &#123;</div><div class="line">		allow all;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Step-4-Adjust-the-Firewall"><a href="#Step-4-Adjust-the-Firewall" class="headerlink" title="Step 4: Adjust the Firewall"></a>Step 4: Adjust the Firewall</h3><p>If you have the <code>ufw</code> firewall enabled, as recommended by the prerequisite guides, you’ll need to adjust the settings to allow for SSL traffic.</p>
+<p>You can see the current setting by typing:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ufw status</div></pre></td></tr></table></figure>
+<p>To additionally let in HTTPS traffic, we can allow the “Nginx Full” profile and then delete the redundant “Nginx HTTP” profile allowance:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo ufw allow <span class="string">'Nginx Full'</span></div><div class="line">sudo ufw delete allow <span class="string">'Nginx HTTP'</span></div></pre></td></tr></table></figure>
+<h3 id="Step-5-Enabling-the-Changes-in-Nginx"><a href="#Step-5-Enabling-the-Changes-in-Nginx" class="headerlink" title="Step 5: Enabling the Changes in Nginx"></a>Step 5: Enabling the Changes in Nginx</h3><p>First, we should check to make sure that there are no syntax errors in our files. We can do this by typing:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nginx -t</div></pre></td></tr></table></figure>
+<p>If your output matches the above, your configuration file has no syntax errors. We can safely restart Nginx to implement our changes:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl restart nginx</div></pre></td></tr></table></figure>
+<p>You can use the Qualys SSL Labs Report to see how your server configuration scores:<br>Enter the following to your web browser:</p>
+<p><a href="https://www.ssllabs.com/ssltest/analyze.html?d=" target="_blank" rel="external">https://www.ssllabs.com/ssltest/analyze.html?d=</a><span style="color:red">example.com</span></p>
+<h3 id="Step-6-Set-Up-Auto-Renewal"><a href="#Step-6-Set-Up-Auto-Renewal" class="headerlink" title="Step 6: Set Up Auto Renewal"></a>Step 6: Set Up Auto Renewal</h3><p>From Let’s Encrypt’s <a href="https://certbot.eff.org/#ubuntuxenial-nginx" target="_blank" rel="external">official documentation</a>, you can run the following to test the renew function:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo letsencrypt renew --dry-run --agree-tos</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Do not worry for the ‘Registering without email!’ warning. It does not hurt anything.</p>
+</blockquote>
+<p>If that appears to be working correctly, you can arrange for automatic renewal by adding a cron or systemd job which runs <code>letsencrypt renew</code></p>
+<p>Since the renewal first checks for the expiration date and only executes the renewal if the certificate is less than 30 days away from expiration, it is safe to create a cron job that runs every week or even every day, for instance.</p>
+<p>Let’s edit the crontab to create a new job that will run the renewal command every week. To edit the crontab for the root user, run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo crontab <span class="_">-e</span></div></pre></td></tr></table></figure>
+<p>Add the following lines:</p>
+<figure class="highlight sh"><figcaption><span>crontab entry</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">30 2 * * 1 /usr/bin/letsencrypt renew &gt;&gt; /var/<span class="built_in">log</span>/le-renew.log</div><div class="line">35 2 * * 1 /bin/systemctl reload nginx</div></pre></td></tr></table></figure>
+<p>This will create a new cron job that will execute the letsencrypt-auto renew command every Monday at 2:30 am, and reload Nginx at 2:35am (so the renewed certificate will be used). The output produced by the command will be piped to a log file located at <code>/var/log/le-renewal.log</code>.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.peiyingchi.com/2017/03/17/HTTPS-with-Letsencrypt/" data-id="cj0dnkbhu00008kkh93ghrz0j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://blog.peiyingchi.com/2017/03/17/HTTPS-with-Letsencrypt/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.peiyingchi.com/2017/03/17/HTTPS-with-Letsencrypt/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/03/17/image-hosting-and-https/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Image Hosting and HTTPS|图床与HTTPS
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/03/11/rebuild-personal-website-and-blog/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Rebuild Personal Website and Blog|重新搭建站点和博客</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 
+            <span class="with-love">
+            	<i class="fa fa-heart"></i>
+            </span>
+            Yingchi<br>
+            <!-- 
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            -->
+            Last modified: Mar. 12th, 2017
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.peiyingchi.com/2017/03/17/HTTPS-with-Letsencrypt/';
+        
+        this.page.identifier = 'HTTPS-with-Letsencrypt';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'yingchi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
