@@ -1,8 +1,8 @@
 ---
 title: Rebuild Personal Website and Blog|重新搭建站点和博客
 date: 2017-03-11 18:03:02
-tags: website setup
-categories: Website Setup
+tags: website dev
+categories: Website Dev
 comments: true
 toc: true
 thumbnail:
