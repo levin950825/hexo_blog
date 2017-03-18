@@ -455,7 +455,7 @@ Wait, 以为现在就万事大吉了么，事情并没有这么简单。。你�
         else
             width: 100%
 ```
-> `@media xxx`, `side_bar` etc 都是在别处(`_variables.styl`)定义好的变量
+> `@media xxx`, `side_bar` etc 都是在别处(`_variables.styl`)定义好的CSS规则和变量
 
 接下来打开 `~/hexo_blog/themes/icarus/source/css/_variables.styl`
 在`//Sidebar`这个部分加入我们在上面用到的变量：
@@ -471,12 +471,12 @@ post_sidebar = hexo-config("post_sidebar")
 #### 更多
 如果还想自定义CSS的话，主题样式文件都在`themes/icarus/source/css/_partial`里，对照着页面文件找到对应的class样式去修改吧。
 
-比如我这里发现在页面宽度是。。。的时候，两栏的效果并不是很理想。
+比如我这里发现在打开文章的时候，显示的效果并不是很理想。
 <img src="14891972108134.jpg" class="img-shadow" />
 
 时候可以在测试页面按`cmd+opt+j`调出Javascript console查看元素。会发现它是从根目录下`public/css/style.css`而来，但是我们直接改这里的话是没有用的。因为所有`public`文件夹下都是由`hexo g`生成的。
 
-所以这里要更改我们所用主题的css生成文件。例如我的在这个路径下`~/hexo_blog/themes/icarus/source/css`
+所以这里可以更改我们所用主题的css生成文件。例如我的在这个路径下`~/hexo_blog/themes/icarus/source/css`
 
 桑心的是，我试图修改了`_variables.styl`里面的sidebar-column之类，然后运行
 
@@ -487,6 +487,42 @@ INFO  Deleted public folder.
 $ hexo g
 $ hexo s
 ```
-发现并没有什么*用。。。 新手小白在这里欢迎指教啊~
+发现并没有什么*用。。。 
+过了几天意识到作为没有基础的小白，思路已经错了。我想要做到的是在文章页面只显示文章，并且居中，而不现实profile和sidebar。在主CSS文件里面改的话，它并不能辨别这个页面是否是文章页面，改动`@media`下面的内容会对所有页面的`#main`元素造成影响。
+
+所以去查看了关于Hexo主题开发的一些教程，发现对于不同类型页面一般是由主题下的`layout`文件夹里的`*.layout`文件控制。
+查了简单的`ejs`语法资料，修改成下面的样子
+
+```html layout.ejs
+    <div id="container">
+        <%- partial('common/header') %>
+        <div class="outer">
+            <% if (theme.customize.profile.enabled && !is_post()) { %>
+                <%- partial('common/profile', null, {cache: !config.relative_link}) %>
+            <% } %>
+            <% if (is_post()) { %>
+                <script type='text/javascript'>
+                $('body').append("<style type='text/css'>@media screen and (min-width: 1200px) { #main {margin: auto; width: 70%; display: block; float:none;}}</style>");
+                </script>
+                <script type='text/javascript'>
+                document.querySelector('style').textContent += "@media screen and (max-width: 1199px) and (min-width: 800px) { #main {margin: auto; width: 70%; display: block; float:none;}}"
+                </script>
+            <% } %>
+            <section id="main"><%- body %></section>
+            <% if (is_home() && theme.home_sidebar) { %>
+                <%- partial('common/sidebar', null, {cache: !config.relative_link}) %>
+            <% } %>
+            <% if (is_post() && theme.post_sidebar) { %>
+                <%- partial('common/sidebar', null, {cache: !config.relative_link}) %>
+            <% } %>
+        </div>
+        <%- partial('common/footer', null, {cache: !config.relative_link}) %>
+        <%- partial('common/scripts') %>
+    </div>
+    
+```
+> 注意：代码内两种改变css的方法都可用，放在这里只是给自己做个记录
+
+然后就好啦~
 
 
