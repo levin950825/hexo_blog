@@ -1,5 +1,5 @@
 ---
-title: Setup HTTPS Using Letsencrypt|用Let's Encrypt实现HTTPS
+title: Setup HTTPS Using Letsencrypt |用Let's Encrypt实现HTTPS
 date: 2017-03-17 15:48:02
 tags: website dev
 categories: Website Dev
@@ -12,8 +12,7 @@ banner:
 How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.
 <!-- more -->
 
-### My environment:
-
+### My environment
 - Web server: Nginx
 - Operating System: Ubuntu 16.04 
 

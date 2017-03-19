@@ -1,5 +1,5 @@
 ---
-title: Hexo Icarus Theme Settings|Icarus主题设置
+title: Hexo Icarus Theme Settings |Icarus主题设置
 date: 2017-03-10 23:34:33
 tags: hexo
 categories: Hexo

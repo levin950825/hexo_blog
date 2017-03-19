@@ -1,5 +1,5 @@
 ---
-title: Rebuild Personal Website and Blog|重新搭建站点和博客
+title: Rebuild Personal Website and Blog |重新搭建站点和博客
 date: 2017-03-11 18:03:02
 tags: website dev
 categories: Website Dev
@@ -11,7 +11,7 @@ banner:
 流水账日志
 <!--more -->
 
-### 心路历程：
+### 心路历程
 1. 之前在Bluehost上买了个域名`yingchi.com`，就直接在它那里买了最基本的Web hosting服务，用的是LAPM stack(Linux, Apache, MySQL, and PHP)，花了半天找了个好看的个人主页模板，修修改改，填上经历技能就放那里没管了。
 2. 现在想添个博客上去，也督促自己把平时的笔记定时整理一下。
 3. 随便一查，发现我去，Bluehost的域名费不便宜啊。马上要续费了，大概 $15 USD一年，然后namecheap上是 $10一年。用GitHub的Student Pack还能白拿一年的`yingchi.me`域名玩。所以就把域名迁移到了namecheap。
@@ -21,13 +21,13 @@ banner:
     - 在DO host `yingchi.com` 并把个人资料页面放在这里
     - 在`blog.yingchi.com`放基于Hexo平台的个人博客
 
-### 基于现实的计划：
+### 基于现实的计划
 1. 因为在Bluehost的Web hosting服务还有一年(为什么要买这么久。。。), 所以`yingchi.com`的hosting先不动
 2. 用`yingchi.me`这个域名，**在DO实现个人主页和博客的搭建** （这是个工程比较大的一步）
 3. 把`yingchi.com`域名host到DO，并第二步迁移到`yingchi.com`
 
 
-### 在DO实现个人主页和博客的搭建：
+### 在DO实现个人主页和博客的搭建
 1. 个人主页计划放在 `yingchi.me` 用普通HTML页面实现。博客放在`blog.yingchi.me`, 用Hexo实现
 2. 在本地搭建完成个人主页（先用原来的）和个人博客。Complete the development for the personal homepage and also the blog locally。流水账和踩坑过程记录在：
 3. 把这两套站点的文件部署到DO上。流水账和踩坑过程记录在：
