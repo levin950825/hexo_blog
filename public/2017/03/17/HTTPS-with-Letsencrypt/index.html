@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Setup HTTPS Using Letsencrypt|用Let&#39;s Encrypt实现HTTPS | Yingchi&#39;s blog</title>
+    <title>Setup HTTPS Using Letsencrypt |用Let&#39;s Encrypt实现HTTPS | Yingchi&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Setup HTTPS Using Letsencrypt|用Let's Encrypt实现HTTPS">
+<meta property="og:title" content="Setup HTTPS Using Letsencrypt |用Let's Encrypt实现HTTPS">
 <meta property="og:url" content="http://blog.peiyingchi.com/2017/03/17/HTTPS-with-Letsencrypt/index.html">
 <meta property="og:site_name" content="Yingchi's blog">
 <meta property="og:description" content="How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.">
-<meta property="og:updated_time" content="2017-03-17T09:31:53.000Z">
+<meta property="og:updated_time" content="2017-03-19T03:30:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Setup HTTPS Using Letsencrypt|用Let's Encrypt实现HTTPS">
+<meta name="twitter:title" content="Setup HTTPS Using Letsencrypt |用Let's Encrypt实现HTTPS">
 <meta name="twitter:description" content="How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.">
     
 
@@ -161,7 +161,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Setup HTTPS Using Letsencrypt|用Let&#39;s Encrypt实现HTTPS
+            Setup HTTPS Using Letsencrypt |用Let&#39;s Encrypt实现HTTPS
         </h1>
     
 
@@ -198,11 +198,11 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#My-environment"><span class="toc-number">1.</span> <span class="toc-text">My environment:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Install-Let’s-Encrypt-Client"><span class="toc-number">2.</span> <span class="toc-text">Step 1: Install Let’s Encrypt Client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Obtain-an-SSL-Certificate"><span class="toc-number">3.</span> <span class="toc-text">Step 2: Obtain an SSL Certificate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Configure-TLS-SSL-on-Web-Server-Nginx"><span class="toc-number">4.</span> <span class="toc-text">Step 3: Configure TLS/SSL on Web Server (Nginx)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Adjust-the-Firewall"><span class="toc-number">5.</span> <span class="toc-text">Step 4: Adjust the Firewall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-5-Enabling-the-Changes-in-Nginx"><span class="toc-number">6.</span> <span class="toc-text">Step 5: Enabling the Changes in Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-6-Set-Up-Auto-Renewal"><span class="toc-number">7.</span> <span class="toc-text">Step 6: Set Up Auto Renewal</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#My-environment"><span class="toc-number">1.</span> <span class="toc-text">My environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Install-Let’s-Encrypt-Client"><span class="toc-number">2.</span> <span class="toc-text">Step 1: Install Let’s Encrypt Client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Obtain-an-SSL-Certificate"><span class="toc-number">3.</span> <span class="toc-text">Step 2: Obtain an SSL Certificate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Configure-TLS-SSL-on-Web-Server-Nginx"><span class="toc-number">4.</span> <span class="toc-text">Step 3: Configure TLS/SSL on Web Server (Nginx)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Adjust-the-Firewall"><span class="toc-number">5.</span> <span class="toc-text">Step 4: Adjust the Firewall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-5-Enabling-the-Changes-in-Nginx"><span class="toc-number">6.</span> <span class="toc-text">Step 5: Enabling the Changes in Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-6-Set-Up-Auto-Renewal"><span class="toc-number">7.</span> <span class="toc-text">Step 6: Set Up Auto Renewal</span></a></li></ol>
                 </div>
             
             <p>How to use HTTPS for my personal website. Nginx server and Ubuntun 16.04.<br><a id="more"></a></p>
-<h3 id="My-environment"><a href="#My-environment" class="headerlink" title="My environment:"></a>My environment:</h3><ul>
+<h3 id="My-environment"><a href="#My-environment" class="headerlink" title="My environment"></a>My environment</h3><ul>
 <li>Web server: Nginx</li>
 <li>Operating System: Ubuntu 16.04 </li>
 </ul>
@@ -288,7 +288,7 @@
 
 </div>
 
-    <a data-url="http://blog.peiyingchi.com/2017/03/17/HTTPS-with-Letsencrypt/" data-id="cj0g3s8w800097nkdu3seeed4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blog.peiyingchi.com/2017/03/17/HTTPS-with-Letsencrypt/" data-id="cj0g533330000vrkd8kkckcj3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -369,7 +369,7 @@
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Image Hosting and HTTPS|图床与HTTPS
+                    Image Hosting and HTTPS |图床与HTTPS
                 
             </div>
         </a>
@@ -377,7 +377,7 @@
     
         <a href="/2017/03/11/rebuild-personal-website-and-blog/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Rebuild Personal Website and Blog|重新搭建站点和博客</div>
+            <div class="article-nav-title">Rebuild Personal Website and Blog |重新搭建站点和博客</div>
         </a>
     
 </nav>

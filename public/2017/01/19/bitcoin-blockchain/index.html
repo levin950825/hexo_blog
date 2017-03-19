@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Bitcoin Blockchain |比特币区块链理解 | Yingchi&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Explain the key concepts in bitcoin and its underlying blockchain technology.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bitcoin Blockchain |比特币区块链理解">
+<meta property="og:url" content="http://blog.peiyingchi.com/2017/01/19/bitcoin-blockchain/index.html">
+<meta property="og:site_name" content="Yingchi's blog">
+<meta property="og:description" content="Explain the key concepts in bitcoin and its underlying blockchain technology.">
+<meta property="og:image" content="https://s6.postimg.org/f9rex4dsh/14829171046099.jpg">
+<meta property="og:image" content="https://s6.postimg.org/k9ov52jf5/14829171346517.jpg">
+<meta property="og:image" content="https://s6.postimg.org/7wc0y5tqp/14829172517203.jpg">
+<meta property="og:image" content="https://s6.postimg.org/z1ozinzyp/14898931224923.jpg">
+<meta property="og:image" content="https://s6.postimg.org/d3siovky9/14898931329803.jpg">
+<meta property="og:updated_time" content="2017-03-19T03:41:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bitcoin Blockchain |比特币区块链理解">
+<meta name="twitter:description" content="Explain the key concepts in bitcoin and its underlying blockchain technology.">
+<meta name="twitter:image" content="https://s6.postimg.org/f9rex4dsh/14829171046099.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/whale.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Yingchi&#39;s blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/profile_pic.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <script type='text/javascript'>
+                $('body').append("<style type='text/css'>@media screen and (min-width: 1200px) { #main {margin: auto; width: 70%; display: block; float:none;}}</style>");
+                </script>
+                <script type='text/javascript'>
+                document.querySelector('style').textContent += "@media screen and (max-width: 1199px) and (min-width: 800px) { #main {margin: auto; width: 70%; display: block; float:none;}}"
+                </script>
+            
+            <section id="main"><article id="post-bitcoin-blockchain" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Bitcoin Blockchain |比特币区块链理解
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/19/bitcoin-blockchain/">
+            <time datetime="2017-01-19T03:06:48.000Z" itemprop="datePublished">2017-01-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Blockchain/">Blockchain</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/blockchain/">blockchain</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Memory-Keys"><span class="toc-number">1.</span> <span class="toc-text">Memory Keys</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sending-Bitcoin"><span class="toc-number">2.</span> <span class="toc-text">Sending Bitcoin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Still-another-security-hole-Transaction-Order"><span class="toc-number">3.</span> <span class="toc-text">Still another security hole: Transaction Order</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#End-of-Chain-Insecurity"><span class="toc-number">4.</span> <span class="toc-text">End of Chain Insecurity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mining"><span class="toc-number">5.</span> <span class="toc-text">Mining</span></a></li></ol>
+                </div>
+            
+            <p>Explain the key concepts in bitcoin and its underlying blockchain technology.</p>
+<a id="more"></a> 
+<p>Blockchain is a mindset。</p>
+<h4 id="Memory-Keys"><a href="#Memory-Keys" class="headerlink" title="Memory Keys"></a>Memory Keys</h4><ul>
+<li>Distributed (a network of nodes)</li>
+<li>Public</li>
+<li>Time-stamped</li>
+<li>Persistent</li>
+</ul>
+<h4 id="Sending-Bitcoin"><a href="#Sending-Bitcoin" class="headerlink" title="Sending Bitcoin"></a>Sending Bitcoin</h4><p>For A ⇒ B, A broadcasts the message to the bitcoin network (including the amount, the public key of the receiver, etc. Every node that receives it will update their copy of the ledger, and then pass along the transaction message.<br>Every transaction has a unique digital signature that is created based on the sender’s private key, and can be verified by the receiver’s public key. To claim ownership of the bitcoin, you must prove that you are the owner of the public key.</p>
+<p>Account balances: In fact, no records of account balances are kept at all. <strong>Ownership of the funds is verified through links to previous transactions.</strong></p>
+<blockquote>
+<p>To send 5 BTCs to Bob, Alice must reference other transactions where she received 5 or more BTCs.<br>That’s why it takes so long when you install the BTC wallet software the first time. Because it downloads all the transactions ever made and checks each’s velidity.</p>
+</blockquote>
+<p>Owning BTC means that there are transactions in this list that point to your name and haven’t been spent.</p>
+<p>Because people will likely lose private keys due to hard drive crashes and insufficient backups, Bitcoin currency will eventually be a deflationary one.</p>
+<h4 id="Still-another-security-hole-Transaction-Order"><a href="#Still-another-security-hole-Transaction-Order" class="headerlink" title="Still another security hole: Transaction Order"></a>Still another security hole: Transaction Order</h4><p>Nodes need to agree on transaction order.<br>The BTC system orders transactions by placing them in groups called blocks, and linking these blocks together in something called blockchain.</p>
+<blockquote>
+<p>Note that it is different from the transaction chain.</p>
+</blockquote>
+<p>Transactions in the same block are considered happened at the same time. Any transactions not yet in a block are called unconfirmed. Any node can collect a set of unconfirmed transactions into a block and broadcast it to the rest of the network as a suggestion for what the next block in a chain should be.<br>Multiple nodes could generate blocks at the same time, so where are multiple versions to choose from. Each valid block must contain an answer to a very special mathematical problem.</p>
+<p>Computer runs entire text of the block + an additional random guess through something called a cryptographic hash, <strong>UNTIL</strong> the output is below a certain value.<br>It takes 10 mins for the bitcoin network to solve a block. The first person who solves a math problem broadcasts their block and gets to have their group of transactions accepted as the next in the chain.</p>
+<p>However, while it is rare, a block may be solved by multiple nodes at the same time, then branches occur. How to deal with this? Well, you simply build on the first block you receive and works from there. The tie gets broken when someone solves the next block. The general rule: <strong>Immediately switch to the longest chain available</strong>.<br><img src="https://s6.postimg.org/f9rex4dsh/14829171046099.jpg" width="300px"><br><img src="https://s6.postimg.org/k9ov52jf5/14829171346517.jpg" width="300px"><br>So the blockchain quickly stablize.<br>Transactions/Facts are grouped in blocks, and there is only a single chain of blocks, replicated in the entire network.</p>
+<blockquote>
+<p>What is hashing?<br>Hashing is also a common method of accessing data records. Consider, for example, a list of names:<br>John Smith<br>Sarah Jones<br>Roger Adams<br>To create an index, called a hash table,for these records, you would apply a formula to each name to produce a unique numeric value. So you might get something like:<br>1345873 John smith<br>3097905 Sarah Jones<br>4060964 Roger Adams<br>Then to search for the record containing Sarah Jones,you just need to reapply the formula, which directly yields the index key to the record. This is much more efficient than searching through all the records till the matching record is found.</p>
+</blockquote>
+<h4 id="End-of-Chain-Insecurity"><a href="#End-of-Chain-Insecurity" class="headerlink" title="End of Chain Insecurity"></a>End of Chain Insecurity</h4><p><img src="https://s6.postimg.org/7wc0y5tqp/14829172517203.jpg" width="200px"><br>The fact that there is some ambiguity in the end of the chain</p>
+<p>A double-spent attack in this block chain system:<br><img src="https://s6.postimg.org/z1ozinzyp/14898931224923.jpg" width="450px"></p>
+<p>A⇒B will be threw back to the unconfirmed pool, but because A⇒A was confirmed with the same input, it will invalid A⇒B. </p>
+<p>Well, <strong>Math puzzle in each block actually prevent this</strong>, because Alice cannot change one block from the middle. The attach will only be possible if Alice owns more than half of the nodes in the world.<br><img src="https://s6.postimg.org/d3siovky9/14898931329803.jpg" width="450px"><br>So the system is only vulnerable to a double spend attach near the end of the chain, which is why it’s recommended to wait several blocks before considering received money final. </p>
+<h4 id="Mining"><a href="#Mining" class="headerlink" title="Mining"></a>Mining</h4><p>The process of looking for blocks is called mining. This is because, just like gold mining, block mining brings an economical reward - some form of money. That’s the reason why people who run nodes in a blockchain are also called miners.</p>
+<blockquote>
+<p>Note: By default, a node doesn’t mine - it just receives blocks mined by other nodes. It’s a voluntary process to turn a node into a miner node.</p>
+</blockquote>
+<p>Every second, each miner node in a blockchain tests thousands of random strings to try and form a new block. So running a miner in the blockchain pumps a huge amount of computer resources (storage and CPU). That’s why you must pay to store facts in a blockchain. Reading facts, on the other hand, is free: you just need to run your own node, and you’ll recuperate the entire history of facts issued by all the other nodes. So to summarize:</p>
+<ul>
+<li>Reading data is free</li>
+<li>Adding facts costs a small fee</li>
+<li>Mining a block brings in the money of all the fees of the facts included in the block</li>
+</ul>
+<p>每个矿工会把十分钟内所有unconfirmed transactions拿过来, 两两pair来产生hash,一层层两两pair产生一个最终hash.</p>
+<p>简而言之，比特币区块链的挖矿流程：<br>广播比特币网络中的每一笔交易，使每个参与者（指矿工）都记录下这笔交易。<br>每个参与者接收到交易信息后，都要将该笔交易盖上时戳，收入区块。<br>由于每个矿工都做了工作，谁赢了获得奖励呢？此时参与者们要通过一个计算游戏，谁能最快解出SHA256运算的值，谁就将赢得打包区块的权利，并获得系统的25个比特币奖励。这个数量的设定是每四年减半。（比特币已经到了第七个年头了）<br>获得记账权的矿工将向全网广播这十分钟内区盖了时戳的交易，其他参与者将核对这些账目<br>当其他参与者都确认无误后，该区块就确认合法，就进入了下一轮的区块争夺战。多个区块逐渐形成区块链。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.peiyingchi.com/2017/01/19/bitcoin-blockchain/" data-id="cj0g533380002vrkdjnfetsrz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://blog.peiyingchi.com/2017/01/19/bitcoin-blockchain/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.peiyingchi.com/2017/01/19/bitcoin-blockchain/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/01/25/understand-blockchain-01/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Understand Blockchain |理解区块链
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 
+            <span class="with-love">
+            	<i class="fa fa-heart"></i>
+            </span>
+            Yingchi<br>
+            <!-- 
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            -->
+            Last modified: Mar. 12th, 2017
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.peiyingchi.com/2017/01/19/bitcoin-blockchain/';
+        
+        this.page.identifier = 'bitcoin-blockchain';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'yingchi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
