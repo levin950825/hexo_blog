@@ -34,7 +34,7 @@ banner:
 
 ### 心路历程3.的具体过程
 When I log in to my cPanel, under 'performance' tab, there is no 'manage access' option. 
-![](14889387685017.jpg)
+<img src="https://imgur.com/B9SIhcm.jpg" class="img-shadow" width="700px">
 
 It seems that I do not have a dedicated IP address.
 However, after looking up the charges for VPS or dedicated IP, it was around $20 per month. I don't want to invest so much for now. So let's try some other approachs:
@@ -166,7 +166,7 @@ Follow this tutorial if it's your first time using SFTP:
 You can also set up SFTP on Cyberduck by providing your server IP, username and password. Put port number as 22.
 
 I encountered the following error when trying to upload files through SFTP.
-![](14890468705671.jpg)
+<img src="https://imgur.com/PIaT6Qf.jpg" class="img-shadow" width="500px">
 
 I then tried to upload files from terminal (log in by `sftp yingchi@xx.xx.xx.xx`) and I got
 
@@ -195,4 +195,5 @@ sudo chmod -R g+w /var/www
 #### Nginx server blocks 设置
 
 https://fraserxu.me/2013/06/22/Nginx-for-developers/
+
 

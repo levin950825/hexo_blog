@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://s6.postimg.org/7wc0y5tqp/14829172517203.jpg">
 <meta property="og:image" content="https://s6.postimg.org/z1ozinzyp/14898931224923.jpg">
 <meta property="og:image" content="https://s6.postimg.org/d3siovky9/14898931329803.jpg">
-<meta property="og:updated_time" content="2017-03-19T03:41:19.000Z">
+<meta property="og:updated_time" content="2017-03-19T08:20:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bitcoin Blockchain |比特币区块链理解">
 <meta name="twitter:description" content="Explain the key concepts in bitcoin and its underlying blockchain technology.">
@@ -43,6 +43,17 @@
     
         <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
     
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93931588-1', 'auto');
+ga('send', 'pageview');
+
+</script>
     
     
     
@@ -229,14 +240,14 @@
 </blockquote>
 <p>Transactions in the same block are considered happened at the same time. Any transactions not yet in a block are called unconfirmed. Any node can collect a set of unconfirmed transactions into a block and broadcast it to the rest of the network as a suggestion for what the next block in a chain should be.<br>Multiple nodes could generate blocks at the same time, so where are multiple versions to choose from. Each valid block must contain an answer to a very special mathematical problem.</p>
 <p>Computer runs entire text of the block + an additional random guess through something called a cryptographic hash, <strong>UNTIL</strong> the output is below a certain value.<br>It takes 10 mins for the bitcoin network to solve a block. The first person who solves a math problem broadcasts their block and gets to have their group of transactions accepted as the next in the chain.</p>
-<p>However, while it is rare, a block may be solved by multiple nodes at the same time, then branches occur. How to deal with this? Well, you simply build on the first block you receive and works from there. The tie gets broken when someone solves the next block. The general rule: <strong>Immediately switch to the longest chain available</strong>.<br><img src="https://s6.postimg.org/f9rex4dsh/14829171046099.jpg" width="300px"><br><img src="https://s6.postimg.org/k9ov52jf5/14829171346517.jpg" width="300px"><br>So the blockchain quickly stablize.<br>Transactions/Facts are grouped in blocks, and there is only a single chain of blocks, replicated in the entire network.</p>
+<p>However, while it is rare, a block may be solved by multiple nodes at the same time, then branches occur. How to deal with this? Well, you simply build on the first block you receive and works from there. The tie gets broken when someone solves the next block. The general rule: <strong>Immediately switch to the longest chain available</strong>.<br><img src="https://s6.postimg.org/f9rex4dsh/14829171046099.jpg" class="img-shadow" width="300px"><br><img src="https://s6.postimg.org/k9ov52jf5/14829171346517.jpg" class="img-shadow" width="300px"><br>So the blockchain quickly stablize.<br>Transactions/Facts are grouped in blocks, and there is only a single chain of blocks, replicated in the entire network.</p>
 <blockquote>
 <p>What is hashing?<br>Hashing is also a common method of accessing data records. Consider, for example, a list of names:<br>John Smith<br>Sarah Jones<br>Roger Adams<br>To create an index, called a hash table,for these records, you would apply a formula to each name to produce a unique numeric value. So you might get something like:<br>1345873 John smith<br>3097905 Sarah Jones<br>4060964 Roger Adams<br>Then to search for the record containing Sarah Jones,you just need to reapply the formula, which directly yields the index key to the record. This is much more efficient than searching through all the records till the matching record is found.</p>
 </blockquote>
-<h4 id="End-of-Chain-Insecurity"><a href="#End-of-Chain-Insecurity" class="headerlink" title="End of Chain Insecurity"></a>End of Chain Insecurity</h4><p><img src="https://s6.postimg.org/7wc0y5tqp/14829172517203.jpg" width="200px"><br>The fact that there is some ambiguity in the end of the chain</p>
-<p>A double-spent attack in this block chain system:<br><img src="https://s6.postimg.org/z1ozinzyp/14898931224923.jpg" width="450px"></p>
+<h4 id="End-of-Chain-Insecurity"><a href="#End-of-Chain-Insecurity" class="headerlink" title="End of Chain Insecurity"></a>End of Chain Insecurity</h4><p><img src="https://s6.postimg.org/7wc0y5tqp/14829172517203.jpg" class="img-shadow" width="200px"><br>The fact that there is some ambiguity in the end of the chain</p>
+<p>A double-spent attack in this block chain system:<br><img src="https://s6.postimg.org/z1ozinzyp/14898931224923.jpg" class="img-shadow" width="450px"></p>
 <p>A⇒B will be threw back to the unconfirmed pool, but because A⇒A was confirmed with the same input, it will invalid A⇒B. </p>
-<p>Well, <strong>Math puzzle in each block actually prevent this</strong>, because Alice cannot change one block from the middle. The attach will only be possible if Alice owns more than half of the nodes in the world.<br><img src="https://s6.postimg.org/d3siovky9/14898931329803.jpg" width="450px"><br>So the system is only vulnerable to a double spend attach near the end of the chain, which is why it’s recommended to wait several blocks before considering received money final. </p>
+<p>Well, <strong>Math puzzle in each block actually prevent this</strong>, because Alice cannot change one block from the middle. The attach will only be possible if Alice owns more than half of the nodes in the world.<br><img src="https://s6.postimg.org/d3siovky9/14898931329803.jpg" class="img-shadow" width="450px"><br>So the system is only vulnerable to a double spend attach near the end of the chain, which is why it’s recommended to wait several blocks before considering received money final. </p>
 <h4 id="Mining"><a href="#Mining" class="headerlink" title="Mining"></a>Mining</h4><p>The process of looking for blocks is called mining. This is because, just like gold mining, block mining brings an economical reward - some form of money. That’s the reason why people who run nodes in a blockchain are also called miners.</p>
 <blockquote>
 <p>Note: By default, a node doesn’t mine - it just receives blocks mined by other nodes. It’s a voluntary process to turn a node into a miner node.</p>
@@ -259,7 +270,7 @@
 
 </div>
 
-    <a data-url="http://blog.peiyingchi.com/2017/01/19/bitcoin-blockchain/" data-id="cj0g533380002vrkdjnfetsrz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blog.peiyingchi.com/2017/01/19/bitcoin-blockchain/" data-id="cj0gpvdtj0000vnk961tv8i4s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

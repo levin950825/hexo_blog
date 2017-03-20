@@ -11,13 +11,13 @@
 <meta property="og:url" content="http://blog.peiyingchi.com/2017/03/11/rebuild-personal-website-and-blog/index.html">
 <meta property="og:site_name" content="Yingchi's blog">
 <meta property="og:description" content="流水账日志">
-<meta property="og:image" content="http://blog.peiyingchi.com/14889387685017.jpg">
-<meta property="og:image" content="http://blog.peiyingchi.com/14890468705671.jpg">
-<meta property="og:updated_time" content="2017-03-19T03:31:02.000Z">
+<meta property="og:image" content="https://imgur.com/B9SIhcm.jpg">
+<meta property="og:image" content="https://imgur.com/PIaT6Qf.jpg">
+<meta property="og:updated_time" content="2017-03-19T08:18:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rebuild Personal Website and Blog |重新搭建站点和博客">
 <meta name="twitter:description" content="流水账日志">
-<meta name="twitter:image" content="http://blog.peiyingchi.com/14889387685017.jpg">
+<meta name="twitter:image" content="https://imgur.com/B9SIhcm.jpg">
     
 
     
@@ -40,6 +40,17 @@
     
         <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
     
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93931588-1', 'auto');
+ga('send', 'pageview');
+
+</script>
     
     
     
@@ -227,7 +238,7 @@
 <li>在本地搭建完成个人主页（先用原来的）和个人博客。Complete the development for the personal homepage and also the blog locally。流水账和踩坑过程记录在：</li>
 <li>把这两套站点的文件部署到DO上。流水账和踩坑过程记录在：</li>
 </ol>
-<h3 id="心路历程3-的具体过程"><a href="#心路历程3-的具体过程" class="headerlink" title="心路历程3.的具体过程"></a>心路历程3.的具体过程</h3><p>When I log in to my cPanel, under ‘performance’ tab, there is no ‘manage access’ option.<br><img src="14889387685017.jpg" alt=""></p>
+<h3 id="心路历程3-的具体过程"><a href="#心路历程3-的具体过程" class="headerlink" title="心路历程3.的具体过程"></a>心路历程3.的具体过程</h3><p>When I log in to my cPanel, under ‘performance’ tab, there is no ‘manage access’ option.<br><img src="https://imgur.com/B9SIhcm.jpg" class="img-shadow" width="700px"></p>
 <p>It seems that I do not have a dedicated IP address.<br>However, after looking up the charges for VPS or dedicated IP, it was around $20 per month. I don’t want to invest so much for now. So let’s try some other approachs:</p>
 <ul>
 <li>host my blog subdomain <code>blog.peiyingchi.com</code> on GitHub Pages. This option is free</li>
@@ -281,7 +292,7 @@
 <p>Replace <code>source_file</code> with the name of the existing file for which you want to create the symbolic link (this file can be any existing file or directory across the file systems). Replace <code>myfile</code> with the name of the symbolic link. The <code>ln</code> command then creates the symbolic link. After you’ve made the symbolic link, you can perform an operation on or execute <code>myfile</code>, just as you could with the <code>source_file</code>. You can use normal file management commands (e.g., <code>cp</code>, <code>rm</code>) on the symbolic link.</p>
 </blockquote>
 <h4 id="Transfer-files-Local-lt-gt-Remote-Server-using-SFTP"><a href="#Transfer-files-Local-lt-gt-Remote-Server-using-SFTP" class="headerlink" title="Transfer files Local &lt;==&gt; Remote Server using SFTP"></a>Transfer files Local &lt;==&gt; Remote Server using SFTP</h4><p>Follow this tutorial if it’s your first time using SFTP:<br><a href="https://www.digitalocean.com/community/tutorials/how-to-use-sftp-to-securely-transfer-files-with-a-remote-server" target="_blank" rel="external">How To Use SFTP to Securely Transfer Files with a Remote Server</a><br>You can also set up SFTP on Cyberduck by providing your server IP, username and password. Put port number as 22.</p>
-<p>I encountered the following error when trying to upload files through SFTP.<br><img src="14890468705671.jpg" alt=""></p>
+<p>I encountered the following error when trying to upload files through SFTP.<br><img src="https://imgur.com/PIaT6Qf.jpg" class="img-shadow" width="500px"></p>
 <p>I then tried to upload files from terminal (log in by <code>sftp yingchi@xx.xx.xx.xx</code>) and I got</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">remote open(<span class="string">"/var/www/yingchi.me/html/index.html"</span>): Permission denied</div></pre></td></tr></table></figure>
 <p>So it seems that I did not set the permission for the folder correctly.</p>
@@ -301,7 +312,7 @@
 
 </div>
 
-    <a data-url="http://blog.peiyingchi.com/2017/03/11/rebuild-personal-website-and-blog/" data-id="cj0g5333v000kvrkd1i536q12" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blog.peiyingchi.com/2017/03/11/rebuild-personal-website-and-blog/" data-id="cj0gpvdu2000dvnk91sjsenev" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

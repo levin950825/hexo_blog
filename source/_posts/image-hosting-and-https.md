@@ -14,8 +14,8 @@ Use images hosting service with HTTPS connections.
 <!-- more -->
 ### 前言
 前几天把网站改到用HTTPS安全链接。
-![](https://s6.postimg.org/pnnncm95d/14897372959318.jpg)
-![](https://s6.postimg.org/3pr6itu4x/14897373101631.jpg)
+<img src="https://imgur.com/L1lbdd0.jpg" class="img-shadow" >
+<img src="https://imgur.com/L1lbdd0.jpg" class="img-shadow" >
 
 又想到一个任务是把博客的图片从Hexo `asset folder`加载模式改到用图床模式。这样一来有两个好处：
 

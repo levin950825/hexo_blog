@@ -38,7 +38,7 @@ The direction IBM and many other in finance are going is to look at permissioned
 - [云象(YunPhant)](http://www.yunphant.com/) 是超级账本（hyperledger）项目成员之一，是全球领先的区块链技术公司。云象区块链依托浙江大学智能计算与系统实验室，新加坡国立大学云象联合实验室，拥有多位计算机博士、硕士，致力于打造全球领先的企业级联盟链技术平台。
 由Roger Zimmermann教授和刘振广博士带领的新加坡国立大学云象联合实验室也在着力研究新型的区块链数据库，以达到一百万次每秒的交易速度，且已取得了第一阶段成果。由陈积明教授（长江学者）和何钦铭教授带领的浙江大学云象团队在安全和智能合约方向也取得了丰硕成果。
 云象与美国iBlockChain在深圳成立的区块链合资公司是前海区块链国际生态圈联盟秘书长单位，同时云象也是中关村区块链产业联盟成员
-![](https://s15.postimg.org/6cx0gbh23/14898918353591.jpg)
+<img src="https://s15.postimg.org/6cx0gbh23/14898918353591.jpg" class="img-shadow">
 
 ### 供应链/贸易金融流程自动化的步骤
 1.“将纸质信用证转换成可以自动执行支付的智能合约（transforming letters of credit to smart contracts with automated payments）”；

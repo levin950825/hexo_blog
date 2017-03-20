@@ -37,7 +37,7 @@ Because people will likely lose private keys due to hard drive crashes and insuf
 #### Still another security hole: Transaction Order
 Nodes need to agree on transaction order.
 The BTC system orders transactions by placing them in groups called blocks, and linking these blocks together in something called blockchain.
->Note that it is different from the transaction chain.
+> Note that it is different from the transaction chain.
 
 Transactions in the same block are considered happened at the same time. Any transactions not yet in a block are called unconfirmed. Any node can collect a set of unconfirmed transactions into a block and broadcast it to the rest of the network as a suggestion for what the next block in a chain should be.
 Multiple nodes could generate blocks at the same time, so where are multiple versions to choose from. Each valid block must contain an answer to a very special mathematical problem.
@@ -46,8 +46,8 @@ Computer runs entire text of the block + an additional random guess through some
 It takes 10 mins for the bitcoin network to solve a block. The first person who solves a math problem broadcasts their block and gets to have their group of transactions accepted as the next in the chain.
 
 However, while it is rare, a block may be solved by multiple nodes at the same time, then branches occur. How to deal with this? Well, you simply build on the first block you receive and works from there. The tie gets broken when someone solves the next block. The general rule: **Immediately switch to the longest chain available**.
-<img src="https://s6.postimg.org/f9rex4dsh/14829171046099.jpg" width="300px">
-<img src="https://s6.postimg.org/k9ov52jf5/14829171346517.jpg" width="300px">
+<img src="https://s6.postimg.org/f9rex4dsh/14829171046099.jpg" class="img-shadow" width="300px">
+<img src="https://s6.postimg.org/k9ov52jf5/14829171346517.jpg" class="img-shadow" width="300px">
 So the blockchain quickly stablize. 
 Transactions/Facts are grouped in blocks, and there is only a single chain of blocks, replicated in the entire network.
 
@@ -63,16 +63,16 @@ To create an index, called a hash table,for these records, you would apply a for
 Then to search for the record containing Sarah Jones,you just need to reapply the formula, which directly yields the index key to the record. This is much more efficient than searching through all the records till the matching record is found.
 
 #### End of Chain Insecurity
-<img src="https://s6.postimg.org/7wc0y5tqp/14829172517203.jpg" width="200px">
+<img src="https://s6.postimg.org/7wc0y5tqp/14829172517203.jpg"class="img-shadow" width="200px">
 The fact that there is some ambiguity in the end of the chain
 
 A double-spent attack in this block chain system:
-<img src="https://s6.postimg.org/z1ozinzyp/14898931224923.jpg" width="450px">
+<img src="https://s6.postimg.org/z1ozinzyp/14898931224923.jpg" class="img-shadow" width="450px">
 
 A⇒B will be threw back to the unconfirmed pool, but because A⇒A was confirmed with the same input, it will invalid A⇒B. 
 
 Well, **Math puzzle in each block actually prevent this**, because Alice cannot change one block from the middle. The attach will only be possible if Alice owns more than half of the nodes in the world.
-<img src="https://s6.postimg.org/d3siovky9/14898931329803.jpg" width="450px">
+<img src="https://s6.postimg.org/d3siovky9/14898931329803.jpg" class="img-shadow" width="450px">
 So the system is only vulnerable to a double spend attach near the end of the chain, which is why it's recommended to wait several blocks before considering received money final. 
 
 

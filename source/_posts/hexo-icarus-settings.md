@@ -290,7 +290,7 @@ social_links:
 
 修改之前的代码块长这样：
 
-<img src="14892366823423.jpg" class="img-shadow" />
+<img src="https://imgur.com/jAcwO7V.jpg" class="img-shadow" />
 
 这个代码块的边距个人觉得有点大了。尤其对于只有一两行的代码，很占空间。
 从哪里能改呢？先从主体的CSS文件看起：`~/hexo_blog/themes/icarus/source/css/style.styl`
@@ -340,7 +340,7 @@ social_links:
 
 #### 修改引用的渲染格式
 改动之前的是这样的：
-<img src="14892373341062.jpg" class="img-shadow" />
+<img src="https://imgur.com/RQ1uF3x.jpg" class="img-shadow" />
 
 
 个人不是很喜欢这种模式。不简洁，也占空间。
@@ -472,7 +472,7 @@ post_sidebar = hexo-config("post_sidebar")
 如果还想自定义CSS的话，主题样式文件都在`themes/icarus/source/css/_partial`里，对照着页面文件找到对应的class样式去修改吧。
 
 比如我这里发现在打开文章的时候，显示的效果并不是很理想。
-<img src="14891972108134.jpg" class="img-shadow" />
+<img src="https://imgur.com/j3hbYi7.jpg" class="img-shadow" width="600px">
 
 时候可以在测试页面按`cmd+opt+j`调出Javascript console查看元素。会发现它是从根目录下`public/css/style.css`而来，但是我们直接改这里的话是没有用的。因为所有`public`文件夹下都是由`hexo g`生成的。
 

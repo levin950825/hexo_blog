@@ -64,7 +64,9 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: icarus
-
+sitemap:
+    path: sitemap.xml
+    
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

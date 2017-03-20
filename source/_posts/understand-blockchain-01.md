@@ -23,14 +23,14 @@ toc: true
 * 链（Chain）：由一个个区块按照发生顺序串联而成，是整个状态变化的日志记录。
 
 如果把区块链作为一个状态机，则每次交易就是试图改变一次状态，而每次共识生成的区块，就是参与者对于区块中所有交易内容导致状态改变的结果进行确认。
-<img src="14832797016611.png" width="550px">
+<img src="https://s6.postimg.org/46ce59hw1/14832797016611.png" class="img-shadow" width="500px">
 
 
 节点需要将新区块的前一 个区块的哈希值、当前时间戳、一段时间内发生的有效交易及其梅克尔树 根值等内容打包成一个区块,向全网广播。
 
-<img src="14834176626345.jpg" width="550px">
+<img src="https://s6.postimg.org/859lo36j5/14834176626345.jpg" class="img-shadow" width="550px">
 
-<img src="14834178266616.jpg" width="550px">
+<img src="https://s6.postimg.org/j69c6uo5t/14834178266616.jpg" class="img-shadow" width="550px">
 
 Blockchain 2.0 的典型特征如下：
 
@@ -57,7 +57,7 @@ Blockchain 2.0 的典型特征如下：
 
 ### 非对称加密算法
 非对称加密算法是指使用公私钥对数据存储和传输进行加密和解 密。公钥可公开发布,用于发送方加密要发送的信息,私钥用于接收方 解密接收到的加密内容。公私钥对计算时间较长,主要用于加密较少的 数据。常用的非对称加密算法有RSA和ECC。非对称加密算法的过程如图 2-3所示。区块链正是使用非对称加密的公私钥对来构建节点间信任的。
-![](14834174393360.jpg)
+<img src="https://s6.postimg.org/cd4dwu7yp/14834174393360.jpg" class="img-shadow" >
 
 ### POW v.s. POS
 #### POW: Proof of Work | 工作量证明
@@ -76,7 +76,7 @@ Blockchain 2.0 的典型特征如下：
 联盟链则介于两者之间，由若干组织一起合作维护一条区块链，该区块链的使用必须是有权限的管理，相关信息会得到保护，典型如银联组织。
 目前来看，公开链将会更多的吸引社区和媒体的眼球，但更多的商业价值应该在联盟链和私有链上。
 根据使用目的和场景的不同，又可以分为以数字货币为目的的货币链，以记录产权为目的的产权链，以众筹为目的的众筹链等。
-![](14834271525238.jpg)
+<img src="https://s6.postimg.org/c4beknkk1/14834271525238.jpg" class="img-shadow" >
 
 
 ### 误区
@@ -103,7 +103,7 @@ With smart contracts, for the first time, you can build business process automat
 <div style="text-align: right">  *(click on the picture to enlarge)* </div>
 
 ### 未来区块链生态
-![](14835824591159.jpg)
+![](https://s6.postimg.org/v0h34hmfl/14835824591159.jpg)
 
 ### 整体设计
 ![](https://s30.postimg.org/ssvnxgtr5/14898915018403.jpg)
