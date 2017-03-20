@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Deploy Hexo Blog to VPS |部署Hexo博客到VPS | Yingchi&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Deploy my Hexo blog to VPS (Ubuntu OS at Digital Ocean)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy Hexo Blog to VPS |部署Hexo博客到VPS">
+<meta property="og:url" content="http://blog.peiyingchi.com/2017/03/20/deploy-hexo-blog-to-VPS/index.html">
+<meta property="og:site_name" content="Yingchi's blog">
+<meta property="og:description" content="Deploy my Hexo blog to VPS (Ubuntu OS at Digital Ocean)">
+<meta property="og:updated_time" content="2017-03-20T09:47:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deploy Hexo Blog to VPS |部署Hexo博客到VPS">
+<meta name="twitter:description" content="Deploy my Hexo blog to VPS (Ubuntu OS at Digital Ocean)">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/whale.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93931588-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Yingchi&#39;s blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/profile_pic.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <script type='text/javascript'>
+                $('body').append("<style type='text/css'>@media screen and (min-width: 1200px) { #main {margin: auto; width: 70%; display: block; float:none;}}</style>");
+                </script>
+                <script type='text/javascript'>
+                document.querySelector('style').textContent += "@media screen and (max-width: 1199px) and (min-width: 800px) { #main {margin: auto; width: 70%; display: block; float:none;}}"
+                </script>
+            
+            <section id="main"><article id="post-deploy-hexo-blog-to-VPS" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Deploy Hexo Blog to VPS |部署Hexo博客到VPS
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/20/deploy-hexo-blog-to-VPS/">
+            <time datetime="2017-03-20T09:41:10.000Z" itemprop="datePublished">2017-03-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/website-dev-hexo/">website dev, hexo</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备阶段"><span class="toc-number">2.</span> <span class="toc-text">准备阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当我们说部署Hexo博客的时候我们在讲什么"><span class="toc-number">3.</span> <span class="toc-text">当我们说部署Hexo博客的时候我们在讲什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用rsync部署"><span class="toc-number">4.</span> <span class="toc-text">用rsync部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装rsync"><span class="toc-number">4.1.</span> <span class="toc-text">安装rsync</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rsync配置"><span class="toc-number">4.2.</span> <span class="toc-text">rsync配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-hook自动部署方案"><span class="toc-number">5.</span> <span class="toc-text">git hook自动部署方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">5.1.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化git仓库"><span class="toc-number">5.2.</span> <span class="toc-text">初始化git仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地配置"><span class="toc-number">5.3.</span> <span class="toc-text">本地配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">6.</span> <span class="toc-text">最后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">7.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                </div>
+            
+            <p>Deploy my Hexo blog to VPS (Ubuntu OS at Digital Ocean)</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在本地搭建好Hexo博客后，接下来就是部署到互联网上去了。网上搜到的教程大部分都是将Hexo部署到GitHub Pages上面，这样省时省力，但是已经有了Digital Ocean的VPS还是要用一下。(当然了，GitHub上有空间限制，访问速度问题等等)。</p>
+<p>运行环境：</p>
+<blockquote>
+<p>Ubuntu 16.04.1 x64<br>nginx 服务器</p>
+</blockquote>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>网上流传的武功秘籍分为两种：</p>
+<ul>
+<li>将Hexo项目上传到VPS上面后执行 <code>hexo serve</code>r，之后配置Nginx反向代理，让域名指向 <code>http://localhost:4000</code>。</li>
+<li>将Hexo在本地通过 <code>hexo generate</code> 生成静态文件，在通过 <code>hexo deploy</code> 部署到VPS上面，使用Nginx直接做Web服务器。</li>
+</ul>
+<p>相比第二种方式，第一种每次写博客与更新博客时候的操作会很繁琐。所以我们使用第二种方式进行部署，这样既可以将静态文件deploy到VPS上，也可以上传到Github上用作备份，操作性和安全性上都要胜于前者。</p>
+<p>而对于第二种方式而言，常用的又有 <code>git hook</code> 和 <code>rsync</code> 两种自动部署解决方案</p>
+<h2 id="当我们说部署Hexo博客的时候我们在讲什么"><a href="#当我们说部署Hexo博客的时候我们在讲什么" class="headerlink" title="当我们说部署Hexo博客的时候我们在讲什么"></a>当我们说部署Hexo博客的时候我们在讲什么</h2><p>在我们创建的博客目录下执行 <code>hexo generate</code> 后，hexo会将我们编辑的markdown博客自动生成静态的网页，而生成的文件就存储在 <code>public</code> 文件夹中，这其中的每一个html文件都是我们之后在网页中查看博客时候加载的对应文件，而我们在执行 <code>hexo deploy</code> 时，就是要将 <code>public</code> 文件夹下的文件全部部署到我们之前在Nginx配置中设置的 <code>root /var/www/hexo</code> 的路径中。</p>
+<h2 id="用rsync部署"><a href="#用rsync部署" class="headerlink" title="用rsync部署"></a>用rsync部署</h2><p>相比较git hook方式，这一种操作更简单，对于小白更不容易出错。</p>
+<h3 id="安装rsync"><a href="#安装rsync" class="headerlink" title="安装rsync"></a>安装rsync</h3><p>rsync的安装分为两部分：服务器端和本地<br>服务器端安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install rsync</div></pre></td></tr></table></figure>
+<blockquote>
+<p>对于Digital Ocean Ubuntu VPS，大多数的Linux系统已经默认装有 <code>rsync</code> 了，可以运行 <code>rsync</code> 测试下是否已经安装。<br>本地安装：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-rsync --save</div></pre></td></tr></table></figure>
+<h3 id="rsync配置"><a href="#rsync配置" class="headerlink" title="rsync配置"></a>rsync配置</h3><p>编辑博客文件夹目录下的 <code>_config.yml</code>，找到deploy添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: rsync</div><div class="line">  host: vps-ip  # 这里填写你VPS的IP地址，比如：138.23.23.23</div><div class="line">  user: vps-user # 这里填写你登陆VPS所用的用户名，比如：root</div><div class="line">  root: /usr/www/blog # 这里填写你在nginx中配置的文件路径</div><div class="line">  port: 22 # SSH默认端口号，不需要修改</div></pre></td></tr></table></figure>
+<p>配置完毕！在 blog 目录下执行下面一段代码，接下来就是见证奇迹的时刻</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate &amp;&amp; hexo deploy</div></pre></td></tr></table></figure>
+<h2 id="git-hook自动部署方案"><a href="#git-hook自动部署方案" class="headerlink" title="git hook自动部署方案"></a>git hook自动部署方案</h2><p>使用git hook和rsync得到的效果是等效的，也就是说，二者中选一种你喜欢的就可以完成配置。</p>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>本地部署工具安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>服务器端安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install git-core</div></pre></td></tr></table></figure>
+<p>新增一个名为 <code>git</code> 的用户，并给用户 <code>git</code> 赋予无需密码操作的权限（否则到后面 Hexo 部署的时候会提示无权限）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">adduser git</div><div class="line">chmod 740 /etc/sudoers</div><div class="line">vi /etc/sudoers</div></pre></td></tr></table></figure>
+<p>在vi编辑中找到如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## Allow root to run any commands anywhere</div><div class="line">root    ALL=(ALL)     ALL</div></pre></td></tr></table></figure>
+<p>在下面添加一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git   ALL=(ALL)     ALL</div></pre></td></tr></table></figure>
+<blockquote>
+<p>vim 操作小贴士：打开文件之后要按i进入编辑模式，编辑完以后按Esc，再输入<code>:wq</code>回车才能保存；如果想不保存直接退出请输入<code>:q!</code>。）<br>保存退出后执行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 440 /etc/sudoers</div></pre></td></tr></table></figure>
+<p>接下来要把本地的 SSH 公钥上传到 VPS 。执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">su git</div><div class="line">cd ~</div><div class="line">mkdir .ssh &amp;&amp; cd .ssh</div><div class="line">touch authorized_keys</div><div class="line">vi authorized_keys</div></pre></td></tr></table></figure>
+<p>现在要打开本地的 Git Bash，输入<code>vi ~/.ssh/id_rsa.pub</code>，把里面的内容复制下来粘贴到上面打开的文件里。</p>
+<p>然后建立放部署的网页的 Git 库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ~</div><div class="line">mkdir hexo.git &amp;&amp; cd hexo.git</div><div class="line">git init --bare</div></pre></td></tr></table></figure>
+<p>测试一下，如果在 Git Bash 中输入 <code>ssh git@VPS的IP地址</code> 能够远程登录的话，则表示设置成功了。</p>
+<p>如果不成功，并且你的 VPS 的 ssh 端口不是 22 的话，请在Git Bash执行vi ~/.ssh/config，输入以下内容并保存：（成功就跳过这一步）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Host #VPS 的 IP</div><div class="line">HostName #VPS 的 IP</div><div class="line">User git</div><div class="line">Port #SSH 端口</div><div class="line">IdentityFile ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
+<h3 id="初始化git仓库"><a href="#初始化git仓库" class="headerlink" title="初始化git仓库"></a>初始化git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /var/repo</div><div class="line">cd /var/repo</div><div class="line">git init --bare blog.git</div></pre></td></tr></table></figure>
+<p>执行上述代码后,我们会在 <code>/var/repo</code> 路径下创建了一个名为 <code>blog.git</code> 的裸仓库，这个仓库的功能就是将我们deploy的文件通过git hook的方式共享到 <code>/var/www/blog</code> 中，而要想实现这一功能我们还需要进行如下配置：</p>
+<p>在 <code>blog.git/hooks</code> 目录下新建一个 <code>post-receive</code> 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /var/repo/blog.git/hooks</div><div class="line">vim post-receive</div></pre></td></tr></table></figure>
+<p>在 <code>post-receive</code> 中添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">git --work-tree=/var/www/hexo --git-dir=/var/repo/blog.git checkout -f</div></pre></td></tr></table></figure>
+<p>设置 <code>post-receive</code> 文件的可执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-receive</div></pre></td></tr></table></figure>
+<p>提示：如果设置的路径文件夹并不存在，那么需要创建该文件夹并且赋予你所使用的用户的权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /var/www/hexo</div><div class="line"><span class="built_in">cd</span> /var/www</div><div class="line">chown git:git hexo</div></pre></td></tr></table></figure>
+<h3 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h3><p>编辑博客文件夹目录下的 <code>_config.yml</code>，找到deploy添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">    type: git</div><div class="line">    repo: root@atomlx.com:/var/repo/blog.git # 此部分修改为你自己的登陆账号和域名，冒号后面为设置的裸仓库的地址</div><div class="line">    branch: master</div></pre></td></tr></table></figure>
+<p>同样在 blog 目录下执行下面一段代码，我们也可以看到我们的文件部署到了服务器上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate &amp;&amp; hexo deploy</div></pre></td></tr></table></figure>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>作为小白看到对 git hook 的教程之前有些出入，就选择了 rsync 的部署方法。Git hook 的流程只是放在这里作为对以后的参考。有什么不对的地方请谅解哦。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://segmentfault.com/a/1190000006745478#articleHeader0" target="_blank" rel="external">Hexo快速搭建静态博客并实现远程VPS自动部署</a></li>
+<li><a href="https://imp1995.github.io/2016/11/26/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3VPS%E5%B9%B6%E7%BB%91%E5%AE%9A%E7%8B%AC%E7%AB%8B%E5%9F%9F%E5%90%8D/" target="_blank" rel="external">Hexo个人博客迁移至VPS并绑定独立域名</a></li>
+<li><a href="http://atomlx.com/2016/08/12/test/" target="_blank" rel="external">如何部署Hexo到个人VPS</a></li>
+<li><a href="https://munen.cc/tech/Hexo-in-VPS.html" target="_blank" rel="external">利用 GIT HOOKS 部署 HEXO 到 VPS</a></li>
+</ul>
+
+        
+        </div>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/03/20/automatic-deployment-with-git/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Automatic Deployment with Git to VPS
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/03/17/image-hosting-and-https/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Image Hosting and HTTPS |图床与HTTPS</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 
+            <span class="with-love">
+            	<i class="fa fa-heart"></i>
+            </span>
+            Yingchi<br>
+            <!-- 
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            -->
+            Last modified: Mar. 12th, 2017
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.peiyingchi.com/2017/03/20/deploy-hexo-blog-to-VPS/';
+        
+        this.page.identifier = 'deploy-hexo-blog-to-VPS';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'yingchi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

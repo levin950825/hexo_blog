@@ -8,13 +8,14 @@ toc: true
 thumbnail:
 banner:
 ---
-Solve the 'zsh: no matches found: local[4]' issue when running a spark application.
+
+Solve the "zsh: no matches found: local[4]" issue when running a spark application.
 
 <!-- more -->
 ### Issue
 When I was trying to submit a Spark streaming application with this script:
 
-```
+```bash
 $ ~/spark/bin/spark-submit \
 --class "com.databricks.apps.logs.chapter1.LogAnalyzerStreaming" \
 --master local[4] \
@@ -23,7 +24,7 @@ apache.access.log
 ```
 I came across this error from zsh:
 
-```
+```bash
 $ zsh: no matches found: local[4]
 ```
 
@@ -41,7 +42,7 @@ So I changed back to bash and run spark submit script again, interestingly it wo
 
 According this post Zsh says “no matches found” when trying to download video with youtube-dl, it said that zsh only accepts parameters by quoting them:
 
-```
+```bash
 $ ~/spark/bin/spark-submit \
 --class "com.databricks.apps.logs.chapter1.LogAnalyzerStreaming" \
 --master "local[4]" \
@@ -53,19 +54,18 @@ It worked!
 ### Conclusion
 In zsh, by default, a failed expansion is an error, but in Bash it isn’t: the failed pattern is just left as an argument exactly as it was written. zsh’s behaviour is safer, in that you can’t write a command that secretly doesn’t do what you meant because a file was missing, but you can change it to have the Bash behaviour if you want:
 
-```
+```bash
 setopt nonomatch
 ```
 This will resolve the original use case. In general it will be better to quote arguments with special characters, though, in order to avoid any mistakes where a file happens to exist with a corresponding name, or doesn’t exist when you thought it did.
 
 The NOMATCH option is on by default, and causes the errors I were seeing. If you disable it with setopt nonomatch then any failed glob expansions will be left intact on the command line, for example:
 
-```
+```bash
 $ echo foo?bar
 zsh: no matches found: foo?bar
 $ setopt nonomatch
 $ echo foo?bar
 foo?bar
 ```
-
 

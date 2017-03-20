@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hexo User Notes |Hexo的基本使用 | Yingchi&#39;s blog</title>
+    <title>spark-zsh no matches found local | Yingchi&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="使用Hexo的常用命令和一些格式上的小技巧。">
+    <meta name="description" content="Solve the ‘zsh: no matches found: local[4]’ issue when running a spark application.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo User Notes |Hexo的基本使用">
-<meta property="og:url" content="http://blog.peiyingchi.com/2017/03/11/hexo-user-notes/index.html">
+<meta property="og:title" content="spark-zsh no matches found local">
+<meta property="og:url" content="http://blog.peiyingchi.com/2017/03/20/spark-zsh-no-matches-found-local/index.html">
 <meta property="og:site_name" content="Yingchi's blog">
-<meta property="og:description" content="使用Hexo的常用命令和一些格式上的小技巧。">
-<meta property="og:updated_time" content="2017-03-19T03:10:29.000Z">
+<meta property="og:description" content="Solve the ‘zsh: no matches found: local[4]’ issue when running a spark application.">
+<meta property="og:updated_time" content="2017-03-20T10:24:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo User Notes |Hexo的基本使用">
-<meta name="twitter:description" content="使用Hexo的常用命令和一些格式上的小技巧。">
+<meta name="twitter:title" content="spark-zsh no matches found local">
+<meta name="twitter:description" content="Solve the ‘zsh: no matches found: local[4]’ issue when running a spark application.">
     
 
     
@@ -164,7 +164,7 @@ ga('send', 'pageview');
                 document.querySelector('style').textContent += "@media screen and (max-width: 1199px) and (min-width: 800px) { #main {margin: auto; width: 70%; display: block; float:none;}}"
                 </script>
             
-            <section id="main"><article id="post-hexo-user-notes" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-spark-zsh-no-matches-found-local" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -172,7 +172,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            Hexo User Notes |Hexo的基本使用
+            spark-zsh no matches found local
         </h1>
     
 
@@ -181,8 +181,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/03/11/hexo-user-notes/">
-            <time datetime="2017-03-11T00:33:24.000Z" itemprop="datePublished">2017-03-11</time>
+        <a href="/2017/03/20/spark-zsh-no-matches-found-local/">
+            <time datetime="2017-03-20T10:22:23.000Z" itemprop="datePublished">2017-03-20</time>
         </a>
     </div>
 
@@ -190,13 +190,13 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+        <a class="article-category-link" href="/categories/Spark/">Spark</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">hexo</a>
+        <a class="tag-link" href="/tags/spark/">spark</a>
     </div>
 
                     </div>
@@ -209,32 +209,44 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本命令"><span class="toc-number">1.</span> <span class="toc-text">基本命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在文章中加入图片"><span class="toc-number">2.</span> <span class="toc-text">在文章中加入图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不在主页显示全部文章内容"><span class="toc-number">3.</span> <span class="toc-text">不在主页显示全部文章内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章基本参数"><span class="toc-number">4.</span> <span class="toc-text">文章基本参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码高亮并为代码块添加标题"><span class="toc-number">5.</span> <span class="toc-text">代码高亮并为代码块添加标题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于-Markdown-语法格式"><span class="toc-number">6.</span> <span class="toc-text">关于 Markdown 语法格式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Issue"><span class="toc-number">1.</span> <span class="toc-text">Issue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusion"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                 </div>
             
-            <p>使用Hexo的常用命令和一些格式上的小技巧。</p>
+            <p>Solve the ‘zsh: no matches found: local[4]’ issue when running a spark application.</p>
 <a id="more"></a>
-<h4 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h4><ol>
-<li><p><code>$ hexo new [layout] &lt;title&gt;</code> 创建一篇新文章。其中<code>layout</code>是可选参数，默认值是<code>post</code>。Hexo提供的<code>layout</code>在<code>scaffolds</code>目录下，也可以在此目录下自建<code>layout</code>文件。新建的文件则会保存到 <code>source/_post</code>目录下。你也可以更改默认布局的参数，如post布局，你需要打开 <code>scaffolds/post.md</code>，增加类别和描述。再新建一篇文章就能看到增加了文章参数。</p>
-</li>
-<li><p><code>$ hexo generate</code> 也可简写为<code>$ hexo g</code> 在部署前需要通过该命令把所有的文章做静态化处理，生成相应的html、javascript、css。</p>
-</li>
-<li><p><code>$ hexo deploy</code>也可简写为$ <code>hexo d</code> 负责生成静态文件后的发布。在发布到你的服务器之前要先配置好deploy指令，在全局配置文件(<code>_config.yml</code>)中找到deploy，并修改属性值。</p>
-</li>
-</ol>
-<h4 id="在文章中加入图片"><a href="#在文章中加入图片" class="headerlink" title="在文章中加入图片"></a>在文章中加入图片</h4><p>要在文章中插入图片，有两个选择，一是使用图床，二是将图片与网页文件一起部署。两种方法各有利弊，如果打算部署到GitHub或GitCafe上，个人推荐使用图床。如果是部署到七牛上，则直接使用部署方式。</p>
-<h4 id="不在主页显示全部文章内容"><a href="#不在主页显示全部文章内容" class="headerlink" title="不在主页显示全部文章内容"></a>不在主页显示全部文章内容</h4><p>我们在编辑内容时，在合适的地方添加一行代码：<code>&lt;!-- more --&gt;</code>，在它之上是摘要，是在主页会显示的文字部分。在它之下是余下全文，在主页中会多一个阅读全文的按钮，点击后才会看到全部内容。</p>
-<h4 id="文章基本参数"><a href="#文章基本参数" class="headerlink" title="文章基本参数"></a>文章基本参数</h4><p>打开 <code>scaffolds/post.md</code> 增加类别和描述，修改默认布局的参数：</p>
-<figure class="highlight markdown"><figcaption><span>post.md</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: #标题</div><div class="line">date: #日期时间</div><div class="line">tags: #标签</div><div class="line">categories: #分类</div><div class="line">comments: #是否允许评论 true 或 false</div><div class="line">toc: #是否添加文章目录 true 或 false</div><div class="line">thumbnail: #侧边栏封面图</div><div class="line"><span class="section">banner: #文章顶部封面图</span></div><div class="line">---</div></pre></td></tr></table></figure>
-<p>在新建一篇文章，你就能看到新建的文章已经新增了这些参数，不用每次自己手打，不需要的值就可以空着。</p>
-<h4 id="代码高亮并为代码块添加标题"><a href="#代码高亮并为代码块添加标题" class="headerlink" title="代码高亮并为代码块添加标题"></a>代码高亮并为代码块添加标题</h4><p>Markdown中插入代码，是通过添加三个反引号（`）或三个波浪号（~）来实现的。如下示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code here</div></pre></td></tr></table></figure>
-<p>像大多数的markdown, 如github的markdown都是这种写法。这种写法在[language]后面不能加其它参数，否则会输出不正常。</p>
-<p>Hexo自带高亮：<a href="https://hexo.io/docs/tag-plugins.html#Code-Block" target="_blank" rel="external">Code Block</a></p>
-<p>使用格式如下：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% codeblock [title] [lang:language] [url] [link text] %&#125;</div><div class="line">code snippet</div><div class="line">&#123;% endcodeblock %&#125;</div></pre></td></tr></table></figure>
-<p>注意：如果使用静态的代码高亮，则必须关闭hexo自带高亮，关闭之后，如果以前的.md源文件使用的是hexo第二种插入代码的方式，则会导致<code>hexo-renderer-marked</code>渲染异常。</p>
-<h4 id="关于-Markdown-语法格式"><a href="#关于-Markdown-语法格式" class="headerlink" title="关于 Markdown 语法格式"></a>关于 Markdown 语法格式</h4><p>尽量使用规范的 Markdown 语法格式<br>参考：<a href="http://www.cirosantilli.com/markdown-style-guide/#code" target="_blank" rel="external">http://www.cirosantilli.com/markdown-style-guide/#code</a></p>
+<h3 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h3><p>When I was trying to submit a Spark streaming application with this script:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ~/spark/bin/spark-submit \</div><div class="line">--class &quot;com.databricks.apps.logs.chapter1.LogAnalyzerStreaming&quot; \</div><div class="line">--master local[4] \</div><div class="line">target/log-analyzer-1.0.jar \</div><div class="line">apache.access.log</div></pre></td></tr></table></figure>
+<p>I came across this error from zsh:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ zsh: no matches found: local[4]</div></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>I replaced <code>local[4]</code> with <code>local</code> it seemed to work, but according to the usage of master URL:</p>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local</td>
+<td>run Spark locally with one worker thread (i.e. no parallelism at all)</td>
+</tr>
+<tr>
+<td>local[K]</td>
+<td>run Spark locally with K worker threads (ideally, set K to the number of cores on your machine)</td>
+</tr>
+</tbody>
+</table>
+<p>I should not change the master URL because I wanted it to run in parallelism.</p>
+<p>So I changed back to bash and run spark submit script again, interestingly it worked! Obviously it was an issue of zsh.</p>
+<p>According this post Zsh says “no matches found” when trying to download video with youtube-dl, it said that zsh only accepts parameters by quoting them:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ~/spark/bin/spark-submit \</div><div class="line">--class &quot;com.databricks.apps.logs.chapter1.LogAnalyzerStreaming&quot; \</div><div class="line">--master &quot;local[4]&quot; \</div><div class="line">target/log-analyzer-1.0.jar \</div><div class="line">apache.access.log</div></pre></td></tr></table></figure>
+<p>It worked!</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>In zsh, by default, a failed expansion is an error, but in Bash it isn’t: the failed pattern is just left as an argument exactly as it was written. zsh’s behaviour is safer, in that you can’t write a command that secretly doesn’t do what you meant because a file was missing, but you can change it to have the Bash behaviour if you want:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setopt nonomatch</div></pre></td></tr></table></figure>
+<p>This will resolve the original use case. In general it will be better to quote arguments with special characters, though, in order to avoid any mistakes where a file happens to exist with a corresponding name, or doesn’t exist when you thought it did.</p>
+<p>The NOMATCH option is on by default, and causes the errors I were seeing. If you disable it with setopt nonomatch then any failed glob expansions will be left intact on the command line, for example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ echo foo?bar</div><div class="line">zsh: no matches found: foo?bar</div><div class="line">$ setopt nonomatch</div><div class="line">$ echo foo?bar</div><div class="line">foo?bar</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -244,19 +256,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/03/11/rebuild-personal-website-and-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Rebuild Personal Website and Blog |重新搭建站点和博客
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/03/10/hexo-icarus-settings/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/03/20/automatic-deployment-with-git/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Hexo Icarus Theme Settings |Icarus主题设置</div>
+            <div class="article-nav-title">Automatic Deployment with Git to VPS</div>
         </a>
     
 </nav>
@@ -301,9 +304,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://blog.peiyingchi.com/2017/03/11/hexo-user-notes/';
+            this.page.url = 'http://blog.peiyingchi.com/2017/03/20/spark-zsh-no-matches-found-local/';
         
-        this.page.identifier = 'hexo-user-notes';
+        this.page.identifier = 'spark-zsh-no-matches-found-local';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

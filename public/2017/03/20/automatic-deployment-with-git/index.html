@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hexo User Notes |Hexo的基本使用 | Yingchi&#39;s blog</title>
+    <title>Automatic Deployment with Git to VPS | Yingchi&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="使用Hexo的常用命令和一些格式上的小技巧。">
+    <meta name="description" content="How to set up automatic deployment with git to VPS for my html homepage-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo User Notes |Hexo的基本使用">
-<meta property="og:url" content="http://blog.peiyingchi.com/2017/03/11/hexo-user-notes/index.html">
+<meta property="og:title" content="Automatic Deployment with Git to VPS">
+<meta property="og:url" content="http://blog.peiyingchi.com/2017/03/20/automatic-deployment-with-git/index.html">
 <meta property="og:site_name" content="Yingchi's blog">
-<meta property="og:description" content="使用Hexo的常用命令和一些格式上的小技巧。">
-<meta property="og:updated_time" content="2017-03-19T03:10:29.000Z">
+<meta property="og:description" content="How to set up automatic deployment with git to VPS for my html homepage-">
+<meta property="og:updated_time" content="2017-03-20T09:53:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo User Notes |Hexo的基本使用">
-<meta name="twitter:description" content="使用Hexo的常用命令和一些格式上的小技巧。">
+<meta name="twitter:title" content="Automatic Deployment with Git to VPS">
+<meta name="twitter:description" content="How to set up automatic deployment with git to VPS for my html homepage-">
     
 
     
@@ -164,7 +164,7 @@ ga('send', 'pageview');
                 document.querySelector('style').textContent += "@media screen and (max-width: 1199px) and (min-width: 800px) { #main {margin: auto; width: 70%; display: block; float:none;}}"
                 </script>
             
-            <section id="main"><article id="post-hexo-user-notes" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-automatic-deployment-with-git" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -172,7 +172,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            Hexo User Notes |Hexo的基本使用
+            Automatic Deployment with Git to VPS
         </h1>
     
 
@@ -181,8 +181,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/03/11/hexo-user-notes/">
-            <time datetime="2017-03-11T00:33:24.000Z" itemprop="datePublished">2017-03-11</time>
+        <a href="/2017/03/20/automatic-deployment-with-git/">
+            <time datetime="2017-03-20T09:51:36.000Z" itemprop="datePublished">2017-03-20</time>
         </a>
     </div>
 
@@ -190,13 +190,13 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+        <a class="article-category-link" href="/categories/Website-Dev/">Website Dev</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">hexo</a>
+        <a class="tag-link" href="/tags/website-dev/">website dev</a>
     </div>
 
                     </div>
@@ -209,32 +209,36 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本命令"><span class="toc-number">1.</span> <span class="toc-text">基本命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在文章中加入图片"><span class="toc-number">2.</span> <span class="toc-text">在文章中加入图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不在主页显示全部文章内容"><span class="toc-number">3.</span> <span class="toc-text">不在主页显示全部文章内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章基本参数"><span class="toc-number">4.</span> <span class="toc-text">文章基本参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码高亮并为代码块添加标题"><span class="toc-number">5.</span> <span class="toc-text">代码高亮并为代码块添加标题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于-Markdown-语法格式"><span class="toc-number">6.</span> <span class="toc-text">关于 Markdown 语法格式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-Setup"><span class="toc-number">1.</span> <span class="toc-text">Server Setup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-Our-Repository"><span class="toc-number">2.</span> <span class="toc-text">Creating Our Repository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hooks"><span class="toc-number">3.</span> <span class="toc-text">Hooks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Local-Machine"><span class="toc-number">4.</span> <span class="toc-text">Local Machine</span></a></li></ol>
                 </div>
             
-            <p>使用Hexo的常用命令和一些格式上的小技巧。</p>
-<a id="more"></a>
-<h4 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h4><ol>
-<li><p><code>$ hexo new [layout] &lt;title&gt;</code> 创建一篇新文章。其中<code>layout</code>是可选参数，默认值是<code>post</code>。Hexo提供的<code>layout</code>在<code>scaffolds</code>目录下，也可以在此目录下自建<code>layout</code>文件。新建的文件则会保存到 <code>source/_post</code>目录下。你也可以更改默认布局的参数，如post布局，你需要打开 <code>scaffolds/post.md</code>，增加类别和描述。再新建一篇文章就能看到增加了文章参数。</p>
-</li>
-<li><p><code>$ hexo generate</code> 也可简写为<code>$ hexo g</code> 在部署前需要通过该命令把所有的文章做静态化处理，生成相应的html、javascript、css。</p>
-</li>
-<li><p><code>$ hexo deploy</code>也可简写为$ <code>hexo d</code> 负责生成静态文件后的发布。在发布到你的服务器之前要先配置好deploy指令，在全局配置文件(<code>_config.yml</code>)中找到deploy，并修改属性值。</p>
-</li>
-</ol>
-<h4 id="在文章中加入图片"><a href="#在文章中加入图片" class="headerlink" title="在文章中加入图片"></a>在文章中加入图片</h4><p>要在文章中插入图片，有两个选择，一是使用图床，二是将图片与网页文件一起部署。两种方法各有利弊，如果打算部署到GitHub或GitCafe上，个人推荐使用图床。如果是部署到七牛上，则直接使用部署方式。</p>
-<h4 id="不在主页显示全部文章内容"><a href="#不在主页显示全部文章内容" class="headerlink" title="不在主页显示全部文章内容"></a>不在主页显示全部文章内容</h4><p>我们在编辑内容时，在合适的地方添加一行代码：<code>&lt;!-- more --&gt;</code>，在它之上是摘要，是在主页会显示的文字部分。在它之下是余下全文，在主页中会多一个阅读全文的按钮，点击后才会看到全部内容。</p>
-<h4 id="文章基本参数"><a href="#文章基本参数" class="headerlink" title="文章基本参数"></a>文章基本参数</h4><p>打开 <code>scaffolds/post.md</code> 增加类别和描述，修改默认布局的参数：</p>
-<figure class="highlight markdown"><figcaption><span>post.md</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: #标题</div><div class="line">date: #日期时间</div><div class="line">tags: #标签</div><div class="line">categories: #分类</div><div class="line">comments: #是否允许评论 true 或 false</div><div class="line">toc: #是否添加文章目录 true 或 false</div><div class="line">thumbnail: #侧边栏封面图</div><div class="line"><span class="section">banner: #文章顶部封面图</span></div><div class="line">---</div></pre></td></tr></table></figure>
-<p>在新建一篇文章，你就能看到新建的文章已经新增了这些参数，不用每次自己手打，不需要的值就可以空着。</p>
-<h4 id="代码高亮并为代码块添加标题"><a href="#代码高亮并为代码块添加标题" class="headerlink" title="代码高亮并为代码块添加标题"></a>代码高亮并为代码块添加标题</h4><p>Markdown中插入代码，是通过添加三个反引号（`）或三个波浪号（~）来实现的。如下示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code here</div></pre></td></tr></table></figure>
-<p>像大多数的markdown, 如github的markdown都是这种写法。这种写法在[language]后面不能加其它参数，否则会输出不正常。</p>
-<p>Hexo自带高亮：<a href="https://hexo.io/docs/tag-plugins.html#Code-Block" target="_blank" rel="external">Code Block</a></p>
-<p>使用格式如下：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% codeblock [title] [lang:language] [url] [link text] %&#125;</div><div class="line">code snippet</div><div class="line">&#123;% endcodeblock %&#125;</div></pre></td></tr></table></figure>
-<p>注意：如果使用静态的代码高亮，则必须关闭hexo自带高亮，关闭之后，如果以前的.md源文件使用的是hexo第二种插入代码的方式，则会导致<code>hexo-renderer-marked</code>渲染异常。</p>
-<h4 id="关于-Markdown-语法格式"><a href="#关于-Markdown-语法格式" class="headerlink" title="关于 Markdown 语法格式"></a>关于 Markdown 语法格式</h4><p>尽量使用规范的 Markdown 语法格式<br>参考：<a href="http://www.cirosantilli.com/markdown-style-guide/#code" target="_blank" rel="external">http://www.cirosantilli.com/markdown-style-guide/#code</a></p>
+            <p>How to set up automatic deployment with git to VPS for my html homepage-<br><a id="more"></a></p>
+<h2 id="Server-Setup"><a href="#Server-Setup" class="headerlink" title="Server Setup"></a>Server Setup</h2><p>My workspace:</p>
+<p>server live directory: <code>/var/www/peiyingchi.com/html</code></p>
+<p>server repository: <code>/var/repo/site.git</code></p>
+<h2 id="Creating-Our-Repository"><a href="#Creating-Our-Repository" class="headerlink" title="Creating Our Repository"></a>Creating Our Repository</h2><p>Login to your VPS from command line and type the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var</div><div class="line">mkdir repo &amp;&amp; <span class="built_in">cd</span> repo</div><div class="line">mkdir site.git &amp;&amp; <span class="built_in">cd</span> site.git</div><div class="line">git init --bare</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>--bare</code> means that our folder will have no source files, just the version control.</p>
+</blockquote>
+<h2 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h2><p>Git repositories have a folder called ‘hooks’. This folder contains some sample files for possible actions that you can hook and perform custom actions set by you.</p>
+<p><a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks" target="_blank" rel="external">Git documentation</a> define three possible server hooks: <em>‘pre-receive’</em>, <em>‘post-receive’</em> and <em>‘update’</em>. <em>‘Pre-receive’</em> is executed as soon as the server receives a <em>‘push’</em>, <em>‘update’ </em>is similar but it executes once for each branch, and <em>‘post-receive’</em> is executed when a <em>‘push’</em> is completely finished and it’s the one we are interested in.</p>
+<p>So let’s go to <code>hooks</code> folder:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> hooks</div></pre></td></tr></table></figure>
+<p>Now, create the file <code>post-receive</code> by typing:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat &gt; post-receive</div></pre></td></tr></table></figure>
+<p>When you execute this command, you will have a blank line indicating that everything you type will be saved to this file. So let’s type:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">git --work-tree=/var/www/peiyingchi.com/html --git-dir=/var/repo/site.git checkout <span class="_">-f</span></div></pre></td></tr></table></figure>
+<p>When you finish typing, press <code>control-d</code> to save. In order to execute the file, we need to set the proper permissions using:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-receive</div></pre></td></tr></table></figure>
+<p>You can see on the documentation that <code>git-dir</code> is the path to the repository. With <code>work-tree</code>, you can define a different path to where your files will actually be transferred to.</p>
+<p>The <code>post-receive</code> file will be looked into every time a push is completed and it’s saying that your files need to be in <code>/var/www/peiyingchi.com/html</code></p>
+<h2 id="Local-Machine"><a href="#Local-Machine" class="headerlink" title="Local Machine"></a>Local Machine</h2><p>The following will need to be done on our local machine (not server).</p>
+<p>Here, I have already created a project git repo.<br>Then we need to configure the remote path of our repository. Tell Git to add a remote called <code>live</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /my/workspace</div><div class="line">git remote add live ssh://user@mydomain.com/var/repo/site.git</div></pre></td></tr></table></figure>
+<p>Then, to push your work to your server, use the following command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push live master</div></pre></td></tr></table></figure>
+<p>For me, I also have a GitHub repo for my files, it still works the same. This means that if I do <code>git push</code>, the local repo will be pushed to GitHub by default. The 2 remote repos (one at my cloud server, on at GitHub) do not have any connections. </p>
 
         
         </div>
@@ -244,19 +248,19 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/03/11/rebuild-personal-website-and-blog/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/03/20/spark-zsh-no-matches-found-local/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Rebuild Personal Website and Blog |重新搭建站点和博客
+                    spark-zsh no matches found local
                 
             </div>
         </a>
     
     
-        <a href="/2017/03/10/hexo-icarus-settings/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/03/20/deploy-hexo-blog-to-VPS/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Hexo Icarus Theme Settings |Icarus主题设置</div>
+            <div class="article-nav-title">Deploy Hexo Blog to VPS |部署Hexo博客到VPS</div>
         </a>
     
 </nav>
@@ -301,9 +305,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://blog.peiyingchi.com/2017/03/11/hexo-user-notes/';
+            this.page.url = 'http://blog.peiyingchi.com/2017/03/20/automatic-deployment-with-git/';
         
-        this.page.identifier = 'hexo-user-notes';
+        this.page.identifier = 'automatic-deployment-with-git';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
