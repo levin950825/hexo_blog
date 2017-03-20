@@ -99,8 +99,8 @@ miscellaneous:
         Hexo: http://hexo.io
 
 # Added by Yingchi
-post_sidebar: false  #display sidebar in post page if true
-home_sidebar: true #display sidebar in home page if true
-
+post_sidebar: false  # display sidebar in post page if true
+home_sidebar: true # display sidebar in home page if true
+home_footer: false # show article footer in the index.html page
 
 
