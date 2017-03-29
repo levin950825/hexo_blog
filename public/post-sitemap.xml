@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>http://blog.peiyingchi.com/2017/03/29/install-hadoop-on-Mac-Sierra/</loc>
+        <lastmod>2017-03-29T15:02:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blog.peiyingchi.com/2017/03/02/setup-hexo-locally-on-mac-OS/</loc>
+        <lastmod>2017-03-20T10:43:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.peiyingchi.com/2017/03/20/spark-zsh-no-matches-found-local/</loc>
-        <lastmod>2017-03-20T10:24:38.000Z</lastmod>
+        <lastmod>2017-03-20T10:34:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -1,7 +1,7 @@
 ---
 title: Setup Hexo Locally on Mac OS |Hexo在Mac的本地安装
 date: 2017-03-02 17:54:17
-tags:hexo
+tags: hexo
 categories: Hexo
 comments:
 toc: true

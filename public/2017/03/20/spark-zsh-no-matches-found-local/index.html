@@ -5,16 +5,16 @@
     
     <title>spark-zsh no matches found local | Yingchi&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Solve the ‘zsh: no matches found: local[4]’ issue when running a spark application.">
+    <meta name="description" content="Solve the “zsh: no matches found: local[4]” issue when running a spark application.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spark-zsh no matches found local">
 <meta property="og:url" content="http://blog.peiyingchi.com/2017/03/20/spark-zsh-no-matches-found-local/index.html">
 <meta property="og:site_name" content="Yingchi's blog">
-<meta property="og:description" content="Solve the ‘zsh: no matches found: local[4]’ issue when running a spark application.">
-<meta property="og:updated_time" content="2017-03-20T10:24:38.000Z">
+<meta property="og:description" content="Solve the “zsh: no matches found: local[4]” issue when running a spark application.">
+<meta property="og:updated_time" content="2017-03-20T10:34:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spark-zsh no matches found local">
-<meta name="twitter:description" content="Solve the ‘zsh: no matches found: local[4]’ issue when running a spark application.">
+<meta name="twitter:description" content="Solve the “zsh: no matches found: local[4]” issue when running a spark application.">
     
 
     
@@ -212,12 +212,12 @@ ga('send', 'pageview');
                     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Issue"><span class="toc-number">1.</span> <span class="toc-text">Issue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusion"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                 </div>
             
-            <p>Solve the ‘zsh: no matches found: local[4]’ issue when running a spark application.</p>
+            <p>Solve the “zsh: no matches found: local[4]” issue when running a spark application.</p>
 <a id="more"></a>
 <h3 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h3><p>When I was trying to submit a Spark streaming application with this script:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ~/spark/bin/spark-submit \</div><div class="line">--class &quot;com.databricks.apps.logs.chapter1.LogAnalyzerStreaming&quot; \</div><div class="line">--master local[4] \</div><div class="line">target/log-analyzer-1.0.jar \</div><div class="line">apache.access.log</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ~/spark/bin/spark-submit \</div><div class="line">--class <span class="string">"com.databricks.apps.logs.chapter1.LogAnalyzerStreaming"</span> \</div><div class="line">--master <span class="built_in">local</span>[4] \</div><div class="line">target/<span class="built_in">log</span>-analyzer-1.0.jar \</div><div class="line">apache.access.log</div></pre></td></tr></table></figure>
 <p>I came across this error from zsh:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ zsh: no matches found: local[4]</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ zsh: no matches found: <span class="built_in">local</span>[4]</div></pre></td></tr></table></figure>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>I replaced <code>local[4]</code> with <code>local</code> it seemed to work, but according to the usage of master URL:</p>
 <table>
 <thead>
@@ -240,13 +240,13 @@ ga('send', 'pageview');
 <p>I should not change the master URL because I wanted it to run in parallelism.</p>
 <p>So I changed back to bash and run spark submit script again, interestingly it worked! Obviously it was an issue of zsh.</p>
 <p>According this post Zsh says “no matches found” when trying to download video with youtube-dl, it said that zsh only accepts parameters by quoting them:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ~/spark/bin/spark-submit \</div><div class="line">--class &quot;com.databricks.apps.logs.chapter1.LogAnalyzerStreaming&quot; \</div><div class="line">--master &quot;local[4]&quot; \</div><div class="line">target/log-analyzer-1.0.jar \</div><div class="line">apache.access.log</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ~/spark/bin/spark-submit \</div><div class="line">--class <span class="string">"com.databricks.apps.logs.chapter1.LogAnalyzerStreaming"</span> \</div><div class="line">--master <span class="string">"local[4]"</span> \</div><div class="line">target/<span class="built_in">log</span>-analyzer-1.0.jar \</div><div class="line">apache.access.log</div></pre></td></tr></table></figure>
 <p>It worked!</p>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>In zsh, by default, a failed expansion is an error, but in Bash it isn’t: the failed pattern is just left as an argument exactly as it was written. zsh’s behaviour is safer, in that you can’t write a command that secretly doesn’t do what you meant because a file was missing, but you can change it to have the Bash behaviour if you want:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setopt nonomatch</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">setopt</span> nonomatch</div></pre></td></tr></table></figure>
 <p>This will resolve the original use case. In general it will be better to quote arguments with special characters, though, in order to avoid any mistakes where a file happens to exist with a corresponding name, or doesn’t exist when you thought it did.</p>
 <p>The NOMATCH option is on by default, and causes the errors I were seeing. If you disable it with setopt nonomatch then any failed glob expansions will be left intact on the command line, for example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ echo foo?bar</div><div class="line">zsh: no matches found: foo?bar</div><div class="line">$ setopt nonomatch</div><div class="line">$ echo foo?bar</div><div class="line">foo?bar</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> foo?bar</div><div class="line">zsh: no matches found: foo?bar</div><div class="line">$ <span class="built_in">setopt</span> nonomatch</div><div class="line">$ <span class="built_in">echo</span> foo?bar</div><div class="line">foo?bar</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -255,6 +255,15 @@ ga('send', 'pageview');
     
         
 <nav id="article-nav">
+    
+        <a href="/2017/03/29/install-hadoop-on-Mac-Sierra/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Install Hadoop on Mac Sierra |Hadoop在Mac上的安装配置
+                
+            </div>
+        </a>
     
     
         <a href="/2017/03/20/automatic-deployment-with-git/" id="article-nav-older" class="article-nav-link-wrap">
