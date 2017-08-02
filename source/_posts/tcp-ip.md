@@ -52,8 +52,10 @@ TCP/IP provides a complete system for formatting, transmitting, and receiving da
 - Application Support
     - Able to run multiple network apps simultaneously
     - **Ports**: logical channels provided by TCP/IP that allow multiple applications to access the network simultaneously
+
     
 ## Key Points
+
 #### 1. 7 Layers of OSI
 <img src="https://s6.postimg.org/t84npj9w1/14872108408581.jpg" class="img-shadow" width="400px">
 
