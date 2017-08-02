@@ -5,34 +5,16 @@
     
     <title>Install Hadoop on Mac Sierra |Hadoop在Mac上的安装配置 | Yingchi&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Mac 系统: macOS Sierra (10.12.1)Reference links:
-
-Hadoop 入门教程 (Hadoop 2.7.0, mac)
-Hadoop集群安装配置教程 (Hadoop 2.6.0, Ubuntu/CentOS)
-
-
-安装Java SE检查本机是否有Java和Java版本:Run java -version in your terminal to check w">
+    <meta name="description" content="Installation memo for hadoop on Mac Sierra.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Install Hadoop on Mac Sierra |Hadoop在Mac上的安装配置">
 <meta property="og:url" content="http://blog.peiyingchi.com/2017/03/29/install-hadoop-on-Mac-Sierra/index.html">
 <meta property="og:site_name" content="Yingchi's blog">
-<meta property="og:description" content="Mac 系统: macOS Sierra (10.12.1)Reference links:
-
-Hadoop 入门教程 (Hadoop 2.7.0, mac)
-Hadoop集群安装配置教程 (Hadoop 2.6.0, Ubuntu/CentOS)
-
-
-安装Java SE检查本机是否有Java和Java版本:Run java -version in your terminal to check w">
-<meta property="og:updated_time" content="2017-03-29T15:02:28.000Z">
+<meta property="og:description" content="Installation memo for hadoop on Mac Sierra.">
+<meta property="og:updated_time" content="2017-03-31T11:44:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Install Hadoop on Mac Sierra |Hadoop在Mac上的安装配置">
-<meta name="twitter:description" content="Mac 系统: macOS Sierra (10.12.1)Reference links:
-
-Hadoop 入门教程 (Hadoop 2.7.0, mac)
-Hadoop集群安装配置教程 (Hadoop 2.6.0, Ubuntu/CentOS)
-
-
-安装Java SE检查本机是否有Java和Java版本:Run java -version in your terminal to check w">
+<meta name="twitter:description" content="Installation memo for hadoop on Mac Sierra.">
     
 
     
@@ -230,7 +212,9 @@ ga('send', 'pageview');
                     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Java-SE"><span class="toc-number">1.</span> <span class="toc-text">安装Java SE</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#检查本机是否有Java和Java版本"><span class="toc-number">1.1.</span> <span class="toc-text">检查本机是否有Java和Java版本:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置JAVA-HOME"><span class="toc-number">1.2.</span> <span class="toc-text">配置JAVA_HOME</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Mac-OS-ssh"><span class="toc-number">2.</span> <span class="toc-text">配置Mac OS ssh</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置Mac允许远程登陆"><span class="toc-number">2.1.</span> <span class="toc-text">设置Mac允许远程登陆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成公钥"><span class="toc-number">2.2.</span> <span class="toc-text">生成公钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置免密码登陆"><span class="toc-number">2.3.</span> <span class="toc-text">设置免密码登陆</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hadoop"><span class="toc-number">3.</span> <span class="toc-text">安装Hadoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hadoop设置"><span class="toc-number">4.</span> <span class="toc-text">Hadoop设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hadoop-env-sh配置"><span class="toc-number">4.1.</span> <span class="toc-text">hadoop-env.sh配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑core-site-xml"><span class="toc-number">4.2.</span> <span class="toc-text">编辑core-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑mapred-site-xml-设置MapReduce使用的框架"><span class="toc-number">4.3.</span> <span class="toc-text">编辑mapred-site.xml, 设置MapReduce使用的框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑-hdfs-site-xml"><span class="toc-number">4.4.</span> <span class="toc-text">编辑 hdfs-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑-yarn-site-xml"><span class="toc-number">4.5.</span> <span class="toc-text">编辑 yarn-site.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动Hadoop"><span class="toc-number">5.</span> <span class="toc-text">启动Hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#格式化-hdfs"><span class="toc-number">5.1.</span> <span class="toc-text">格式化 hdfs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进入Hadoop主文件夹"><span class="toc-number">5.2.</span> <span class="toc-text">进入Hadoop主文件夹</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行一个Word-Count-例子"><span class="toc-number">6.</span> <span class="toc-text">运行一个Word Count 例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#建立用户空间"><span class="toc-number">6.1.</span> <span class="toc-text">建立用户空间</span></a></li></ol></li></ol>
                 </div>
             
-            <p>Mac 系统: macOS Sierra (10.12.1)<br>Reference links:</p>
+            <p>Installation memo for hadoop on Mac Sierra.</p>
+<a id="more"></a>
+<p>Mac 系统: macOS Sierra (10.12.1)<br>Reference links:</p>
 <ul>
 <li><a href="http://hustlijian.github.io/tutorial/2015/06/19/Hadoop%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8.html" target="_blank" rel="external">Hadoop 入门教程</a> (Hadoop 2.7.0, mac)</li>
 <li><a href="http://www.powerxing.com/install-hadoop-cluster/" target="_blank" rel="external">Hadoop集群安装配置教程</a> (Hadoop 2.6.0, Ubuntu/CentOS)</li>
@@ -295,6 +279,15 @@ ga('send', 'pageview');
     
         
 <nav id="article-nav">
+    
+        <a href="/2017/03/31/coursera-downloader/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Coursera Downloader |Coursera 资料抓取Python爬虫
+                
+            </div>
+        </a>
     
     
         <a href="/2017/03/20/spark-zsh-no-matches-found-local/" id="article-nav-older" class="article-nav-link-wrap">

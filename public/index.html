@@ -165,11 +165,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                14
+                16
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                6
+                7
                 <span>tags</span>
             </div>
         </div>
@@ -214,6 +214,119 @@ ga('send', 'pageview');
             
             
             <section id="main">
+    <article id="post-tcp-ip" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/31/tcp-ip/">TCP/IP</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/31/tcp-ip/">
+            <time datetime="2017-07-31T11:45:43.000Z" itemprop="datePublished">2017-07-31</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Others/">Others</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/network/">network</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>A beginner’s notes when learning TCP/IP.<br></p>
+            <p class="article-more-link">
+                <a href="/2017/07/31/tcp-ip/#more">Read More</a>
+            </p>
+        
+        </div>
+        
+    </div>
+    
+</article>
+
+
+
+    <article id="post-coursera-downloader" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/03/31/coursera-downloader/">Coursera Downloader |Coursera 资料抓取Python爬虫</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/31/coursera-downloader/">
+            <time datetime="2017-03-31T11:45:43.000Z" itemprop="datePublished">2017-03-31</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Scraping/">Scraping</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/web-scraping/">web scraping</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>A command-line coursera downloader written in Python.</p>
+<p>You can download the script from my GitHub repo here: <a href="https://github.com/yingchi/coursera-downloader" target="_blank" rel="external">https://github.com/yingchi/coursera-downloader</a></p>
+<p>When learning wonderful modules on Coursera, I found it quite frustrating when I need to click multiple places and move back and forth to download the learning materials for one course. </p>
+<p>After searching around, I found 2 github repo that can help people to download course materials from Coursera. However, one of the repo stopped updating and another is not very convenient to use. </p>
+<p>So I decided to combine the good features from them and write a new downloading tool. You will need your Coursera email and password if you use the script, but don’t worry, they are encrypted and saved into a local file. </p>
+
+        
+        </div>
+        
+    </div>
+    
+</article>
+
+
+
     <article id="post-install-hadoop-on-Mac-Sierra" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -256,65 +369,10 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>Mac 系统: macOS Sierra (10.12.1)<br>Reference links:</p>
-<ul>
-<li><a href="http://hustlijian.github.io/tutorial/2015/06/19/Hadoop%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8.html" target="_blank" rel="external">Hadoop 入门教程</a> (Hadoop 2.7.0, mac)</li>
-<li><a href="http://www.powerxing.com/install-hadoop-cluster/" target="_blank" rel="external">Hadoop集群安装配置教程</a> (Hadoop 2.6.0, Ubuntu/CentOS)</li>
-</ul>
-<hr>
-<h3 id="安装Java-SE"><a href="#安装Java-SE" class="headerlink" title="安装Java SE"></a>安装Java SE</h3><h4 id="检查本机是否有Java和Java版本"><a href="#检查本机是否有Java和Java版本" class="headerlink" title="检查本机是否有Java和Java版本:"></a>检查本机是否有Java和Java版本:</h4><p>Run <code>java -version</code> in your terminal to check which version of Java you have installed.<br>Mac 下面安装 Java，直接在官网上下载对应的 dmg. 版本选择不宜过高，会遇到不兼容的问题.</p>
-<h4 id="配置JAVA-HOME"><a href="#配置JAVA-HOME" class="headerlink" title="配置JAVA_HOME"></a>配置JAVA_HOME</h4><p>在<code>.bashrc</code> 或<code>.zshrc</code> 中加入 <code>JAVA_HOME</code> 设置： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/profile</div></pre></td></tr></table></figure>
-<p>在最后面加上以下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home</div><div class="line">export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div><div class="line">export PATH=$PATH:$JAVA_HOME/bin</div></pre></td></tr></table></figure>
-<p>修改 <code>proflie</code> 之后需要执行 <code>source /etc/profile</code> 命令进行生效 需要注意的是，通过 dmg 文件安装的 jdk 地址是固定的，在<code>/Library/Java/JavaVirtualMachines/</code>里面可以找到对应版本的 JDK</p>
-<h3 id="配置Mac-OS-ssh"><a href="#配置Mac-OS-ssh" class="headerlink" title="配置Mac OS ssh"></a>配置Mac OS ssh</h3><h4 id="设置Mac允许远程登陆"><a href="#设置Mac允许远程登陆" class="headerlink" title="设置Mac允许远程登陆"></a>设置Mac允许远程登陆</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh localhost</div><div class="line">206-214:~ PeiYingchi$ ssh localhost ssh: connect to host localhost port 22: Connection refused</div></pre></td></tr></table></figure>
-<p>会有错误提示信息，表示当前用户没有权限。这个多半是系统为安全考虑，默认设置的。更改设置如下：进入system preference –&gt; sharing –&gt; 勾选remote login，并设置allow access for all users。再次输入<code>ssh localhost</code>，再输入密码并确认之后，可以看到ssh成功</p>
-<h4 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h4><p><code>ssh-keygen -t rsa</code> 一路回车，各种提示按默认不要改，等待执行完毕</p>
-<blockquote>
-<p><code>ssh-keygen</code>表示生成秘钥；-t表示秘钥类型。这个命令在<code>~/.ssh/</code>文件夹下创建两个文件<code>id_rsa</code>和<code>id_rsa.pub</code>，是ssh的一对儿私钥和公钥。接下来，将公钥追加到授权的key中去</p>
-</blockquote>
-<p>然后执行： <code>ls ~/.ssh</code> 可以看到两个密钥文件：<code>id_rsa</code>（私钥）<code>id_rsa.pub</code>（公钥）</p>
-<h4 id="设置免密码登陆"><a href="#设置免密码登陆" class="headerlink" title="设置免密码登陆"></a>设置免密码登陆</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
-<h3 id="安装Hadoop"><a href="#安装Hadoop" class="headerlink" title="安装Hadoop"></a>安装Hadoop</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install hadoop</div></pre></td></tr></table></figure>
-<p>If saw errors like:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Could not link:</div><div class="line">/usr/<span class="built_in">local</span>/share/doc/homebrew</div><div class="line">Please delete these paths and run brew update.</div></pre></td></tr></table></figure>
-<p>Then run <code>rm -rf /usr/local/share/doc/homebrew</code> 安装成功后会出现以下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In Hadoops config file:</div><div class="line">  /usr/<span class="built_in">local</span>/Cellar/hadoop/2.7.3/libexec/etc/hadoop/hadoop-env.sh,</div><div class="line">  /usr/<span class="built_in">local</span>/Cellar/hadoop/2.7.3/libexec/etc/hadoop/mapred-env.sh and</div><div class="line">  /usr/<span class="built_in">local</span>/Cellar/hadoop/2.7.3/libexec/etc/hadoop/yarn-env.sh</div><div class="line"><span class="variable">$JAVA_HOME</span> has been <span class="built_in">set</span> to be the output of:</div><div class="line">  /usr/libexec/java_home</div></pre></td></tr></table></figure>
-<h3 id="Hadoop设置"><a href="#Hadoop设置" class="headerlink" title="Hadoop设置"></a>Hadoop设置</h3><h4 id="hadoop-env-sh配置"><a href="#hadoop-env-sh配置" class="headerlink" title="hadoop-env.sh配置"></a>hadoop-env.sh配置</h4><p>文件在 <code>/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/hadoop-env.sh</code><br>将</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> HADOOP_OPTS=<span class="string">"<span class="variable">$HADOOP_OPTS</span> -Djava.net.preferIPv4Stack=true"</span></div></pre></td></tr></table></figure>
-<p>修改为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> HADOOP_OPTS=<span class="string">"<span class="variable">$HADOOP_OPTS</span> -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="</span></div></pre></td></tr></table></figure>
-<h4 id="编辑core-site-xml"><a href="#编辑core-site-xml" class="headerlink" title="编辑core-site.xml"></a>编辑core-site.xml</h4><figure class="highlight xml"><figcaption><span>/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/core-site.xml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </div><div class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/Cellar/hadoop/hdfs/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>A base for other temporary directories.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span>                                     </div><div class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span>                             </div><div class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span>                                                        </div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>注： <code>fs.default.name</code> 保存了NameNode的位置，HDFS和MapReduce组件都需要用到它，这就是它出现在<code>core-site.xml</code> 文件中而不是 <code>hdfs-site.xml</code>文件中的原因</p>
-<h4 id="编辑mapred-site-xml-设置MapReduce使用的框架"><a href="#编辑mapred-site-xml-设置MapReduce使用的框架" class="headerlink" title="编辑mapred-site.xml, 设置MapReduce使用的框架"></a>编辑mapred-site.xml, 设置MapReduce使用的框架</h4></blockquote>
-<p>可能文件名为 <code>mapred-site.xml.templete</code> , 改不改名字都可以。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>localhost:9001<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>变量<code>mapred.job.tracker</code> 保存了JobTracker的位置，因为只有MapReduce组件需要知道这个位置，所以它出现在<code>mapred-site.xml</code>文件中。</p>
-<h4 id="编辑-hdfs-site-xml"><a href="#编辑-hdfs-site-xml" class="headerlink" title="编辑 hdfs-site.xml"></a>编辑 hdfs-site.xml</h4><figure class="highlight xml"><figcaption><span>/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/hdfs-site.xml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>变量<code>dfs.replication</code>指定了每个HDFS数据库的复制次数。 通常为3, 由于我们只有一台主机和一个伪分布式模式的DataNode，将此值修改为1。</p>
-<h4 id="编辑-yarn-site-xml"><a href="#编辑-yarn-site-xml" class="headerlink" title="编辑 yarn-site.xml"></a>编辑 yarn-site.xml</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="启动Hadoop"><a href="#启动Hadoop" class="headerlink" title="启动Hadoop"></a>启动Hadoop</h3><h4 id="格式化-hdfs"><a href="#格式化-hdfs" class="headerlink" title="格式化 hdfs"></a>格式化 hdfs</h4><p><code>hadoop namenode -format</code> 这时就可以用<code>hstart</code>启动hadoop了。 可以使用 <code>jps</code> 命令验证 Hadoop是否在运行。</p>
-<h4 id="进入Hadoop主文件夹"><a href="#进入Hadoop主文件夹" class="headerlink" title="进入Hadoop主文件夹"></a>进入Hadoop主文件夹</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/Cellar/hadoop/2.7.3/ </div><div class="line">sbin/start-dfs.sh </div><div class="line">sbin/start-yarn.sh</div></pre></td></tr></table></figure>
-<p>为了启动Hadoop的时候避免每次都首先进到安装目录，然后再执行<code>sbin/start-dfs.sh</code> 和 <code>sbin/start-yarn.sh</code>这么麻烦，所以在编辑 <code>~/.profiles</code>文件,加上如下两行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> hadoop_start=<span class="string">"/usr/local/Cellar/hadoop/2.7.3/sbin/start-dfs.sh;/usr/local/Cellar/hadoop/2.7.3/sbin/start-yarn.sh"</span></div><div class="line"><span class="built_in">alias</span> hadoop_stop=<span class="string">"/usr/local/Cellar/hadoop/2.7.3/sbin/stop-yarn.sh;/usr/local/Cellar/hadoop/2.7.3/sbin/stop-dfs.sh"</span></div></pre></td></tr></table></figure>
-<p>然后执行 <code>source ~/.profiles</code> 更新。 这样就可以用 <code>hadoop_start</code> 和 <code>hadoop_stop</code> 这两个命令来启动Hadoop了。</p>
-<blockquote>
-<p>注意: 以后要使用<code>hadoop_start</code>之前还是要运行<code>source ~/.profiles</code>才可以哟</p>
-<h3 id="运行一个Word-Count-例子"><a href="#运行一个Word-Count-例子" class="headerlink" title="运行一个Word Count 例子"></a>运行一个Word Count 例子</h3></blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hadoop jar /usr/<span class="built_in">local</span>/Cellar/hadoop/2.7.3/libexec/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar pi 2 5</div></pre></td></tr></table></figure>
-<p>然后可以通过Web端进行监控。<br>Resource Manager: <a href="http://localhost:50070" target="_blank" rel="external">http://localhost:50070</a><br>JobTracker: <a href="http://localhost:8088" target="_blank" rel="external">http://localhost:8088</a><br>Specific Node Information: <a href="http://localhost:8042" target="_blank" rel="external">http://localhost:8042</a><br>通过他们可以访问 HDFS filesystem, 也可以取得结果输出文件.</p>
-<h4 id="建立用户空间"><a href="#建立用户空间" class="headerlink" title="建立用户空间"></a>建立用户空间</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hadoop fs -ls / <span class="comment"># 查看已有user </span></div><div class="line">hdfs dfs -mkdir /user hdfs dfs -mkdir /user/$(whoami) <span class="comment"># 这里是用户</span></div><div class="line">hdfs dfs -put ~/Documents/Hadoop/demo/Ethics.md /user/yingchi <span class="comment"># 上传local文件</span></div></pre></td></tr></table></figure>
-<p>运行<code>wordcount</code>,命令如下: </p>
-<blockquote>
-<p>注意：运行实例时，当前目录设置为 <code>/usr/local/Cellar/hadoop/2.7.0/</code></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/hadoop jar libexec/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar wordcount /user/yingchi/Ethics.md /user/yingchi/out</div></pre></td></tr></table></figure>
-<p>运行完成后,在<code>/yingchi</code>目录下生成名为out的目录,其内容如下所示:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Found 2 items</div><div class="line">-rw-r--r--   1 PeiYingchi supergroup          0 2016-11-13 21:49 /user/yingchi/out/_SUCCESS</div><div class="line">-rw-r--r--   1 PeiYingchi supergroup      15719 2016-11-13 21:49 /user/yingchi/out/part-r-00000</div></pre></td></tr></table></figure>
-
+            <p><p>Installation memo for hadoop on Mac Sierra.</p></p>
+            <p class="article-more-link">
+                <a href="/2017/03/29/install-hadoop-on-Mac-Sierra/#more">Read More</a>
+            </p>
         
         </div>
         
@@ -466,7 +524,7 @@ ga('send', 'pageview');
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/website-dev-hexo/">website dev, hexo</a>
+        <a class="tag-link" href="/tags/hexo/">hexo</a>, <a class="tag-link" href="/tags/website-dev/">website dev</a>
     </div>
 
                     </div>
@@ -599,116 +657,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-rebuild-personal-website-and-blog" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/03/11/rebuild-personal-website-and-blog/">Rebuild Personal Website and Blog |重新搭建站点和博客</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/11/rebuild-personal-website-and-blog/">
-            <time datetime="2017-03-11T10:03:02.000Z" itemprop="datePublished">2017-03-11</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Website-Dev/">Website Dev</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/website-dev/">website dev</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>流水账日志<br></p>
-            <p class="article-more-link">
-                <a href="/2017/03/11/rebuild-personal-website-and-blog/#more">Read More</a>
-            </p>
-        
-        </div>
-        
-    </div>
-    
-</article>
-
-
-
-    <article id="post-hexo-user-notes" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/03/11/hexo-user-notes/">Hexo User Notes |Hexo的基本使用</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/11/hexo-user-notes/">
-            <time datetime="2017-03-11T00:33:24.000Z" itemprop="datePublished">2017-03-11</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">hexo</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>使用Hexo的常用命令和一些格式上的小技巧。</p></p>
-            <p class="article-more-link">
-                <a href="/2017/03/11/hexo-user-notes/#more">Read More</a>
-            </p>
-        
-        </div>
-        
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -720,7 +668,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blockchain/">Blockchain</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spark/">Spark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Website-Dev/">Website Dev</a><span class="category-list-count">4</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blockchain/">Blockchain</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Scraping/">Scraping</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spark/">Spark</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Website-Dev/">Website Dev</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -729,7 +677,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blockchain/">blockchain</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/website-dev/">website dev</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/website-dev-hexo/">website dev, hexo</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blockchain/">blockchain</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/">network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-scraping/">web scraping</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/website-dev/">website dev</a><span class="tag-list-count">5</span></li></ul>
         </div>
     </div>
 

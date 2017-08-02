@@ -1,7 +1,7 @@
 ---
 title: Deploy Hexo Blog to VPS |部署Hexo博客到VPS
 date: 2017-03-20 17:41:10
-tags: website dev, hexo
+tags: [website dev, hexo]
 categories: Hexo
 comments:
 toc: true
@@ -25,7 +25,7 @@ nginx 服务器
 
 网上流传的武功秘籍分为两种：
 
-- 将Hexo项目上传到VPS上面后执行 `hexo serve`r，之后配置Nginx反向代理，让域名指向 `http://localhost:4000`。
+- 将Hexo项目上传到VPS上面后执行 `hexo server`，之后配置Nginx反向代理，让域名指向 `http://localhost:4000`。
 - 将Hexo在本地通过 `hexo generate` 生成静态文件，在通过 `hexo deploy` 部署到VPS上面，使用Nginx直接做Web服务器。
 
 相比第二种方式，第一种每次写博客与更新博客时候的操作会很繁琐。所以我们使用第二种方式进行部署，这样既可以将静态文件deploy到VPS上，也可以上传到Github上用作备份，操作性和安全性上都要胜于前者。

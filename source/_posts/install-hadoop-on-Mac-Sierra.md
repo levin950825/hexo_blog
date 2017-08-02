@@ -9,6 +9,9 @@ thumbnail:
 banner:
 ---
 
+Installation memo for hadoop on Mac Sierra.
+
+<!-- more -->
 
 Mac 系统: macOS Sierra (10.12.1)
 Reference links:

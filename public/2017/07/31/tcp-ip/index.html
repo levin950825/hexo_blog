@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>TCP/IP | Yingchi&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="A beginner’s notes when learning TCP/IP.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP/IP">
+<meta property="og:url" content="http://blog.peiyingchi.com/2017/07/31/tcp-ip/index.html">
+<meta property="og:site_name" content="Yingchi's blog">
+<meta property="og:description" content="A beginner’s notes when learning TCP/IP.">
+<meta property="og:image" content="https://s6.postimg.org/t84npj9w1/14872108408581.jpg">
+<meta property="og:image" content="https://s6.postimg.org/ypx9dc53l/14872125483479.png">
+<meta property="og:image" content="https://s6.postimg.org/95uz6wjpt/14872141052756.jpg">
+<meta property="og:image" content="https://s6.postimg.org/fnih45jgx/14872143238335.png">
+<meta property="og:image" content="https://s6.postimg.org/knfxc3p3l/14872143106349.png">
+<meta property="og:image" content="https://s6.postimg.org/jc3kpw441/14872147436908.gif">
+<meta property="og:image" content="https://s6.postimg.org/dufkftya9/14875567718974.jpg">
+<meta property="og:updated_time" content="2017-08-02T14:05:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TCP/IP">
+<meta name="twitter:description" content="A beginner’s notes when learning TCP/IP.">
+<meta name="twitter:image" content="https://s6.postimg.org/t84npj9w1/14872108408581.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/whale.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93931588-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Yingchi&#39;s blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/profile_pic.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <script type='text/javascript'>
+                $('body').append("<style type='text/css'>@media screen and (min-width: 1200px) { #main {margin: auto; width: 70%; display: block; float:none;}}</style>");
+                </script>
+                <script type='text/javascript'>
+                document.querySelector('style').textContent += "@media screen and (max-width: 1199px) and (min-width: 800px) { #main {margin: auto; width: 70%; display: block; float:none;}}"
+                </script>
+            
+            <section id="main"><article id="post-tcp-ip" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            TCP/IP
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/31/tcp-ip/">
+            <time datetime="2017-07-31T11:45:43.000Z" itemprop="datePublished">2017-07-31</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Others/">Others</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/network/">network</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Overview"><span class="toc-number">1.</span> <span class="toc-text">General Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-IP-Stands-for"><span class="toc-number">1.0.1.</span> <span class="toc-text">TCP/IP Stands for:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What-do-they-do"><span class="toc-number">1.0.2.</span> <span class="toc-text">What do they do?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Decentralized-Data-Network"><span class="toc-number">1.0.3.</span> <span class="toc-text">Decentralized Data Network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Core-Networking-Problem"><span class="toc-number">1.0.4.</span> <span class="toc-text">5 Core Networking Problem</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-Points"><span class="toc-number">2.</span> <span class="toc-text">Key Points</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-Layers-of-OSI"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. 7 Layers of OSI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-TCP-IP-Model-structure"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. TCP/IP Model structure:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-IP-address"><span class="toc-number">2.0.3.</span> <span class="toc-text">3. IP address:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-TCP-3-Way-Handshake"><span class="toc-number">2.0.4.</span> <span class="toc-text">4. TCP 3-Way Handshake:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Closure-of-Connection-TCP"><span class="toc-number">2.0.5.</span> <span class="toc-text">5. Closure of Connection TCP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-Connection-oriented-and-Connectionless-Protocols"><span class="toc-number">2.0.6.</span> <span class="toc-text">6. Connection-oriented and Connectionless Protocols</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-How-to-defend-from-DDoS-Attack"><span class="toc-number">2.0.7.</span> <span class="toc-text">7. How to defend from DDoS Attack?</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+            <p>A beginner’s notes when learning TCP/IP.<br><a id="more"></a></p>
+<h2 id="General-Overview"><a href="#General-Overview" class="headerlink" title="General Overview"></a>General Overview</h2><h4 id="TCP-IP-Stands-for"><a href="#TCP-IP-Stands-for" class="headerlink" title="TCP/IP Stands for:"></a>TCP/IP Stands for:</h4><p>Transmission Control Protocol/ Internet Protocol</p>
+<h4 id="What-do-they-do"><a href="#What-do-they-do" class="headerlink" title="What do they do?"></a>What do they do?</h4><p>The protocols that make up TCP/IP define:</p>
+<ul>
+<li>How data is transmitted across a network (IP)</li>
+<li>How data should be formatted so other networked systems can understand it (TCP)</li>
+</ul>
+<p>(1. 怎么包装; 2. 怎么送达)</p>
+<p>TCP/IP provides a complete system for formatting, transmitting, and receiving data on a network</p>
+<h4 id="Decentralized-Data-Network"><a href="#Decentralized-Data-Network" class="headerlink" title="Decentralized Data Network"></a>Decentralized Data Network</h4><ul>
+<li>TCP/IP’s decentralized nature is a key reason it’s still ubiquitous today</li>
+<li>2 Key TCP/IP features support decentralization:<ul>
+<li><strong>End node verification</strong>: the two endpoints of any data transfer are responsible for making sure it was successful - no centralized control scheme</li>
+<li><strong>Dynamic routing</strong>: End nodes can transfer data over multiple paths, and the network chooses the best (fastest, most reliable) path for each individual data transfer</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-Core-Networking-Problem"><a href="#5-Core-Networking-Problem" class="headerlink" title="5 Core Networking Problem"></a>5 Core Networking Problem</h4><ul>
+<li>Addressing<ul>
+<li>Physical Addressing: Every network-connected hardware device has a unique ID, referred to as a MAC (Machine Access Code) ~ <em>Just like a phone number</em></li>
+<li>Low-level TCP/IP protocols use MAC address to move data across the physical network to the right device</li>
+<li>But as the network grows larger, it’s impossible to let one machine to listen to all the other machines</li>
+<li>IP Address: logical address configured in a node’s TCPIP implementation</li>
+<li>IP addresses can be broken down into network, subnet, and host ID numbers</li>
+</ul>
+</li>
+<li>Routing<ul>
+<li>Routers are special network devices that let you divide large networks into smaller subnets</li>
+<li>A well-designed network uses router to create a tree-like structure</li>
+<li>Routers use the logical address information in a data packet to send it to its destination</li>
+</ul>
+</li>
+<li>Name Resolution<ul>
+<li>Those logical IP addresses are better than MAC, but still not very good for human to read. ==&gt; Domain Names, e.g. www.google.com</li>
+<li><strong>Name Resolution</strong> is the process of mapping logical addresses back and forth into domain names</li>
+<li>Special <strong>name servers</strong> store the mapping information in databases</li>
+</ul>
+</li>
+<li>Flow Control<ul>
+<li>TCP/IP has features to guarantee reliable data transfers</li>
+</ul>
+</li>
+<li>Application Support<ul>
+<li>Able to run multiple network apps simultaneously</li>
+<li><strong>Ports</strong>: logical channels provided by TCP/IP that allow multiple applications to access the network simultaneously</li>
+</ul>
+</li>
+</ul>
+<h2 id="Key-Points"><a href="#Key-Points" class="headerlink" title="Key Points"></a>Key Points</h2><h4 id="1-7-Layers-of-OSI"><a href="#1-7-Layers-of-OSI" class="headerlink" title="1. 7 Layers of OSI"></a>1. 7 Layers of OSI</h4><p><img src="https://s6.postimg.org/t84npj9w1/14872108408581.jpg" class="img-shadow" width="400px"></p>
+<p>IP at Layer 3.<br>TCP at Layer 4.</p>
+<h4 id="2-TCP-IP-Model-structure"><a href="#2-TCP-IP-Model-structure" class="headerlink" title="2. TCP/IP Model structure:"></a>2. TCP/IP Model structure:</h4><table>
+<thead>
+<tr>
+<th>Layers of TCP/IP Model</th>
+<th>Protocols</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>DNS, DHCP, FTP, TFTP, SMTP, HTTP, RDP, Telnet, SSH</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>IP, ICMP, IGMP</td>
+</tr>
+<tr>
+<td>Network Access</td>
+<td>Ethernet, Token Ring, FDDI, X.25, Frame Relay, ARP, RARP</td>
+</tr>
+</tbody>
+</table>
+<p><em>Encapsulation:</em><br>Encapsulation is the process that occurs when data is to be sent out of the source computer. When data moves from upper layer to lower layer of TCP/IP protocol stack (outgoing transmission), each layer adds the corresponding header to the data.</p>
+<h4 id="3-IP-address"><a href="#3-IP-address" class="headerlink" title="3. IP address:"></a>3. IP address:</h4><ul>
+<li>When setting up a small private network, you are free to use ANY IP-addresses. The reserved IP-address for private network is: 192.168.x.y, where x=same number on all systems and y=different/unique number on all systems.<br><img src="https://s6.postimg.org/ypx9dc53l/14872125483479.png" class="img-shadow" width="500px"></li>
+</ul>
+<p>The router will have its unique IP address within the Internet world, say 233.13.23.4<br>也就是说在其他的private network, 里面的machine也可以用192.168.10.1, etc. NAT(network address translation) is built into the Router, and will be used to translate the address.</p>
+<ul>
+<li>When you are connected to a company network, you need to ask the Network-administrator to assign you an IP-address. </li>
+<li>If you are connected to the Internet, your ISP (Internet Service Provider) will assign an IP-address to you.</li>
+</ul>
+<p><em>Private IP Address:</em><br>If any router sees an address starts with ‘10.’, it will not route data for that IP address.<br>10.0.0.0 - 10.255.255.255:  8 bit for network, 24 bit for host ID<br>172.16.0.0 - 172.31.255.255: 12 for network, 20 for host<br>192.168.0.0 - 192.168.255.255: 16 for network, 16 for host</p>
+<p><em>DHCP:</em> (Dynamic Host Control Protocol)<br>On your DHCP sever, you will specify the scope of the IPs that can be assigned, say 192.168.1.100 ~ 159<br>and the default gateway (i.e the router), say 192.168.1.1<br>and the DNS address: say 192.168.1.1<br>You can configure a lease period on the DHCP server. That will be the time that any dynamically assigned IP can be used by another machine. At 50% time point, the machine will try to communicate and ask for renew.</p>
+<p><em>Windowing:</em><br>It is the biggest concept in TCP.<br>The idea is, after IP connects 2 machines (A and B) together, then A starts to transmit a file (say a word doc) to B. Under TCP, A divides the file into packages, and starts sending 1 package to B. Now the window size is 1.<br>Then if B receives the 1 package successfully, it acknowledges that to A. Then A starts to send 2 packages - window size becomes 2.<br>Then the window size will double, double, double.<br>But if there is a problem so that B cannot correctly acknowledge the last index number of received packages, the window size get back to 1.</p>
+<p>Nowadays, this protocol causes problem for real-life communication.</p>
+<p><em>Subnet Masking:</em><br>Usually, the subnet mask is provided by your ISP or other high level server. What we need to understand is that if the subnet mask is 255.255.255.0, it means we can at most have $2^8-2 = 254 $ machines within this subnet.</p>
+<p>If we got 2 computers that are on different subnet, they cannot talk to each other. They need a router.</p>
+<p><img src="https://s6.postimg.org/95uz6wjpt/14872141052756.jpg" height="300"></p>
+<p><img src="https://s6.postimg.org/fnih45jgx/14872143238335.png" class="img-shadow" height="300"></p>
+<p><img src="https://s6.postimg.org/knfxc3p3l/14872143106349.png" class="img-shadow" height="250"></p>
+<p>Class A<br>0NNNNNNN.HHHHHHHH.HHHHHHHH.HHHHHHHH<br>Starts with 1~126<br>Default subnet mask: 255.0.0.0</p>
+<blockquote>
+<p>leading bit is always 0.<br>$2^7 = 128$ networks,<br>$2^24 - 2$ hosts$</p>
+</blockquote>
+<p>Class B<br>10NNNNNN.NNNNNNNN.HHHHHHHH.HHHHHHHH<br>Starts with 129~191<br>Default subnet mask: 255.255.0.0</p>
+<blockquote>
+<p>$2^14 = 16,384$ networks<br>$2^16 - 2$ hosts</p>
+</blockquote>
+<p>Class C<br>110NNNNN.NNNNNNNN.NNNNNNNN.HHHHHHHH<br>Starts with 192~223<br>Default subnet mask: 255.255.255.0</p>
+<blockquote>
+<p>$2^21 networks$ networks<br>$2^8 -2 = 254$ hosts</p>
+</blockquote>
+<p>Class D (multicast)<br>1110………..<br>Starts with 224~239, the rest is not defined </p>
+<p><strong>Loopback Address</strong> = 127.0.0.0, any data sent to this address will be directly sent back to the sender<br><strong>Network Address</strong>: IP address where all the host address is set to be 0<br><strong>Broadcast Address</strong>: All host address is set to be 255. Any data sent to this address will be broadcasted to the whole network.<br>A: 102.255.255.255, B: 168.212.255.255, C:195.195.92.255</p>
+<h4 id="4-TCP-3-Way-Handshake"><a href="#4-TCP-3-Way-Handshake" class="headerlink" title="4. TCP 3-Way Handshake:"></a>4. TCP 3-Way Handshake:</h4><p><strong>EVENT</strong><br>Host A sends a TCP <strong>SYN</strong>chronize packet to Host B</p>
+<p>Host B receives A’s <strong>SYN</strong></p>
+<p>Host B sends a <strong>SYN</strong>chronize-<strong>ACK</strong>nowledgement</p>
+<p>Host A receives B’s <strong>SYN-ACK</strong></p>
+<p>Host A sends <strong>ACK</strong>nowledge</p>
+<p>Host B receives <strong>ACK</strong> ==&gt; TCP socket connection is <strong>ESTABLISHED</strong>.</p>
+<p><strong>DIAGRAM</strong><br><img src="https://s6.postimg.org/jc3kpw441/14872147436908.gif" class="img-shadow" width="200"></p>
+<p><strong>Detailed Answer</strong><br>For reliable connection, the transmitting device first establishes a connection-oriented (reliable) session with its peer system, which is called three way handshake. Data is then transferred. When the data transfer is finished, connection is terminated and virtual circuit is teared down.</p>
+<ol>
+<li>Source send a TCP SYN segment with the initial sequence number X indicating the desire to open the connection</li>
+<li>When Destination receives TCP SYN, it acknowledges this with ACK(X+1) as well as its own SYN Y (this tells Source what sequence number it will start its data with and will use in further msgs). This response is called SYN/ACK</li>
+<li>Source sends and ACK(ACK = Y+1) segment to the Destination indicating that the connection is set up. Data transfer can then begin </li>
+</ol>
+<blockquote>
+<p>This handshaking process can be used to created a DOS attack:<br>The client opens up the SYN connection, the server responds with the SYN/ACK, but then the client sends another SYN. The server treats this as a new connection request and keeps the previous connection open. As this is repeated over and over many times very quickly, the server quickly becomes saturated with a huge number of connec</p>
+</blockquote>
+<h4 id="5-Closure-of-Connection-TCP"><a href="#5-Closure-of-Connection-TCP" class="headerlink" title="5. Closure of Connection TCP"></a>5. Closure of Connection TCP</h4><p>Unlike opening a connection, closing using “4-way” method:</p>
+<ol>
+<li>A sends “FIN” to B</li>
+<li>When B receives “FIN”, B sends back “ACK” to A</li>
+<li>B sends “FIN” to A</li>
+<li>When A receives “FIN”, A sends back “ACK” to B</li>
+</ol>
+<p><img src="https://s6.postimg.org/dufkftya9/14875567718974.jpg" class="img-shadow" height="300"></p>
+<h4 id="6-Connection-oriented-and-Connectionless-Protocols"><a href="#6-Connection-oriented-and-Connectionless-Protocols" class="headerlink" title="6. Connection-oriented and Connectionless Protocols"></a>6. Connection-oriented and Connectionless Protocols</h4><p>Connection-oriented: e.g. TCP (Transmission Control Protocol). Services: SMTP (Email), HTTP/FTP(Web browser, apps), SSH/Telnet (Remote access)<br>~ telephone<br>Connectionless: e.g. UDP (User Datagram Protocol). Services: DNS, Video Conference, DHCP<br>~ post office</p>
+<p><em>Difference between Connection and Connectionless Services:</em></p>
+<ol>
+<li>In connection oriented service authentication is needed while connectionless service does not need any authentication.</li>
+<li>Connection oriented protocol makes a connection and checks whether message is received or not and sends again if an error occurs connectionless service protocol does not guarantees a delivery.</li>
+<li>Connection oriented service is more reliable than connectionless service.</li>
+<li>Connection oriented service interface is stream based and connectionless is message based.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usage</td>
+<td>TCP is suited for applications that require high reliability and transmission time is less critical</td>
+<td>UDP is suitable for applications that need fast, efficient transmission, such as games. UDP’s stateless nature is also useful for servers that answer small queries from huge numbers of clients</td>
+</tr>
+<tr>
+<td>Use by other protocols</td>
+<td>HTTP, FTP, SMTP, Telnet</td>
+<td>DNS, DHCP, RIP, VOIP</td>
+</tr>
+<tr>
+<td>Ordering of packets</td>
+<td>TCP rearranges data packets in the order specified</td>
+<td>No inherent order. If ordering is required, it has to be managed on the application layer</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>slower than UDP</td>
+<td>faster as there is no error-checking for packets</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Absolute guarantee that the data transferred remains intact and arrives in the same order in which it was sent</td>
+<td>No guarantee that the messages or packets sent would reach at all</td>
+</tr>
+<tr>
+<td>Header Size</td>
+<td>20 bytes</td>
+<td>8 bytes</td>
+</tr>
+<tr>
+<td>Common Header Fields</td>
+<td>Source port, Destination port, Check sum</td>
+<td>Source port, Destination port, Check sum</td>
+</tr>
+<tr>
+<td>Data Flow Control</td>
+<td>TCP does Flow Control. TCP requires three packets to set up a socket connection, before any user data can be sent. TCP handles reliability and congestion control.</td>
+<td>UDP does not have an option for flow control</td>
+</tr>
+</tbody>
+</table>
+<h4 id="7-How-to-defend-from-DDoS-Attack"><a href="#7-How-to-defend-from-DDoS-Attack" class="headerlink" title="7. How to defend from DDoS Attack?"></a>7. How to defend from DDoS Attack?</h4><p>First, you cannot protect your company from a DDoS attack 100% of the time.<br>Then, make sure that you have ample bandwidth so that you have some extra time to react<br>Use CDN or VPN<br>Next, monitor your site closely for symptoms that might indicate a DDoS attack.<br>Block the machine/Network that is launching the attack </p>
+
+        
+        </div>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/03/31/coursera-downloader/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Coursera Downloader |Coursera 资料抓取Python爬虫</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 
+            <span class="with-love">
+            	<i class="fa fa-heart"></i>
+            </span>
+            Yingchi<br>
+            <!-- 
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            -->
+            Last modified: Mar. 12th, 2017
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.peiyingchi.com/2017/07/31/tcp-ip/';
+        
+        this.page.identifier = 'tcp-ip';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'yingchi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
