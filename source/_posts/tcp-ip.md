@@ -13,10 +13,12 @@ A beginner's notes when learning TCP/IP.
 <!-- more -->
 
 ## General Overview
-#### TCP/IP Stands for:
+---
+
+### TCP/IP Stands for:
 Transmission Control Protocol/ Internet Protocol
 
-#### What do they do?
+### What do they do?
 The protocols that make up TCP/IP define:
 
 - How data is transmitted across a network (IP)
@@ -26,13 +28,13 @@ The protocols that make up TCP/IP define:
 
 TCP/IP provides a complete system for formatting, transmitting, and receiving data on a network
 
-#### Decentralized Data Network
+### Decentralized Data Network
 - TCP/IP's decentralized nature is a key reason it's still ubiquitous today
 - 2 Key TCP/IP features support decentralization:
     - **End node verification**: the two endpoints of any data transfer are responsible for making sure it was successful - no centralized control scheme
     - **Dynamic routing**: End nodes can transfer data over multiple paths, and the network chooses the best (fastest, most reliable) path for each individual data transfer
 
-#### 5 Core Networking Problem
+### 5 Core Networking Problem
 - Addressing
     - Physical Addressing: Every network-connected hardware device has a unique ID, referred to as a MAC (Machine Access Code) ~ _Just like a phone number_
     - Low-level TCP/IP protocols use MAC address to move data across the physical network to the right device
@@ -55,14 +57,14 @@ TCP/IP provides a complete system for formatting, transmitting, and receiving da
 
     
 ## Key Points
-
-#### 1. 7 Layers of OSI
+---
+### 7 Layers of OSI
 <img src="https://s6.postimg.org/t84npj9w1/14872108408581.jpg" class="img-shadow" width="400px">
 
 IP at Layer 3.
 TCP at Layer 4.
 
-#### 2. TCP/IP Model structure:
+### TCP/IP Model structure:
 
 |Layers of TCP/IP Model|Protocols|
 |---|---|
@@ -75,7 +77,7 @@ _Encapsulation:_
 Encapsulation is the process that occurs when data is to be sent out of the source computer. When data moves from upper layer to lower layer of TCP/IP protocol stack (outgoing transmission), each layer adds the corresponding header to the data.
 
 
-#### 3. IP address:
+### IP address:
 
 - When setting up a small private network, you are free to use ANY IP-addresses. The reserved IP-address for private network is: 192.168.x.y, where x=same number on all systems and y=different/unique number on all systems.
 <img src="https://s6.postimg.org/ypx9dc53l/14872125483479.png" class="img-shadow" width="500px">
@@ -151,7 +153,7 @@ Starts with 224~239, the rest is not defined
 **Broadcast Address**: All host address is set to be 255. Any data sent to this address will be broadcasted to the whole network.
 A: 102.255.255.255, B: 168.212.255.255, C:195.195.92.255
 
-#### 4. TCP 3-Way Handshake:
+### TCP 3-Way Handshake:
 
 **EVENT**
 Host A sends a TCP **SYN**chronize packet to Host B
@@ -180,7 +182,7 @@ For reliable connection, the transmitting device first establishes a connection-
 > This handshaking process can be used to created a DOS attack:
 > The client opens up the SYN connection, the server responds with the SYN/ACK, but then the client sends another SYN. The server treats this as a new connection request and keeps the previous connection open. As this is repeated over and over many times very quickly, the server quickly becomes saturated with a huge number of connec
 
-#### 5. Closure of Connection TCP
+### Closure of Connection TCP
 Unlike opening a connection, closing using "4-way" method:
 
 1. A sends "FIN" to B
@@ -191,7 +193,7 @@ Unlike opening a connection, closing using "4-way" method:
 <img src="https://s6.postimg.org/dufkftya9/14875567718974.jpg" class="img-shadow" height="300">
 
 
-#### 6. Connection-oriented and Connectionless Protocols
+### Connection-oriented and Connectionless Protocols
 Connection-oriented: e.g. TCP (Transmission Control Protocol). Services: SMTP (Email), HTTP/FTP(Web browser, apps), SSH/Telnet (Remote access)
 ~ telephone
 Connectionless: e.g. UDP (User Datagram Protocol). Services: DNS, Video Conference, DHCP
@@ -215,7 +217,7 @@ _Difference between Connection and Connectionless Services:_
 |Common Header Fields| Source port, Destination port, Check sum|Source port, Destination port, Check sum|
 |Data Flow Control| TCP does Flow Control. TCP requires three packets to set up a socket connection, before any user data can be sent. TCP handles reliability and congestion control.|UDP does not have an option for flow control |
 
-#### 7. How to defend from DDoS Attack?
+### How to defend from DDoS Attack?
 First, you cannot protect your company from a DDoS attack 100% of the time. 
 Then, make sure that you have ample bandwidth so that you have some extra time to react
 Use CDN or VPN

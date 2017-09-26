@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Speed Up Oh-My-Zsh | Yingchi&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="IntroI’m not a computer science expert, so I always choose to bear with the small issues happing on my laptop. My personal as well as working laptops are all Mac. And I use iTerm2 and Oh-My-Zsh to rep">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Speed Up Oh-My-Zsh">
+<meta property="og:url" content="http://blog.peiyingchi.com/2017/08/17/speed-up-oh-my-zsh/index.html">
+<meta property="og:site_name" content="Yingchi&#39;s blog">
+<meta property="og:description" content="IntroI’m not a computer science expert, so I always choose to bear with the small issues happing on my laptop. My personal as well as working laptops are all Mac. And I use iTerm2 and Oh-My-Zsh to rep">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-17T14:49:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Speed Up Oh-My-Zsh">
+<meta name="twitter:description" content="IntroI’m not a computer science expert, so I always choose to bear with the small issues happing on my laptop. My personal as well as working laptops are all Mac. And I use iTerm2 and Oh-My-Zsh to rep">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/whale.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93931588-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Yingchi&#39;s blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/profile_pic.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <script type='text/javascript'>
+                $('body').append("<style type='text/css'>@media screen and (min-width: 1200px) { #main {margin: auto; width: 70%; display: block; float:none;}}</style>");
+                </script>
+                <script type='text/javascript'>
+                document.querySelector('style').textContent += "@media screen and (max-width: 1199px) and (min-width: 800px) { #main {margin: auto; width: 70%; display: block; float:none;}}"
+                </script>
+            
+            <section id="main"><article id="post-speed-up-oh-my-zsh" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Speed Up Oh-My-Zsh
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/17/speed-up-oh-my-zsh/">
+            <time datetime="2017-08-17T14:45:43.000Z" itemprop="datePublished">2017-08-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Others/">Others</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/shell/">shell</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Benchmarking-Current-Performance"><span class="toc-number">2.</span> <span class="toc-text">Step 1: Benchmarking Current Performance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Check-What-Slows-It-Down"><span class="toc-number">3.</span> <span class="toc-text">Step 2: Check What Slows It Down</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Remove-the-Unnecessary-Parts"><span class="toc-number">4.</span> <span class="toc-text">Step 3: Remove the Unnecessary Parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-End"><span class="toc-number">5.</span> <span class="toc-text">The End</span></a></li></ol>
+                </div>
+            
+            <h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>I’m not a computer science expert, so I always choose to bear with the small issues happing on my laptop. My personal as well as working laptops are all Mac. And I use <a href="https://www.iterm2.com/" target="_blank" rel="external">iTerm2</a> and <a href="http://ohmyz.sh/" target="_blank" rel="external">Oh-My-Zsh</a> to replace the default Terminal. For the zsh theme, I recommend <code>mrtazz</code>.</p>
+<p>One of the costs of using Oh-my-zsh is that the startup times are slow. That’s what everyone says.</p>
+<p>But recently, I am getting more and more frustrated by the slow startup times. By searching online, I found <a href="https://bennycwong.github.io/post/speeding-up-oh-my-zsh/" target="_blank" rel="external">this tutorial</a> really helpful. </p>
+<p>The following are the steps I took to improve my oh-my-zsh experience:</p>
+<h3 id="Step-1-Benchmarking-Current-Performance"><a href="#Step-1-Benchmarking-Current-Performance" class="headerlink" title="Step 1: Benchmarking Current Performance"></a>Step 1: Benchmarking Current Performance</h3><p>Let’s measure how long it takes to start a new shell session:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/time zsh -i -c <span class="built_in">exit</span></div><div class="line">5.46 real         3.58 user         1.37 sys</div></pre></td></tr></table></figure>
+<p>5.5 seconds??? That is not good at all.</p>
+<h3 id="Step-2-Check-What-Slows-It-Down"><a href="#Step-2-Check-What-Slows-It-Down" class="headerlink" title="Step 2: Check What Slows It Down"></a>Step 2: Check What Slows It Down</h3><p>Now, please pay attention. Run the following command in your Terminal, and take note of the portion where the output pauses a bit. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ zsh -xv</div></pre></td></tr></table></figure>
+<p>For my case, I found the portion for setting <code>hadoop &amp; hive</code> parameters, and also for setting up <code>nvm</code> tend to get stuck for a while.</p>
+<h3 id="Step-3-Remove-the-Unnecessary-Parts"><a href="#Step-3-Remove-the-Unnecessary-Parts" class="headerlink" title="Step 3: Remove the Unnecessary Parts"></a>Step 3: Remove the Unnecessary Parts</h3><p>As I don’t need <code>hadoop</code> and <code>nvm</code> that often, I decided to prevent them from auto-loading during starting up zsh.</p>
+<p>So I made the following changes in my <code>~/.zshrc</code> file:</p>
+<ul>
+<li>Comment out the Hadoop Hive exports commands</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#hadoop &amp; hive</span></div><div class="line"><span class="comment">#export HADOOP_HOME=$(brew --prefix hadoop) # /usr/local/Cellar/hadoop/2.7.3/</span></div><div class="line"><span class="comment">#export HIVE_HOME=$(brew --prefix hive)/libexec</span></div><div class="line"><span class="comment">#export HCAT_HOME=$(brew --prefix hive)/libexec/hcatalog</span></div><div class="line"><span class="comment">#export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</span></div><div class="line"><span class="comment">#export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Comment out the nvm loading command. Instead, create an alias for it so that I can easily load it when I need it.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#nvm</span></div><div class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></div><div class="line"><span class="comment">#[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"  # This loads nvm</span></div><div class="line"><span class="built_in">alias</span> loadnvm=<span class="string">'[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; . "$NVM_DIR/nvm.sh"'</span></div></pre></td></tr></table></figure>
+<h3 id="The-End"><a href="#The-End" class="headerlink" title="The End"></a>The End</h3><p>That’s all~ Now let’s quite the Terminal and reopen it.<br>Test the time again:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/time zsh -i -c <span class="built_in">exit</span></div><div class="line">0.48 real         0.25 user         0.15 sys</div></pre></td></tr></table></figure>
+<p>Yeah.</p>
+
+        
+        </div>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/26/get-list-of-hdfs-files-python/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Get a List of HDFS Files in Python
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/07/31/tcp-ip/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">TCP/IP</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 
+            <span class="with-love">
+            	<i class="fa fa-heart"></i>
+            </span>
+            Yingchi<br>
+            <!-- 
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            -->
+            Last modified: Mar. 12th, 2017
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.peiyingchi.com/2017/08/17/speed-up-oh-my-zsh/';
+        
+        this.page.identifier = 'speed-up-oh-my-zsh';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'yingchi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

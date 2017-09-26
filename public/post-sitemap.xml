@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>http://blog.peiyingchi.com/2017/09/26/get-list-of-hdfs-files-python/</loc>
+        <lastmod>2017-09-26T09:49:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blog.peiyingchi.com/2017/08/17/speed-up-oh-my-zsh/</loc>
+        <lastmod>2017-08-17T14:49:49.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.peiyingchi.com/2017/07/31/tcp-ip/</loc>
-        <lastmod>2017-08-02T14:12:51.000Z</lastmod>
+        <lastmod>2017-08-02T14:15:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
