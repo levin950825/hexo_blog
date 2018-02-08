@@ -9,6 +9,11 @@ thumbnail:
 banner:
 ---
 
+Oh-my-zsh is becoming unbearably slow...
+
+Here are some approaches to speed up it.
+<!-- more -->
+
 ### Intro
 I'm not a computer science expert, so I always choose to bear with the small issues happing on my laptop. My personal as well as working laptops are all Mac. And I use [iTerm2](https://www.iterm2.com/) and [Oh-My-Zsh](http://ohmyz.sh/) to replace the default Terminal. For the zsh theme, I recommend `mrtazz`.
 

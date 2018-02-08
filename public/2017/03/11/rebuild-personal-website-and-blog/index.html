@@ -278,7 +278,7 @@ ga('send', 'pageview');
 <p>We will create a directory structure within <code>/var/www</code> for each of our sites. The actual web content will be placed in an <code>html</code> directory within these site-specific directories. This gives us some additional flexibility to create other directories associated with our sites as siblings to the html directory if necessary.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mkdir -p /var/www/yingchi.me/html</div><div class="line">sudo mkdir -p /var/www/blog.yingchi.me/html</div></pre></td></tr></table></figure>
 <p>We can use the <code>$USER</code> environmental variable to assign ownership to the account that we are currently signed in on (make sure you’re not logged in as root). This will allow us to easily create or edit the content in this directory:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo chown -R $USER:$USER /var/www/yingchi.me/html</div><div class="line">sudo chown -R $USER:$USER /var/www/blog.yingchi.me/html</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo chown -R $USER:$USER /var/www/yingchi.me/html</div><div class="line">sudo chown -R $USER:$USER /var/www/blog.yingchi.me/html</div></pre></td></tr></table></figure>
 <p><strong>Step 2: upload your website files to your domains</strong><br>You can simple create a dummy <code>index.html</code> page if you just want to test.<br>Otherwise, you can upload your files using SFTP or other file transfer methods.</p>
 <p><strong>Step 3: Create server block files for each domain</strong><br>we will create our first server block config file by copying over the default file:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/yingchi.me</div><div class="line">sudo nano /etc/nginx/sites-available/yingchi.me</div></pre></td></tr></table></figure>
@@ -287,7 +287,7 @@ ga('send', 'pageview');
 <p>Do the same for the 2nd domain.</p>
 <p><strong>Step 4: Enable your Server Blocks and Restart Nginx</strong><br>Now that we have our server block files, we need to enable them. We can do this by creating symbolic links from these files to the sites-enabled directory, which Nginx reads from during startup.</p>
 <p>We can create these links by typing:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /etc/nginx/sites-available/yingchi.me /etc/nginx/sites-enabled/</div><div class="line">sudo ln -s /etc/nginx/sites-available/blog.yingchi.me /etc/nginx/sites-enabled/</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /etc/nginx/sites-available/yingchi.me /etc/nginx/sites-enabled/</div><div class="line">sudo ln -s /etc/nginx/sites-available/blog.yingchi.me /etc/nginx/sites-enabled/</div></pre></td></tr></table></figure>
 <blockquote>
 <h3 id="What-is-symbolic-link"><a href="#What-is-symbolic-link" class="headerlink" title="What is symbolic link?"></a>What is symbolic link?</h3><p>A symbolic link, also termed a soft link, is a special kind of file that points to another file, much ==like a shortcut in Windows or a Macintosh alias==. Unlike a hard link, a symbolic link does not contain the data in the target file. It simply points to another entry somewhere in the file system. This difference gives symbolic links certain qualities that hard links do not have, such as the ability to link to directories, or to files on remote computers networked through NFS. Also, when you delete a target file, symbolic links to that file become unusable, whereas hard links preserve the contents of the file.<br>To create a symbolic link in Unix/Linux, at the Unix prompt, enter:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -s source_file myfile</div></pre></td></tr></table></figure>
@@ -300,9 +300,9 @@ ga('send', 'pageview');
 <p>So it seems that I did not set the permission for the folder correctly.</p>
 <p>After some search, here is the solution:</p>
 <p><strong>1. add user “yingchi” to group “www-data” (below replace yingchi with your username):</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo usermod -a -G www-data yingchi</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo usermod -a -G www-data yingchi</div></pre></td></tr></table></figure>
 <p><strong>2. set permissions for user group www-data</strong><br>Here, because I want to upload my files to <code>/var/www/yingchi.me/...</code><br>and also <code>/var/www/blog.yingchi.me/...</code>, so I opened the permission for <code>/var/www</code>. If you just have one domain, and the files are under <code>/var/www/html</code>, you can modify the path and only open permission for that folder.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo chown -R www-data:www-data /var/www</div><div class="line">sudo chmod -R g+w /var/www</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo chown -R www-data:www-data /var/www</div><div class="line">sudo chmod -R g+w /var/www</div></pre></td></tr></table></figure>
 <h4 id="Nginx-server-blocks-设置"><a href="#Nginx-server-blocks-设置" class="headerlink" title="Nginx server blocks 设置"></a>Nginx server blocks 设置</h4><p><a href="https://fraserxu.me/2013/06/22/Nginx-for-developers/" target="_blank" rel="external">https://fraserxu.me/2013/06/22/Nginx-for-developers/</a></p>
 
         
@@ -353,7 +353,7 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 
+            &copy; 2018 
             <span class="with-love">
             	<i class="fa fa-heart"></i>
             </span>

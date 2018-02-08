@@ -227,7 +227,7 @@ ga('send', 'pageview');
 <h4 id="在文章中加入图片"><a href="#在文章中加入图片" class="headerlink" title="在文章中加入图片"></a>在文章中加入图片</h4><p>要在文章中插入图片，有两个选择，一是使用图床，二是将图片与网页文件一起部署。两种方法各有利弊，如果打算部署到GitHub或GitCafe上，个人推荐使用图床。如果是部署到七牛上，则直接使用部署方式。</p>
 <h4 id="不在主页显示全部文章内容"><a href="#不在主页显示全部文章内容" class="headerlink" title="不在主页显示全部文章内容"></a>不在主页显示全部文章内容</h4><p>我们在编辑内容时，在合适的地方添加一行代码：<code>&lt;!-- more --&gt;</code>，在它之上是摘要，是在主页会显示的文字部分。在它之下是余下全文，在主页中会多一个阅读全文的按钮，点击后才会看到全部内容。</p>
 <h4 id="文章基本参数"><a href="#文章基本参数" class="headerlink" title="文章基本参数"></a>文章基本参数</h4><p>打开 <code>scaffolds/post.md</code> 增加类别和描述，修改默认布局的参数：</p>
-<figure class="highlight markdown"><figcaption><span>post.md</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: #标题</div><div class="line">date: #日期时间</div><div class="line">tags: #标签</div><div class="line">categories: #分类</div><div class="line">comments: #是否允许评论 true 或 false</div><div class="line">toc: #是否添加文章目录 true 或 false</div><div class="line">thumbnail: #侧边栏封面图</div><div class="line"><span class="section">banner: #文章顶部封面图</span></div><div class="line">---</div></pre></td></tr></table></figure>
+<figure class="highlight markdown"><figcaption><span>post.md</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: #标题</div><div class="line">date: #日期时间</div><div class="line">tags: #标签</div><div class="line">categories: #分类</div><div class="line">comments: #是否允许评论 true 或 false</div><div class="line">toc: #是否添加文章目录 true 或 false</div><div class="line">thumbnail: #侧边栏封面图</div><div class="line">banner: #文章顶部封面图</div><div class="line">---</div></pre></td></tr></table></figure>
 <p>在新建一篇文章，你就能看到新建的文章已经新增了这些参数，不用每次自己手打，不需要的值就可以空着。</p>
 <h4 id="代码高亮并为代码块添加标题"><a href="#代码高亮并为代码块添加标题" class="headerlink" title="代码高亮并为代码块添加标题"></a>代码高亮并为代码块添加标题</h4><p>Markdown中插入代码，是通过添加三个反引号（`）或三个波浪号（~）来实现的。如下示例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code here</div></pre></td></tr></table></figure>
@@ -286,7 +286,7 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 
+            &copy; 2018 
             <span class="with-love">
             	<i class="fa fa-heart"></i>
             </span>

@@ -5,18 +5,18 @@
     
     <title>Get a List of HDFS Files in Python | Yingchi&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="In an ad hoc work, I need to read in files in multiple HDFS directories based on a date range.  The HDFS data structure is like the following  12345678910111213141516171819202122232425/data    /201707">
+    <meta name="description" content="In an ad hoc work, I need to read in files in multiple HDFS directories based on a date range.  The HDFS data structure is like the following   123456789/data    /20170730        /part-00000        /.">
 <meta name="keywords" content="spark,hadoop,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Get a List of HDFS Files in Python">
 <meta property="og:url" content="http://blog.peiyingchi.com/2017/09/26/get-list-of-hdfs-files-python/index.html">
 <meta property="og:site_name" content="Yingchi&#39;s blog">
-<meta property="og:description" content="In an ad hoc work, I need to read in files in multiple HDFS directories based on a date range.  The HDFS data structure is like the following  12345678910111213141516171819202122232425/data    /201707">
+<meta property="og:description" content="In an ad hoc work, I need to read in files in multiple HDFS directories based on a date range.  The HDFS data structure is like the following   123456789/data    /20170730        /part-00000        /.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-26T09:49:14.000Z">
+<meta property="og:updated_time" content="2017-09-26T10:26:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Get a List of HDFS Files in Python">
-<meta name="twitter:description" content="In an ad hoc work, I need to read in files in multiple HDFS directories based on a date range.  The HDFS data structure is like the following  12345678910111213141516171819202122232425/data    /201707">
+<meta name="twitter:description" content="In an ad hoc work, I need to read in files in multiple HDFS directories based on a date range.  The HDFS data structure is like the following   123456789/data    /20170730        /part-00000        /.">
     
 
     
@@ -216,7 +216,12 @@ ga('send', 'pageview');
             
             <p>In an ad hoc work, I need to read in files in multiple HDFS directories based on a date range. </p>
 <p>The HDFS data structure is like the following </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/data</div><div class="line">    /20170730</div><div class="line">        /part-00000</div><div class="line">        /....</div><div class="line">    /20170731</div><div class="line">    /20170801</div><div class="line">    /20170802</div><div class="line">    ...</div><div class="line">```    </div><div class="line"></div><div class="line">Provided a date e.g.20170801, I need to read in the files from folder `/data/20170801`, `/data/20170802`, ..., `/data/20170830`, but not others.</div><div class="line"></div><div class="line">So to achieve this inside my python script, I searched online and finally arrived at the following solution.</div><div class="line"></div><div class="line"></div><div class="line">```py</div><div class="line">import subprocess</div><div class="line"></div><div class="line">dir_in = &quot;/data&quot;</div><div class="line">args = &quot;hdfs dfs -ls &quot;+dir_in+&quot; | awk &apos;&#123;print $8&#125;&apos;&quot;</div><div class="line">proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)</div><div class="line"></div><div class="line">s_output, s_err = proc.communicate()</div><div class="line">all_dart_dirs = s_output.split()</div><div class="line"># [&apos;/data/20170730&apos;, &apos;/data/20170731&apos;, ...]</div></pre></td></tr></table></figure>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/data</div><div class="line">    /20170730</div><div class="line">        /part-00000</div><div class="line">        /...</div><div class="line">    /20170731</div><div class="line">    /20170801</div><div class="line">    /20170802</div><div class="line">    ...</div><div class="line">    /20170903</div></pre></td></tr></table></figure>
+</blockquote>
+<p>Provided a date e.g.20170801, I need to read in the files from folder <code>/data/20170801</code>, <code>/data/20170802</code>, …, <code>/data/20170830</code>, but not others.</p>
+<p>So to achieve this inside my python script, I searched online and finally arrived at the following solution.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> subprocess</div><div class="line"></div><div class="line">dir_in = <span class="string">"/data"</span></div><div class="line">args = <span class="string">"hdfs dfs -ls "</span>+dir_in+<span class="string">" | awk '&#123;print $8&#125;'"</span></div><div class="line">proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">s_output, s_err = proc.communicate()</div><div class="line">all_dart_dirs = s_output.split()</div><div class="line"><span class="comment"># ['/data/20170730', '/data/20170731', ...]</span></div></pre></td></tr></table></figure>
 <p>Then, so fit my specific needs, I just need to do a simple filtering for the list.</p>
 
         
@@ -226,6 +231,15 @@ ga('send', 'pageview');
     
         
 <nav id="article-nav">
+    
+        <a href="/2018/02/08/push-to-github-with-multiple-accounts/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Work with GitHub and Multiple Accounts on one computer
+                
+            </div>
+        </a>
     
     
         <a href="/2017/08/17/speed-up-oh-my-zsh/" id="article-nav-older" class="article-nav-link-wrap">
@@ -258,7 +272,7 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 
+            &copy; 2018 
             <span class="with-love">
             	<i class="fa fa-heart"></i>
             </span>

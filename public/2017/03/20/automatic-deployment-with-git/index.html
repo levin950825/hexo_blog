@@ -230,7 +230,7 @@ ga('send', 'pageview');
 <p>Now, create the file <code>post-receive</code> by typing:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat &gt; post-receive</div></pre></td></tr></table></figure>
 <p>When you execute this command, you will have a blank line indicating that everything you type will be saved to this file. So let’s type:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">git --work-tree=/var/www/peiyingchi.com/html --git-dir=/var/repo/site.git checkout <span class="_">-f</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">git --work-tree=/var/www/peiyingchi.com/html --git-dir=/var/repo/site.git checkout -f</div></pre></td></tr></table></figure>
 <p>When you finish typing, press <code>control-d</code> to save. In order to execute the file, we need to set the proper permissions using:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-receive</div></pre></td></tr></table></figure>
 <p>You can see on the documentation that <code>git-dir</code> is the path to the repository. With <code>work-tree</code>, you can define a different path to where your files will actually be transferred to.</p>
@@ -290,7 +290,7 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 
+            &copy; 2018 
             <span class="with-love">
             	<i class="fa fa-heart"></i>
             </span>
