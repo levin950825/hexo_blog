@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>自动化交易平台总结 | Yingchi&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="国内外可支持自动化实盘/模拟交易的平台/框架总结">
+<meta name="keywords" content="trade, python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动化交易平台总结">
+<meta property="og:url" content="http://blog.peiyingchi.com/2018/04/17/自动化交易平台/index.html">
+<meta property="og:site_name" content="Yingchi&#39;s blog">
+<meta property="og:description" content="国内外可支持自动化实盘/模拟交易的平台/框架总结">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-04-17T14:34:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自动化交易平台总结">
+<meta name="twitter:description" content="国内外可支持自动化实盘/模拟交易的平台/框架总结">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/whale.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93931588-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Yingchi&#39;s blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/profile_pic.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <script type='text/javascript'>
+                $('body').append("<style type='text/css'>@media screen and (min-width: 1200px) { #main {margin: auto; width: 70%; display: block; float:none;}}</style>");
+                </script>
+                <script type='text/javascript'>
+                document.querySelector('style').textContent += "@media screen and (max-width: 1199px) and (min-width: 800px) { #main {margin: auto; width: 70%; display: block; float:none;}}"
+                </script>
+            
+            <section id="main"><article id="post-自动化交易平台" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            自动化交易平台总结
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/17/自动化交易平台/">
+            <time datetime="2018-04-17T14:45:43.000Z" itemprop="datePublished">2018-04-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Others/">Others</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/trade-python/">trade, python</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#国外平台"><span class="toc-number">1.</span> <span class="toc-text">国外平台</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TradeStation"><span class="toc-number">1.0.1.</span> <span class="toc-text">TradeStation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#oanda"><span class="toc-number">1.0.2.</span> <span class="toc-text">oanda</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MetaTrader4-MT4-or-MT5-lastest"><span class="toc-number">1.0.3.</span> <span class="toc-text">MetaTrader4 (MT4) or MT5 (lastest)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#国内平台"><span class="toc-number">2.</span> <span class="toc-text">国内平台</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vn-py"><span class="toc-number">2.0.1.</span> <span class="toc-text">vn.py</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TradeX-dll"><span class="toc-number">2.0.2.</span> <span class="toc-text">TradeX.dll</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MultiCharts-https-www-multicharts-cn-dl"><span class="toc-number">2.0.3.</span> <span class="toc-text">MultiCharts: https://www.multicharts.cn/dl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实盘易：http-www-iguuu-com-e"><span class="toc-number">2.0.4.</span> <span class="toc-text">实盘易：http://www.iguuu.com/e</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟平台"><span class="toc-number">3.</span> <span class="toc-text">模拟平台</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JoinQuant-聚宽"><span class="toc-number">3.0.1.</span> <span class="toc-text">JoinQuant 聚宽</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#quantopian"><span class="toc-number">3.0.2.</span> <span class="toc-text">quantopian</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.</span> <span class="toc-text">其他</span></a></li></ol>
+                </div>
+            
+            <p>国内外可支持自动化实盘/模拟交易的平台/框架总结<br><a id="more"></a></p>
+<h2 id="国外平台"><a href="#国外平台" class="headerlink" title="国外平台"></a>国外平台</h2><h4 id="TradeStation"><a href="#TradeStation" class="headerlink" title="TradeStation"></a>TradeStation</h4><p>网址：<a href="http://www.tradestation.com/trading-technology/tradestation-platform/execute/strategy-and-trade-automation" target="_blank" rel="external">http://www.tradestation.com/trading-technology/tradestation-platform/execute/strategy-and-trade-automation</a></p>
+<p>介绍: TradeStation is an online brokerage firm and trading platform. </p>
+<p>语言：Easy language </p>
+<p>运行坏境：Windows</p>
+<p>品种：equities, options, futures and foreign exchange markets.</p>
+<blockquote>
+<p>面向美国市场。不提供中国行情。有中国版 国信TradeStation：<a href="http://www.guosen.com.cn/gxzq/tradestation/" target="_blank" rel="external">http://www.guosen.com.cn/gxzq/tradestation/</a> （5800/年）</p>
+</blockquote>
+<p>收费：Software pricing varies depending on account status, trading activity, and if the trader is considered a professional or non-professional. </p>
+<h4 id="oanda"><a href="#oanda" class="headerlink" title="oanda"></a>oanda</h4><p>网址：<a href="https://www.oanda.com/forex-trading/platform/api-partners" target="_blank" rel="external">https://www.oanda.com/forex-trading/platform/api-partners</a><br><a href="https://www.oanda.com/lang/cns/forex-trading/platform/api-platform" target="_blank" rel="external">https://www.oanda.com/lang/cns/forex-trading/platform/api-platform</a> (提供中文界面)</p>
+<blockquote>
+<p>automate your forex, precious metals, and CFDs (contracts for difference)† trading using REST and FIX application program interfaces (APIs)</p>
+</blockquote>
+<p>使用：FIX API端口不向个人投资账户开放。REST API 对个人投资账户可以。不限语言，用HTTP去connect oanda API 就好了。当然，你要在oanda有自己的账户才能拿来用来连接的token。比如用Python，只需要<code>import numpy, v20</code> 然后参考<code>OANDA v20 REST API</code>的使用方法就好了。<br>Youtube：<a href="https://www.youtube.com/watch?v=GFHx6mhGJz0" target="_blank" rel="external">https://www.youtube.com/watch?v=GFHx6mhGJz0</a></p>
+<p>产品：外汇、贵金属、债券、指数和商品</p>
+<p>收费：软件使用Free。但需要Oanda账户</p>
+<h4 id="MetaTrader4-MT4-or-MT5-lastest"><a href="#MetaTrader4-MT4-or-MT5-lastest" class="headerlink" title="MetaTrader4 (MT4) or MT5 (lastest)"></a>MetaTrader4 (MT4) or MT5 (lastest)</h4><p>网址：<a href="https://www.metaquotes.net/cn/metatrader4/automated_trading" target="_blank" rel="external">https://www.metaquotes.net/cn/metatrader4/automated_trading</a></p>
+<p>介绍：MT4是一款市场行情接收软件。该软件由MetaQuotes Software Corp.公司发布，提供免费试用，有中英文界面。不仅是炒外汇，还有炒黄金、炒原油、炒股指期货等都是可以使用MT4交易软件<br>MetaTrader 4的一个主要优势在于自动交易功能，在自动交易机器人（EA,Expert Advisors 交易）的帮助下完成交易。自动交易可以分析货币报价和执行交易操作。MT4有相当活跃的社区，国外有很多论坛讨论和分享MT4 EA程序。Mt4 客户端必须配合Meta Qutes服务器使用。所以Mt4 一般只限制在外汇行业使用。</p>
+<p>语言：MQL4。MetaQuotes Language 4是一种基于广受欢迎的C++编程语言概念的高水平面向对象编程语言，语法类似C。MetaTrader 4 系统提供完整的MQL4 IDE开发环境，帮助开发者创建，测试和优化EA交易。</p>
+<p>运行坏境：Windows，Mac，Linux</p>
+<p>品种（MT5)：外汇、黄金、期权、期货、股票、债券</p>
+<p>收费：要想安装一个EA系统，首先得在外汇经纪商那里开一个真实账户，然后下载MT4交易软件在电脑上，然后在安装一个EA系统在MT4上。当然，现在很多经纪商都提供模拟账户交易，交易也可以开通模拟账户，然后安装EA系统进行测试，看交易效果如何。一般不需额外付费。</p>
+<h2 id="国内平台"><a href="#国内平台" class="headerlink" title="国内平台"></a>国内平台</h2><h4 id="vn-py"><a href="#vn-py" class="headerlink" title="vn.py"></a>vn.py</h4><p>网址：<a href="http://www.vnpy.org/" target="_blank" rel="external">http://www.vnpy.org/</a></p>
+<p>介绍：Python交易程序开发框架<br>支持的API接口：基本覆盖了国内外常规交易品种（证券、期货、期权、外汇、CFD）</p>
+<pre><code>- CTP（vn.ctp）：期货、期货期权
+- 飞创（vn.xspeed）：期货、期货期权
+- 飞马（vn.femas）：中金所的期货和期货期权
+- LTS（vn.lts）：证券、证券期权
+- 金仕达期权（vn.ksotp）：期货、期货期权、证券期权
+- 金仕达黄金（vn.ksgold）：金交所贵金属
+- 飞鼠（vn.sgit）：期货、金交所贵金属
+- QDP极速柜台（vn.qdp）：期货、期货期权、金交所贵金属
+- OANDA（vn.oanda）：外汇、CFD
+- Interactive Brokers（vn.ib）：外盘股票、期货、期权、外汇等
+- 直达期货（vn.shzd）：外盘期货
+- OKCoin（vn.okcoin）：比特币、莱特币等
+- 通联数据（vn.datayes）：历史行情数据、基本面数据
+</code></pre><p>运行坏境：Windos，Linux</p>
+<p>产品：取决于API接口。</p>
+<p>收费：free</p>
+<h4 id="TradeX-dll"><a href="#TradeX-dll" class="headerlink" title="TradeX.dll"></a>TradeX.dll</h4><p>网址：<a href="https://tradexdll.com/tag/tradex-dll/" target="_blank" rel="external">https://tradexdll.com/tag/tradex-dll/</a><br>运行坏境：Windows<br>收费：1500 元/每账户<br>产品：股票<br>支持：100个券商</p>
+<h4 id="MultiCharts-https-www-multicharts-cn-dl"><a href="#MultiCharts-https-www-multicharts-cn-dl" class="headerlink" title="MultiCharts: https://www.multicharts.cn/dl"></a>MultiCharts: <a href="https://www.multicharts.cn/dl" target="_blank" rel="external">https://www.multicharts.cn/dl</a></h4><p>运行坏境：Windows<br>收费：6000/年（证券）</p>
+<h4 id="实盘易：http-www-iguuu-com-e"><a href="#实盘易：http-www-iguuu-com-e" class="headerlink" title="实盘易：http://www.iguuu.com/e"></a>实盘易：<a href="http://www.iguuu.com/e" target="_blank" rel="external">http://www.iguuu.com/e</a></h4><p>运行坏境：Windows<br>收费：30/月 （&lt;50万）<br>产品：股票<br>支持：必须搭配通达信客户端</p>
+<h2 id="模拟平台"><a href="#模拟平台" class="headerlink" title="模拟平台"></a>模拟平台</h2><h4 id="JoinQuant-聚宽"><a href="#JoinQuant-聚宽" class="headerlink" title="JoinQuant 聚宽"></a>JoinQuant 聚宽</h4><p>网址：<a href="https://www.joinquant.com/" target="_blank" rel="external">https://www.joinquant.com/</a><br>数据：数据基于2005年至今完整的Level-2数据，包含完整的停牌、复权等信息，盘后及时更新。 目前提供的数据主要基于沪深A股、ETF，后续我们会逐步支持期货、现货、外汇等其他金融衍生品<br>语言：Python<br>实盘交易：正在开发中</p>
+<h4 id="quantopian"><a href="#quantopian" class="headerlink" title="quantopian"></a>quantopian</h4><p>网址：<a href="https://www.quantopian.com/home" target="_blank" rel="external">https://www.quantopian.com/home</a><br><a href="https://www.quantopian.com/algorithms/58e3b87ab709fc000afbf68b" target="_blank" rel="external">https://www.quantopian.com/algorithms/58e3b87ab709fc000afbf68b</a><br>语言：Python<br>数据：分Free和Premium两种，可以在网站查看</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>期货：商品期货开户门槛比低。股指期货要至少50万资本。期货这一块主要是CTP协议。网上都可以找到java,和python的封装。对开发者真友好。</p>
+<p>外汇：开户门槛比较低一般50美元起。但需要选择信誉比较好的券商。有一些比较知名的券商比如Oanda 会有提供HTTP api 接口。如家交易者资金有比较大，可以直接到LP 提供商如果，lmax,cfh开户。LP提供会提供FIX交易接口。FIX接口非常适合程序化交易。</p>
+<p>美股，期货，期权： IB（interactive broker）账户有提供程序化交易接口，账户最低余额需要1万美元。其它美股券商，如史考特，或者国内的老虎证券，富途对资金没有要求，但都没提供API。</p>
+
+        
+        </div>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/02/08/push-to-github-with-multiple-accounts/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Work with GitHub and Multiple Accounts on one computer</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 
+            <span class="with-love">
+            	<i class="fa fa-heart"></i>
+            </span>
+            Yingchi<br>
+            <!-- 
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            -->
+            Last modified: Mar. 12th, 2017
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.peiyingchi.com/2018/04/17/自动化交易平台/';
+        
+        this.page.identifier = '自动化交易平台';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'yingchi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

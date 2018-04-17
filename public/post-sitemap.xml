@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://blog.peiyingchi.com/2018/04/17/%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/</loc>
+        <lastmod>2018-04-17T14:34:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.peiyingchi.com/2018/02/08/push-to-github-with-multiple-accounts/</loc>
         <lastmod>2018-02-08T13:39:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
